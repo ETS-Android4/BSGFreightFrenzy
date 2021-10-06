@@ -33,8 +33,8 @@ public class Robot {
 
   //intake system
   public DcMotor arm;
-  public DcMotor carousal;
-  public DcMotor carousal2;
+  public DcMotor carousel;
+  public DcMotor carousel2;
   public DcMotor lift;
   public Servo clamp;
   public Servo spinningFunction;
@@ -81,8 +81,8 @@ public class Robot {
     //intake system
     arm = hMap.dcMotor.get("arm");
     lift = hMap.dcMotor.get("lift");
-    carousal = hMap.dcMotor.get("carousal");
-    carousal2 = hMap.dcMotor.get("carousal2");
+    carousel = hMap.dcMotor.get("carousal");
+    carousel2 = hMap.dcMotor.get("carousal2");
     clamp = hMap.servo.get("clamp");
     spinningFunction = (Servo) hMap.crservo.get("spinningFunction");
     armStop = hMap.servo.get("armStop");
