@@ -5,12 +5,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
+import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 
-
-@Autonomous(name="BLUEOneBlock", group="UWU")
-public class BLUEOneBlock extends LinearOpMode {
+@Autonomous (name = "brandon", group = "UWU")
+public class brandon extends LinearOpMode {
     Robot bsgRobot = new Robot();
 
     /*
@@ -51,41 +50,20 @@ public class BLUEOneBlock extends LinearOpMode {
 
         waitForStart();
 
+        //drive 30 inches forward
+        encoderDrive(.6, 30, 30, 2);
 
-        //Put the arm stop up
-        bsgRobot.armStopUp();
-        sleep(500);
+        //rotate CCW approximately 180
+        encoderDrive(.2, 20, -20, 2.0);
 
-        //Use encoders to put the arm down
-        armDown();
-        sleep(500);
-
-        //open the clamp
-        bsgRobot.openClamp();
-        sleep(750);
-
-        //drive 18 inches forward towards stones
-        encoderDrive(.6, 18, 18, 4);
-
-        //close clamp
-        bsgRobot.closeClamp();
-        sleep (600);
-
-        //drive 2.5 inches backwards
-        encoderDrive(.7, -2.5, -2.5, 3.0);
+        //drive 30 inches forwards
+        encoderDrive(.6,30, 30, 1.0);
 
         //rotate CCW approximately 90
-        encoderDrive(.7,-10, 10, 3.0);
+        encoderDrive(.2, 10, -10, 1.0);
 
-        //drive forward 25 inches into the building side
-        encoderDrive(.7, 25, 25, 3.0);
-
-        //release stone
-        bsgRobot.openClamp();
-        sleep(600);
-
-        //drive 12 inches backward under alliance bridge
-        encoderDrive(.7, -12, -12,3.0);
+        //drive 12 inches forward
+        encoderDrive(.4, 12, 12,3.0);
 
 
         //auto transitioner to automatically switch to TeleOp
@@ -206,78 +184,13 @@ public class BLUEOneBlock extends LinearOpMode {
 
     }
 
-    //encoders for arm
-    public void armEncoder(double speed,
-                           int targetTicks, double timeoutS) {
-        int newTarget;
-        // Ensure that the opmode is still active
-        if (opModeIsActive()) {
-
-            // Determine new target position, and pass to motor controller
-            newTarget = bsgRobot.arm.getCurrentPosition() + (int) (targetTicks);
-            //newLeftTarget = bsgRobot.backLeft.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
-            //newRightTarget = bsgRobot.frontRight.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-            // newRightTarget = bsgRobot.backRight.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-
-            bsgRobot.arm.setTargetPosition(newTarget);
-            // bsgRobot.backLeft.setTargetPosition(newLeftTarget);
-            // bsgRobot.frontRight.setTargetPosition(newRightTarget);
-            // bsgRobot.backRight.setTargetPosition(newRightTarget);
 
 
-            // Turn On RUN_TO_POSITION
-            bsgRobot.arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            //bsgRobot.backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            // bsgRobot.frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            // bsgRobot.backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-            // reset the timeout time and start motion.
-            runtime.reset();
-            bsgRobot.arm.setPower(Math.abs(speed));
-            //bsgRobot.backLeft.setPower(Math.abs(speed));
-            // bsgRobot.frontRight.setPower(Math.abs(speed));
-            // bsgRobot.backRight.setPower(Math.abs(speed));
 
-            // keep looping while we are still active, and there is time left, and both motors are running.
-            // Note: We use (isBusy() && isBusy()) in the loop test, which means that when EITHER motor hits
-            // its target position, the motion will stop.  This is "safer" in the event that the robot will
-            // always end the motion as soon as possible.
-            // However, if you require that BOTH motors have finished their moves before the robot continues
-            // onto the next step, use (isBusy() || isBusy()) in the loop test.
-            while (opModeIsActive() &&
-                    (runtime.seconds() < timeoutS) &&
-                    (bsgRobot.arm.isBusy() /*&& bsgRobot.frontRight.isBusy() &&
-                            bsgRobot.backLeft.isBusy() && bsgRobot.backRight.isBusy()*/)) {
 
-                // Display it for the driver.
-                telemetry.addData("Path1", "Running to  :%7d", targetTicks);
-                telemetry.addData("Path2", "Running at 3 :%7d",
-                        bsgRobot.arm.getCurrentPosition()
-                        /*bsgRobot.backLeft.getCurrentPosition(),
-                        bsgRobot.frontRight.getCurrentPosition(),
-                        bsgRobot.backRight.getCurrentPosition()*/);
-                telemetry.update();
-            }
 
-            // Stop all motion;
-            bsgRobot.arm.setPower(0);
 
-            // Turn off RUN_TO_POSITION
-            bsgRobot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            //bsgRobot.backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            // bsgRobot.frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            // bsgRobot.backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-            //  sleep(250);   // optional pause after each move
-        }
-    }
-
-    public void armUp() {
-        armEncoder(.4, -360, 2);
-    }
-
-    public void armDown(){
-        armEncoder(.4,400,2);
-    }
 
 }
