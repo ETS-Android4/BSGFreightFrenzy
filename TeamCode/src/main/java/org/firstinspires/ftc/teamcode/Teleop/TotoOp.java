@@ -19,8 +19,8 @@ public class TotoOp extends OpMode {
         bsgBot.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bsgBot.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bsgBot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        bsgBot.carousel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        bsgBot.carousel2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        bsgBot.carousal.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        bsgBot.carousal2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
     }
 
@@ -39,16 +39,16 @@ public class TotoOp extends OpMode {
             bsgBot.backLeft.setPower(-gamepad1.left_stick_y);
         }
         if(gamepad1.left_bumper){
-            bsgBot.carousel.setPower(1);
+            bsgBot.carousal.setPower(1);
         }
         else{
-            bsgBot.carousel.setPower(0);
+            bsgBot.carousal.setPower(0);
         }
         if(gamepad1.right_bumper){
-            bsgBot.carousel2.setPower(1);
+            bsgBot.carousal2.setPower(1);
         }
         else{
-            bsgBot.carousel2.setPower(0);
+            bsgBot.carousal2.setPower(0);
         }
         telemetry.addData("Front Right Value: ", bsgBot.frontRight.getPower());
         telemetry.addData("Back Right Value: ", bsgBot.backRight.getPower());
