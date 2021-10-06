@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.Hardware;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
-import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -33,11 +32,8 @@ public class Robot {
 
   //intake system
   public DcMotor arm;
-  public DcMotor carousel;
-  public DcMotor carousel2;
   public DcMotor lift;
   public Servo clamp;
-  public Servo spinningFunction;
   public Servo armStop;
   public DcMotor carousel;
   public DcMotor carousel2;
@@ -83,15 +79,11 @@ public class Robot {
     //intake system
     arm = hMap.dcMotor.get("arm");
     lift = hMap.dcMotor.get("lift");
-    carousel = hMap.dcMotor.get("carousal");
-    carousel2 = hMap.dcMotor.get("carousal2");
     clamp = hMap.servo.get("clamp");
-    spinningFunction = (Servo) hMap.crservo.get("spinningFunction");
     armStop = hMap.servo.get("armStop");
     carousel = hMap.dcMotor.get("carousel");
     carousel2 = hMap.dcMotor.get("carousel2");
     spinningFunction = (Servo) hMap.crservo.get("spinningFunction");
-
 
     lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
@@ -246,13 +238,15 @@ public class Robot {
     backLeft.setPower(-.8);
   }
 
-  public void openClamp(){
+
+
+ public void openClamp() {
     clamp.setPosition(.65);
+
   }
 
-
   public void closeClamp() {
-    clamp.setPosition(0);
+      clamp.setPosition(0);
   }
 
   //arm stop functions
@@ -263,7 +257,6 @@ public class Robot {
   public void armStopDown (){
       armStop.setPosition(.5);
   }
-
 
 /* power) {
     leftIntake.setPower(-power);
