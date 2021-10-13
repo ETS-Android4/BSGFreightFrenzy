@@ -1,11 +1,11 @@
 package org.firstinspires.ftc.teamcode.Hardware;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -37,7 +37,7 @@ public class Robot {
   public Servo armStop;
   public DcMotor carousel;
   public DcMotor carousel2;
-  public Servo spinningFunction;
+  public CRServo spinningFunction;
 
   //for moving the foundation
   public Servo leftFoundation;
@@ -83,7 +83,7 @@ public class Robot {
     armStop = hMap.servo.get("armStop");
     carousel = hMap.dcMotor.get("carousel");
     carousel2 = hMap.dcMotor.get("carousel2");
-    spinningFunction = (Servo) hMap.crservo.get("spinningFunction");
+    spinningFunction = hMap.crservo.get("spinningFunction");
 
     lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
@@ -257,6 +257,9 @@ public class Robot {
   public void armStopDown (){
       armStop.setPosition(.5);
   }
+
+
+
 
 /* power) {
     leftIntake.setPower(-power);

@@ -9,8 +9,8 @@ import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 
-@Autonomous(name="REDOneBlock", group="UWU")
-public class REDOneBlock extends LinearOpMode {
+@Autonomous(name="REDOneBlockAuto", group="UWU")
+public class REDOneBlockAuto extends LinearOpMode {
     Robot bsgRobot = new Robot();
 
     /*

@@ -57,11 +57,11 @@ public class TotoOp extends OpMode {
 
         if(gamepad1.b) //rotating servo for hilarious grabbing mechanic xd
         {
-            bsgBot.spinningFunction.setPosition(1);
+            bsgBot.spinningFunction.setPower(1);
         }
         else
         {
-            bsgBot.spinningFunction.setPosition(0);
+            bsgBot.spinningFunction.setPower(0);
         }
 //prone to change in the future 100% cause like robot not done yet
 
@@ -75,16 +75,5 @@ public class TotoOp extends OpMode {
         else{
             bsgBot.lift.setPower(0);
         }
-        if (gamepad1.x){
-            bsgBot.measuringTape.setPower(1);
-        }
-        else if(gamepad1.a){
-            bsgBot.measuringTape.setPower(-1);
-        }
-        else{
-            bsgBot.measuringTape.setPower(0);
-        }
-
-
     }
 }

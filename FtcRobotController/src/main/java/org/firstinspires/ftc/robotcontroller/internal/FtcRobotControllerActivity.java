@@ -40,16 +40,12 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -61,6 +57,10 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 import com.google.blocks.ftcrobotcontroller.ProgrammingWebHandlers;
 import com.google.blocks.ftcrobotcontroller.runtime.BlocksOpMode;
@@ -112,6 +112,7 @@ import org.firstinspires.ftc.robotcore.internal.network.WifiDirectChannelChanger
 import org.firstinspires.ftc.robotcore.internal.network.WifiMuteEvent;
 import org.firstinspires.ftc.robotcore.internal.network.WifiMuteStateMachine;
 import org.firstinspires.ftc.robotcore.internal.opmode.ClassManager;
+import org.firstinspires.ftc.robotcore.internal.opmode.OnBotJavaHelper;
 import org.firstinspires.ftc.robotcore.internal.system.AppAliveNotifier;
 import org.firstinspires.ftc.robotcore.internal.system.AppUtil;
 import org.firstinspires.ftc.robotcore.internal.system.Assert;
@@ -122,7 +123,9 @@ import org.firstinspires.ftc.robotcore.internal.ui.UILocation;
 import org.firstinspires.ftc.robotcore.internal.webserver.RobotControllerWebInfo;
 import org.firstinspires.ftc.robotserver.internal.programmingmode.ProgrammingModeManager;
 import org.firstinspires.inspection.RcInspectionActivity;
+import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -668,6 +671,12 @@ public class FtcRobotControllerActivity extends Activity
         return service.getWebServer();
       }
 
+      @Nullable
+      @Override
+      public OnBotJavaHelper getOnBotJavaHelper(){
+        return service.getOnBotJavaHelper();
+      }
+
       @Override
       public EventLoopManager getEventLoopManager() {
         return service.getRobot().eventLoopManager;
@@ -697,10 +706,15 @@ public class FtcRobotControllerActivity extends Activity
     HardwareFactory hardwareFactory = new HardwareFactory(context);
     try {
       hardwareFactory.setXmlPullParser(file.getXml());
-    } catch (Resources.NotFoundException e) {
+    } catch (FileNotFoundException | XmlPullParserException e) {
+      RobotLog.ww(TAG, e, "Unable to set configuration file %s. Falling back on noConfig.", file.getName());
       file = RobotConfigFile.noConfig(cfgFileMgr);
-      hardwareFactory.setXmlPullParser(file.getXml());
-      cfgFileMgr.setActiveConfigAndUpdateUI(false, file);
+      try {
+        hardwareFactory.setXmlPullParser(file.getXml());
+        cfgFileMgr.setActiveConfigAndUpdateUI(false, file);
+      } catch (FileNotFoundException | XmlPullParserException e1) {
+        RobotLog.ee(TAG, e1, "Failed to fall back on noConfig");
+      }
     }
 
     OpModeRegister userOpModeRegister = createOpModeRegister();
