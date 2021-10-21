@@ -50,14 +50,14 @@ public class practice2 extends LinearOpMode {
 
         waitForStart();
 
-        //drive 30 inches forward
-        encoderDrive(.6, 30, 30, 2);
+        //drive 24 inches forward
+        encoderDrive(.6, 24, 24, 2);
 
         //rotate CCW approximately 180
         encoderDrive(.2, 20, -20, 2.0);
 
-        //drive 30 inches forwards
-        encoderDrive(.6, 30, 30, 1.0);
+        //drive 24 inches forwards
+        encoderDrive(.6, 24, 24, 1.0);
 
         //rotate CCW approximately 90
         encoderDrive(.2, -10, 10, 1.0);

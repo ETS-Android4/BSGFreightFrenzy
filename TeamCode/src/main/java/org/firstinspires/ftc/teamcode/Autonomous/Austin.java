@@ -50,8 +50,8 @@ public class Austin extends LinearOpMode {
 
         waitForStart();
 
-        //drive 60 inches forward
-        encoderDrive(.6, 60, 60, 4);
+        //drive 48 inches forward
+        encoderDrive(.6, 48, 48, 4);
 
 
         //auto transitioner to automatically switch to TeleOp
