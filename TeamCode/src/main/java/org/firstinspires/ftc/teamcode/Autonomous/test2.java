@@ -27,21 +27,21 @@ public class test2 extends LinearOpMode {
         frontRight.setPower(-.1);
         backLeft.setPower(.1);
         backRight.setPower(-.1);
-        sleep(5000);
+        sleep(2500);
 
         //stop for 1 second
         frontLeft.setPower(0);
         frontRight.setPower(0);
         backLeft.setPower(0);
         backRight.setPower(0);
-        sleep(5000);
+        sleep(1000);
 
         //rotate left for 4 seconds
         frontLeft.setPower(-.1);
         frontRight.setPower(.1);
         backLeft.setPower(-.1);
         backRight.setPower(.1);
-        sleep(5000);
+        sleep(4000);
 
     }
 }

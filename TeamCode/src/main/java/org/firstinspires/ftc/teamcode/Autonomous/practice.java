@@ -49,6 +49,10 @@ public class practice extends LinearOpMode {
         bsgRobot.closeClamp();
 
         waitForStart();
+        bsgRobot.carousel.setPower(.5);
+        sleep(3000);
+        bsgRobot.carousel2.setPower(.5);
+        sleep(3000);
 
         //drive 66 inches forward
         encoderDrive(.6, 66, 66, 4);
