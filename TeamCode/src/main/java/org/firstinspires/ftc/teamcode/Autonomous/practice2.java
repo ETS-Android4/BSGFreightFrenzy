@@ -45,12 +45,21 @@ public class practice2 extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.closeClamp();
-
         waitForStart();
 
         //drive 24 inches forward
         encoderDrive(.6, 24, 24, 2);
+
+        //grab object
+        bsgRobot.lift.setPower(-1);
+        sleep(5000);
+
+        //rise up
+        bsgRobot.lift.setPower(1);
+        sleep(6000);
+
+        //stop lift
+        bsgRobot.lift.setPower(0);
 
         //rotate CCW approximately 180
         encoderDrive(.2, 20, -20, 2.0);
@@ -64,9 +73,14 @@ public class practice2 extends LinearOpMode {
         //drive 12 inches forward
         encoderDrive(.4, 12, 12, 3.0);
 
+        //putting object down
+        bsgRobot.spinningFunction.setPower(1);
+        sleep(6000);
+
+        //stopping spin
 
         //auto transitioner to automatically switch to TeleOp
-        AutoTransitioner.transitionOnStop(this, "TylaOp");
+        AutoTransitioner.transitionOnStop(this, "TotoOp");
     }
 
 

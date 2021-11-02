@@ -65,7 +65,7 @@ public class TotoOp extends OpMode {
         }
 //prone to change in the future 100% cause like robot not done yet
 
-        //moving the pulley up/down
+        //moving the cascade up/down
         if(gamepad1.dpad_up) {
             bsgRobot.lift.setPower(-1);
         }
