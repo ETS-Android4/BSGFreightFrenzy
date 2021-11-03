@@ -27,8 +27,6 @@ public class Robot {
   public DcMotor backLeft;
   public DcMotor backRight;
 
-  //measuring tape for parking in the building zone
-  public DcMotor measuringTape;
 
   //intake system
   public DcMotor arm;
@@ -73,8 +71,7 @@ public class Robot {
     frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-    //measuring tape
-    measuringTape = hMap.dcMotor.get("measuringTape");
+
 
     //intake system
     arm = hMap.dcMotor.get("arm");
