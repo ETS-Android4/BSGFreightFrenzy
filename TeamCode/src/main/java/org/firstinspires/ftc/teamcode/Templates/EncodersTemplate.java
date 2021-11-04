@@ -29,14 +29,6 @@
 
 package org.firstinspires.ftc.teamcode.Templates;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.util.ElapsedTime;
-
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
-import org.firstinspires.ftc.teamcode.Hardware.Robot;
-
 /**
  * This file illustrates the concept of driving a path based on encoder counts.
  * It uses the common Pushbot hardware class to define the drive on the robot.
@@ -63,7 +55,7 @@ import org.firstinspires.ftc.teamcode.Hardware.Robot;
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
-
+/*
 @Autonomous(name="EncodersTemplate")
 public class EncodersTemplate extends LinearOpMode {
 
@@ -126,7 +118,7 @@ public class EncodersTemplate extends LinearOpMode {
          */
 
 
-        telemetry.addData("Path", "Complete");
+       /* telemetry.addData("Path", "Complete");
         telemetry.update();
     }
 
@@ -138,7 +130,7 @@ public class EncodersTemplate extends LinearOpMode {
      *  2) Move runs out of time
      *  3) Driver stops the opmode running.
      */
-    public void encoderDrive(double speed,
+   /* public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {
         int newLeftTarget;
@@ -205,5 +197,5 @@ public class EncodersTemplate extends LinearOpMode {
             //  sleep(250);   // optional pause after each move
         }
     }
-}
+} */
 

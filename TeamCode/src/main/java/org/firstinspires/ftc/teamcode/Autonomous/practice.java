@@ -45,22 +45,20 @@ public class practice extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.closeClamp();
-
         waitForStart();
         bsgRobot.carousel.setPower(.5);
         sleep(3000);
         bsgRobot.carousel2.setPower(.5);
         sleep(3000);
 
-        //drive 48 inches forward
-        encoderDrive(.6, 48, 48, 4);
+        //drive 66 inches forward
+        encoderDrive(.6, 66, 66, 4);
 
         //rotate CCW approximately 180
         encoderDrive(.2, 20, -20, 2.0);
 
-        //drive 24 inches forwards
-        encoderDrive(.6,24, 24, 1.0);
+        //drive 30 inches forwards
+        encoderDrive(.6,30, 30, 1.0);
 
         //rotate CCW approximately 90
         encoderDrive(.2, -10, 10, 1.0);
@@ -155,5 +153,4 @@ public class practice extends LinearOpMode {
             //  sleep(250);   // optional pause after each move
         }
     }
-
 }

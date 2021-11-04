@@ -45,19 +45,20 @@ public class brandon extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.closeClamp();
+        bsgRobot.foundationUp();
+
 
         waitForStart();
 
 
-        //drive 24 inches forward
-        encoderDrive(.6, 24, 24, 2);
+        //drive 30 inches forward
+        encoderDrive(.6, 30, 30, 2);
 
         //rotate CCW approximately 180
         encoderDrive(.2, 20, -20, 2.0);
 
-        //drive 24 inches forwards
-        encoderDrive(.6,24, 24, 1.0);
+        //drive 30 inches forwards
+        encoderDrive(.6,30, 30, 1.0);
 
         //rotate CCW approximately 90
         encoderDrive(.2, 10, -10, 1.0);
@@ -152,4 +153,15 @@ public class brandon extends LinearOpMode {
             //  sleep(250);   // optional pause after each move
         }
     }
+
+
+
+
+
+
+
+
+
+
+
 }

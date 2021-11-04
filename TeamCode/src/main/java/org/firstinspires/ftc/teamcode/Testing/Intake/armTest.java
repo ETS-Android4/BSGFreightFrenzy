@@ -1,15 +1,6 @@
 package org.firstinspires.ftc.teamcode.Testing.Intake;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.Servo;
-
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
-import org.firstinspires.ftc.teamcode.Hardware.Robot;
-
+/*
 @Autonomous (name="armTest") //jk its testing the side arm
 @Disabled
 public class armTest extends LinearOpMode {
@@ -31,13 +22,13 @@ public class armTest extends LinearOpMode {
 
         waitForStart();
 
-        bsgbot.arm.setPower(.5);
+        /*bsgbot.arm.setPower(.5);
         sleep(1000);
 
         bsgbot.arm.setPower(-.5);
-        sleep(1000);
+        sleep(1000); */
 
-    }
+  /*  }
 
     public void drive(double leftPower, double rightPower, long sleepTime)
     {
@@ -80,4 +71,4 @@ public class armTest extends LinearOpMode {
         sleep(sleepTime);
     }
 
-}
+}*/

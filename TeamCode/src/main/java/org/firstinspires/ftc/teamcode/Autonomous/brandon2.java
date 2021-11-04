@@ -45,22 +45,19 @@ public class brandon2 extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.closeClamp();
+        bsgRobot.foundationUp();
+
 
         waitForStart();
-        bsgRobot.carousel.setPower(.5);
-        sleep(3000);
-        bsgRobot.carousel2.setPower(.5);
-        sleep(3000);
 
-        //drive 48 inches forward
-        encoderDrive(.6, 48, 48, 4);
+        //drive 66 inches forward
+        encoderDrive(.6, 66, 66, 4);
 
         //rotate CCW approximately 180
         encoderDrive(.2, 20, -20, 2.0);
 
-        //drive 24 inches forwards
-        encoderDrive(.6,24, 24, 1.0);
+        //drive 30 inches forwards
+        encoderDrive(.6,30, 30, 1.0);
 
         //rotate CCW approximately 90
         encoderDrive(.2, 10, -10, 1.0);
@@ -156,5 +153,35 @@ public class brandon2 extends LinearOpMode {
         }
     }
 
+    //strafing with encoders
+    public void strafeToPosition(double inches, double speed) {
+        //
+        int move = (int) (Math.round(inches * cpi * meccyBias * 1.265));
+        //
+        bsgRobot.backLeft.setTargetPosition(bsgRobot.backLeft.getCurrentPosition() - move);
+        bsgRobot.frontLeft.setTargetPosition(bsgRobot.frontLeft.getCurrentPosition() + move);
+        bsgRobot.backRight.setTargetPosition(bsgRobot.backRight.getCurrentPosition() + move);
+        bsgRobot.frontRight.setTargetPosition(bsgRobot.frontRight.getCurrentPosition() - move);
+        //
+        bsgRobot.frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        bsgRobot.frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        bsgRobot.backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        bsgRobot.backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //
+        bsgRobot.frontLeft.setPower(speed);
+        bsgRobot.backLeft.setPower(speed);
+        bsgRobot.frontRight.setPower(speed);
+        bsgRobot.backRight.setPower(speed);
+        //
+        while (bsgRobot.frontLeft.isBusy() && bsgRobot.frontRight.isBusy() &&
+                bsgRobot.backLeft.isBusy() && bsgRobot.backRight.isBusy()) {
+        }
+        bsgRobot.frontRight.setPower(0);
+        bsgRobot.frontLeft.setPower(0);
+        bsgRobot.backRight.setPower(0);
+        bsgRobot.backLeft.setPower(0);
+        return;
+
+    }
 
 }

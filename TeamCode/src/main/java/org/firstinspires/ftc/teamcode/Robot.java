@@ -1,9 +1,11 @@
-package org.firstinspires.ftc.teamcode.Hardware;
+package org.firstinspires.ftc.teamcode;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -27,16 +29,17 @@ public class Robot {
 
 
   //intake system
-  // public DcMotor lift;
-  // public Servo clamp;
-  // public Servo armStop;
+  //public DcMotor arm;
+ // public DcMotor lift;
+ // public Servo clamp;
+ // public Servo armStop;
   public DcMotor carousel;
   public DcMotor carousel2;
-  // public CRServo spinningFunction;
+  public CRServo spinningFunction;
 
   //for moving the foundation
- // public Servo leftFoundation;
- // public Servo rightFoundation;
+  public Servo leftFoundation;
+  public Servo rightFoundation;
 
 
   //variables to use IMU's
@@ -71,7 +74,8 @@ public class Robot {
 
 
     //intake system
-    // lift = hMap.dcMotor.get("lift");
+    //arm = hMap.dcMotor.get("arm");
+   // lift = hMap.dcMotor.get("lift");
     // clamp = hMap.servo.get("clamp");
     // armStop = hMap.servo.get("armStop");
     carousel = hMap.dcMotor.get("carousel");
@@ -81,8 +85,8 @@ public class Robot {
    // lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
     //foundation grabbers
-   // leftFoundation = hMap.servo.get("leftFoundation");
-   // rightFoundation = hMap.servo.get("rightFoundation");
+    leftFoundation = hMap.servo.get("leftFoundation");
+    rightFoundation = hMap.servo.get("rightFoundation");
 
 
     //Telemetry to show on phone to confirm that initialization occurred
@@ -208,13 +212,13 @@ public class Robot {
   }
 
   public void foundationDown() {
-   // rightFoundation.setPosition(.2);
-   // leftFoundation.setPosition(.8);
+    rightFoundation.setPosition(.2);
+    leftFoundation.setPosition(.8);
   }
 
   public void foundationUp() {
-   // rightFoundation.setPosition(1);
-   // leftFoundation.setPosition(0);
+    rightFoundation.setPosition(1);
+    leftFoundation.setPosition(0);
   }
 
   public void strafeLeft(long time) {
@@ -233,7 +237,7 @@ public class Robot {
 
 
 
- /*public void openClamp() {
+/* public void openClamp() {
     clamp.setPosition(.65);
 
   }

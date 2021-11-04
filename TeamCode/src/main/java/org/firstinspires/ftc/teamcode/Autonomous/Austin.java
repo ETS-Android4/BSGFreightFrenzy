@@ -45,16 +45,16 @@ public class Austin extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.closeClamp();
+       // bsgRobot.closeClamp();
 
         waitForStart();
 
-        //drive 48 inches forward
-        encoderDrive(.6, 48, 48, 4);
+        //drive 60 inches forward
+        encoderDrive(.6, 60, 60, 4);
 
 
         //auto transitioner to automatically switch to TeleOp
-        AutoTransitioner.transitionOnStop(this, "TylaOp");
+        AutoTransitioner.transitionOnStop(this, "TotoOp");
     }
 
 
@@ -139,6 +139,10 @@ public class Austin extends LinearOpMode {
             //  sleep(250);   // optional pause after each move
         }
     }
+
+
+
+
 
 
 }
