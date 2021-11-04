@@ -35,7 +35,11 @@ public class TotoOp extends OpMode {
         }
         if(Math.abs(gamepad1.left_stick_y)>.1){
             bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
+<<<<<<< HEAD:TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Teleop/TotoOp.java
             bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
+=======
+            bsgRobot.backLeft.setPower(gamepad1.left_stick_y);
+>>>>>>> parent of 6b0eba7 (reverse):TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TotoOp.java
         }
         if(gamepad1.left_bumper){
             bsgRobot.carousel.setPower(1);
