@@ -110,8 +110,8 @@ public class park extends LinearOpMode {
                 bsgRobot.backRight.getCurrentPosition());
         telemetry.update();
 
-        bsgRobot.rightFoundation.setPosition(0);
-        bsgRobot.leftFoundation.setPosition(1);
+     //   bsgRobot.rightFoundation.setPosition(0);
+     //   bsgRobot.leftFoundation.setPosition(1);
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -258,14 +258,14 @@ public class park extends LinearOpMode {
     }
 
     public void foundationDown(int pause) {
-        bsgRobot.rightFoundation.setPosition(.8);
-        bsgRobot.leftFoundation.setPosition(.2);
+     //   bsgRobot.rightFoundation.setPosition(.8);
+     //   bsgRobot.leftFoundation.setPosition(.2);
         sleep(pause);
     }
 
     public void foundationUp(int pause) {
-        bsgRobot.rightFoundation.setPosition(.1);
-        bsgRobot.leftFoundation.setPosition(.9);
+     //   bsgRobot.rightFoundation.setPosition(.1);
+     //   bsgRobot.leftFoundation.setPosition(.9);
         sleep(pause);
     }
 

@@ -1,62 +1,34 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.util.ElapsedTime;
-
-import org.firstinspires.ftc.robotcore.external.ClassFactory;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import org.firstinspires.ftc.robotcore.external.matrices.OpenGLMatrix;
-import org.firstinspires.ftc.robotcore.external.matrices.VectorF;
-import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
-import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
-import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
-import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.firstinspires.ftc.robotcore.external.navigation.AngleUnit.DEGREES;
-import static org.firstinspires.ftc.robotcore.external.navigation.AxesOrder.XYZ;
-import static org.firstinspires.ftc.robotcore.external.navigation.AxesOrder.YZX;
-import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.EXTRINSIC;
-import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.BACK;
-
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
-import org.firstinspires.ftc.teamcode.Hardware.Robot;
-
 /**
  * This 2019-2020 OpMode illustrates the basics of using the Vuforia localizer to determine
  * positioning and orientation of robot on the SKYSTONE FTC field.
  * The code is structured as a LinearOpMode
- *
+ * <p>
  * When images are located, Vuforia is able to determine the position and orientation of the
  * image relative to the camera.  This sample code then combines that information with a
  * knowledge of where the target images are on the field, to determine the location of the camera.
- *
+ * <p>
  * From the Audience perspective, the Red Alliance station is on the right and the
  * Blue Alliance Station is on the left.
  * Eight perimeter targets are distributed evenly around the four perimeter walls
  * Four Bridge targets are located on the bridge uprights.
  * Refer to the Field Setup manual for more specific location details
- *
+ * <p>
  * A final calculation then uses the location of the camera on the robot to determine the
  * robot's location and orientation on the field.
  *
  * @see VuforiaLocalizer
  * @see VuforiaTrackableDefaultListener
  * see  skystone/doc/tutorial/FTC_FieldCoordinateSystemDefinition.pdf
- *
+ * <p>
  * Use Android Studio to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list.
- *
+ * <p>
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-
+/*
 @Autonomous(name="oldBLUEoneblockfoundation", group="testing")
 public class oldBLUEoneblockfoundation extends LinearOpMode {
     Robot bsgRobot = new Robot();
@@ -77,7 +49,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
      * Once you've obtained a license key, copy the string from the Vuforia web site
      * and paste it in to your code on the next line, between the double quotes.
      */
-    private static final String VUFORIA_KEY =
+/*  private static final String VUFORIA_KEY =
             "ARGlstv/////AAABmQngklgnBk4tvbrVbRB0OysxWisqA2WMgj87U875CTAxaEmRt4J3I4RIPy8/PV4LmITt9msjhA6Uj9LjO7JgkWrg2VHLI6PpYfMKpqEtqwRd+BTWQqE6pdV71L1x7C0axRB442YIBb/eFxgM1wW0YImTfoI1r2BcNAnr2HmdmIEyOnLxt6cwNQqKmgw8NrzeZNAl9bvYazP1Dk+jdOSCUTlv3sXT9r2etgU6GFuHPP3+29CHDwKqydiTNf3iYC/8IWmpK3tghhRS7yHUqVvN8GEA3M1znQKATny4jrdqiXa+IEbA/ApIjJk9WdKX6psY8bhdvdd9ImIXP++LvGN+Eak6XtmgQW5tm6I1IXYo5aJp";
 
     // Since ImageTarget trackables use mm to specifiy their dimensions, we must use mm for all the physical dimension.
@@ -88,7 +60,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
     // Constant for Stone Target
     private static final float stoneZ = 2.00f * mmPerInch;
 
-    /*// Constants for the center support targets
+    /* Constants for the center support targets
     private static final float bridgeZ = 6.42f * mmPerInch;
     private static final float bridgeY = 23 * mmPerInch;
     private static final float bridgeX = 5.18f * mmPerInch;
@@ -100,16 +72,15 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
     private static final float quadField = 36 * mmPerInch;
 
      */
-
-    // Class Members
-    private OpenGLMatrix lastLocation = null;
+// Class Members
+/*  private OpenGLMatrix lastLocation = null;
     private VuforiaLocalizer vuforia = null;
 
     /**
      * This is the webcam we are to use. As with other hardware devices such as motors and
      * servos, this device is identified using the robot configuration tool in the FTC application.
      */
-    WebcamName webcam = null;
+/*  WebcamName webcam = null;
 
 
     private boolean targetVisible = false;
@@ -122,7 +93,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
     VARIABLES FOR ENCODERS
     *
     */
-    private ElapsedTime runtime = new ElapsedTime();
+/* private ElapsedTime runtime = new ElapsedTime();
 
     static final double COUNTS_PER_MOTOR_REV = 1120;    // Neverest 40
     static final double DRIVE_GEAR_REDUCTION = 2.0;     // This is < 1.0 if geared UP
@@ -149,7 +120,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
         /*
          * Retrieve the camera we are to use.
          */
-        bsgRobot.init(hardwareMap);
+/*  bsgRobot.init(hardwareMap);
         webcam = hardwareMap.get(WebcamName.class, "webcam");
 
         bsgRobot.foundationUp();
@@ -160,7 +131,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
          * We can pass Vuforia the handle to a camera preview resource (on the RC phone);
          * If no camera monitor is desired, use the parameter-less constructor instead (commented out below).
          */
-        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+/*     int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(cameraMonitorViewId);
 
         //VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
@@ -170,7 +141,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
         /**
          * We also indicate which camera on the RC we wish to use.
          */
-        parameters.cameraName = webcam;
+/*    parameters.cameraName = webcam;
         //  Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);
 
@@ -206,9 +177,8 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
         VuforiaTrackable rear2 = targetsSkyStone.get(12);
         rear2.setName("Rear Perimeter 2");
         */
-
-        // For convenience, gather together all the trackable objects in one easily-iterable collection */
-        List<VuforiaTrackable> allTrackables = new ArrayList<VuforiaTrackable>();
+// For convenience, gather together all the trackable objects in one easily-iterable collection */
+/*    List<VuforiaTrackable> allTrackables = new ArrayList<VuforiaTrackable>();
         allTrackables.addAll(targetsSkyStone);
 
         /**
@@ -228,15 +198,14 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
          * Before being transformed, each target image is conceptually located at the origin of the field's
          *  coordinate system (the center of the field), facing up.
          */
-
-        // Set the position of the Stone Target.  Since it's not fixed in position, assume it's at the field origin.
-        // Rotated it to to face forward, and raised it to sit on the ground correctly.
-        // This can be used for generic target-centric approach algorithms
-        stoneTarget.setLocation(OpenGLMatrix
+// Set the position of the Stone Target.  Since it's not fixed in position, assume it's at the field origin.
+// Rotated it to to face forward, and raised it to sit on the ground correctly.
+// This can be used for generic target-centric approach algorithms
+/*    stoneTarget.setLocation(OpenGLMatrix
                 .translation(0, 0, stoneZ)
                 .multiplied(Orientation.getRotationMatrix(EXTRINSIC, XYZ, DEGREES, 90, 0, -90)));
 
-        /*//Set the position of the bridge support targets with relation to origin (center of field)
+        /*Set the position of the bridge support targets with relation to origin (center of field)
         blueFrontBridge.setLocation(OpenGLMatrix
                 .translation(-bridgeX, bridgeY, bridgeZ)
                 .multiplied(Orientation.getRotationMatrix(EXTRINSIC, XYZ, DEGREES, 0, bridgeRotY, bridgeRotZ)));
@@ -285,25 +254,23 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
         rear2.setLocation(OpenGLMatrix
                 .translation(halfField, -quadField, mmTargetHeight)
                 .multiplied(Orientation.getRotationMatrix(EXTRINSIC, XYZ, DEGREES, 90, 0, -90)));
-                
+
          */
-
-        //
-        // Create a transformation matrix describing where the phone is on the robot.
-        //
-        // NOTE !!!!  It's very important that you turn OFF your phone's Auto-Screen-Rotation option.
-        // Lock it into Portrait for these numbers to work.
-        //
-        // Info:  The coordinate frame for the robot looks the same as the field.
-        // The robot's "forward" direction is facing out along X axis, with the LEFT side facing out along the Y axis.
-        // Z is UP on the robot.  This equates to a bearing angle of Zero degrees.
-        //
-        // The phone starts out lying flat, with the screen facing Up and with the physical top of the phone
-        // pointing to the LEFT side of the Robot.
-        // The two examples below assume that the camera is facing forward out the front of the robot.
-
-        // We need to rotate the camera around it's long axis to bring the correct camera forward.
-        if (CAMERA_CHOICE == BACK) {
+//
+// Create a transformation matrix describing where the phone is on the robot.
+//
+// NOTE !!!!  It's very important that you turn OFF your phone's Auto-Screen-Rotation option.
+// Lock it into Portrait for these numbers to work.
+//
+// Info:  The coordinate frame for the robot looks the same as the field.
+// The robot's "forward" direction is facing out along X axis, with the LEFT side facing out along the Y axis.
+// Z is UP on the robot.  This equates to a bearing angle of Zero degrees.
+//
+// The phone starts out lying flat, with the screen facing Up and with the physical top of the phone
+// pointing to the LEFT side of the Robot.
+// The two examples below assume that the camera is facing forward out the front of the robot.
+// We need to rotate the camera around it's long axis to bring the correct camera forward.
+/*   if (CAMERA_CHOICE == BACK) {
             phoneYRotate = -90;
         } else {
             phoneYRotate = 90;
@@ -325,7 +292,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
                 .multiplied(Orientation.getRotationMatrix(EXTRINSIC, YZX, DEGREES, phoneYRotate, phoneZRotate, phoneXRotate));
 
         /**  Let all the trackable listeners know where the phone is.  */
-        for (VuforiaTrackable trackable : allTrackables) {
+/*    for (VuforiaTrackable trackable : allTrackables) {
             ((VuforiaTrackableDefaultListener) trackable.getListener()).setPhoneInformation(robotFromCamera, parameters.cameraDirection);
         }
 
@@ -347,7 +314,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
         sleep(500);
 
         //Use encoders to put the arm down
-        armDown();
+        /* armDown();
         sleep(500);
 
         //open the clamp
@@ -508,7 +475,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
     *
     *
      */
-    public void encoderDrive(double speed,
+/*public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {
         int newFrontLeftTarget;
@@ -612,7 +579,7 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
     }
 
     //encoders for arm
-    public void armEncoder(double speed,
+    /*public void armEncoder(double speed,
                            int targetTicks, double timeoutS) {
         int newTarget;
         // Ensure that the opmode is still active
@@ -652,37 +619,39 @@ public class oldBLUEoneblockfoundation extends LinearOpMode {
             while (opModeIsActive() &&
                     (runtime.seconds() < timeoutS) &&
                     (bsgRobot.arm.isBusy() /*&& bsgRobot.frontRight.isBusy() &&
-                            bsgRobot.backLeft.isBusy() && bsgRobot.backRight.isBusy()*/)) {
-
-                // Display it for the driver.
-                telemetry.addData("Path1", "Running to  :%7d", targetTicks);
+                            bsgRobot.backLeft.isBusy() && bsgRobot.backRight.isBusy()*/
+// Display it for the driver.
+/*telemetry.addData("Path1", "Running to  :%7d", targetTicks);
                 telemetry.addData("Path2", "Running at 3 :%7d",
                         bsgRobot.arm.getCurrentPosition()
                         /*bsgRobot.backLeft.getCurrentPosition(),
                         bsgRobot.frontRight.getCurrentPosition(),
-                        bsgRobot.backRight.getCurrentPosition()*/);
-                telemetry.update();
-            }
+                        bsgRobot.backRight.getCurrentPosition()*/
+;
+         /*       telemetry.update();
+
 
             // Stop all motion;
-            bsgRobot.arm.setPower(0);
+           //* bsgRobot.arm.setPower(0);
 
             // Turn off RUN_TO_POSITION
-            bsgRobot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            //bsgRobot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             //bsgRobot.backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             // bsgRobot.frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             // bsgRobot.backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             //  sleep(250);   // optional pause after each move
-        }
-    }
 
-    public void armUp() {
-        armEncoder(.4, -360, 2);
-    }
 
-    public void armDown(){
-        armEncoder(.4,400,2);
-    }
 
-}
+    //*public void armUp() {
+        //armEncoder(.4, -360, 2);
+
+
+    //public void armDown(){
+       // armEncoder(.4,400,2);
+
+
+
+
+          */

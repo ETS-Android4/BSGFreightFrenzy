@@ -118,9 +118,9 @@ public class BlueBuildingFarPark extends LinearOpMode {
                 bsgRobot.backRight.getCurrentPosition());
         telemetry.update();
 
-        bsgRobot.rightFoundation.setPosition(1);
-        bsgRobot.leftFoundation.setPosition(0);
-        bsgRobot.armStopDown();
+        //bsgRobot.rightFoundation.setPosition(1);
+       // bsgRobot.leftFoundation.setPosition(0);
+      //  bsgRobot.armStopDown();
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -148,7 +148,7 @@ public class BlueBuildingFarPark extends LinearOpMode {
         strafeToPosition(-48, .3);
         //strafeLeft(1500);
 
-        bsgRobot.armStopDown();
+     //   bsgRobot.armStopDown();
         sleep(1000);
 
 
@@ -288,14 +288,14 @@ public class BlueBuildingFarPark extends LinearOpMode {
     }
 
     public void foundationDown(int pause) {
-        bsgRobot.rightFoundation.setPosition(.2);
-        bsgRobot.leftFoundation.setPosition(.8);
+        //bsgRobot.rightFoundation.setPosition(.2);
+       // bsgRobot.leftFoundation.setPosition(.8);
         sleep(pause);
     }
 
     public void foundationUp(int pause) {
-        bsgRobot.rightFoundation.setPosition(1);
-        bsgRobot.leftFoundation.setPosition(0);
+       // bsgRobot.rightFoundation.setPosition(1);
+        //bsgRobot.leftFoundation.setPosition(0);
         sleep(pause);
     }
 

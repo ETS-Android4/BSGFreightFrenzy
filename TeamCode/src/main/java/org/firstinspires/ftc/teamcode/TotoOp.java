@@ -1,5 +1,5 @@
 //bro like half of this im referencing from tylaop lmfao
-package org.firstinspires.ftc.teamcode.Teleop;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -34,12 +34,8 @@ public class TotoOp extends OpMode {
             bsgRobot.backRight.setPower(0);
         }
         if(Math.abs(gamepad1.left_stick_y)>.1){
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
-<<<<<<< HEAD:TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Teleop/TotoOp.java
-            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
-=======
+            bsgRobot.frontLeft.setPower(gamepad1.left_stick_y);
             bsgRobot.backLeft.setPower(gamepad1.left_stick_y);
->>>>>>> parent of 6b0eba7 (reverse):TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TotoOp.java
         }
         if(gamepad1.left_bumper){
             bsgRobot.carousel.setPower(1);
@@ -59,18 +55,18 @@ public class TotoOp extends OpMode {
         telemetry.addData("Back  Left Value: ", bsgRobot.backLeft.getPower());
         telemetry.update();
 
-        if(gamepad1.b) //rotating servo for hilarious grabbing mechanic xd
+       /* if(gamepad1.b) //rotating servo for hilarious grabbing mechanic xd
         {
             bsgRobot.spinningFunction.setPower(1);
         }
         else
         {
             bsgRobot.spinningFunction.setPower(0);
-        }
+        } */
 //prone to change in the future 100% cause like robot not done yet
 
-        //moving the pulley up/down
-        if(gamepad1.dpad_up) {
+        //moving the cascade up/down
+      /*  if(gamepad1.dpad_up) {
             bsgRobot.lift.setPower(-1);
         }
         else if(gamepad1.dpad_down){
@@ -78,6 +74,6 @@ public class TotoOp extends OpMode {
         }
         else{
             bsgRobot.lift.setPower(0);
-        }
+        } */
     }
 }
