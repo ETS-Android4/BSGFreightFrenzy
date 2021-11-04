@@ -8,8 +8,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 
-@Autonomous(name = "practice2", group = "UWU")
-public class practice2 extends LinearOpMode {
+@Autonomous (name = "AustinTake2", group = "UWU")
+public class AustinTake2 extends LinearOpMode {
     Robot bsgRobot = new Robot();
 
     /*
@@ -19,7 +19,7 @@ public class practice2 extends LinearOpMode {
     */
     private ElapsedTime runtime = new ElapsedTime();
 
-    static final double COUNTS_PER_MOTOR_REV = 312;    // Neverest 40
+    static final double COUNTS_PER_MOTOR_REV = 312;    // gobilda yellowjackets
     static final double DRIVE_GEAR_REDUCTION = 2.0;     // This is < 1.0 if geared UP
     static final double WHEEL_DIAMETER_INCHES = 3.78;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
@@ -50,20 +50,8 @@ public class practice2 extends LinearOpMode {
 
         waitForStart();
 
-        //drive 24 inches forward
-        encoderDrive(.6, 24, 24, .5);
-
-        //rotate CCW approximately 180
-        encoderDrive(.6, 20, -20, .5);
-
-        //drive 24 inches forwards
-        encoderDrive(.6, 24, 24, .5);
-
-        //rotate CCW approximately 90
-        encoderDrive(.6, -10, 10, .5);
-
-        //drive 12 inches forward
-        encoderDrive(.6, 12, 12, .5);
+        //drive 48 inches forward
+        encoderDrive(.6, 48, 48, 4);
 
 
         //auto transitioner to automatically switch to TeleOp
@@ -181,6 +169,5 @@ public class practice2 extends LinearOpMode {
         bsgRobot.backRight.setPower(0);
         bsgRobot.backLeft.setPower(0);
         return;
-
     }
 }
