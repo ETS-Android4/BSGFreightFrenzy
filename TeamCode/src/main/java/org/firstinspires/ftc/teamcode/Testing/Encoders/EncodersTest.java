@@ -31,6 +31,7 @@ package org.firstinspires.ftc.teamcode.Testing;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -121,8 +122,8 @@ public class EncodersTest extends LinearOpMode {
         encoderDrive(TURN_SPEED,   12, -12, 4.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
         encoderDrive(DRIVE_SPEED, -24, -24, 4.0);  // S3: Reverse 24 Inches with 4 Sec timeout
 
-       // bsgRobot.leftFoundation.setPosition(1.0);            // S4: Stop and close the claw.
-       // bsgRobot.rightFoundation.setPosition(0.0);
+        bsgRobot.leftFoundation.setPosition(1.0);            // S4: Stop and close the claw.
+        bsgRobot.rightFoundation.setPosition(0.0);
         sleep(1000);     // pause for servos to move
 
         telemetry.addData("Path", "Complete");

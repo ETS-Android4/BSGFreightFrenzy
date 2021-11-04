@@ -295,15 +295,15 @@ public class BlueLoading extends LinearOpMode {
 
     public void foundationDown(int pause)
     {
-        //bsgRobot.rightFoundation.setPosition(1);
-        //bsgRobot.leftFoundation.setPosition(0);
+        bsgRobot.rightFoundation.setPosition(1);
+        bsgRobot.leftFoundation.setPosition(0);
         sleep(pause);
     }
 
     public void foundationUp(int pause)
     {
-       // bsgRobot.rightFoundation.setPosition(.1);
-       // bsgRobot.leftFoundation.setPosition(.9);
+        bsgRobot.rightFoundation.setPosition(.1);
+        bsgRobot.leftFoundation.setPosition(.9);
         sleep(pause);
     }
 }

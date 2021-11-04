@@ -1,13 +1,14 @@
 package org.firstinspires.ftc.teamcode.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
-@Disabled
+
 @Autonomous(name="REDOneBlockAuto", group="UWU")
 public class REDOneBlockAuto extends LinearOpMode {
     Robot bsgRobot = new Robot();
@@ -43,7 +44,7 @@ public class REDOneBlockAuto extends LinearOpMode {
         /*
          * Retrieve the camera we are to use.
          */
-        /*bsgRobot.init(hardwareMap);
+        bsgRobot.init(hardwareMap);
 
         bsgRobot.foundationUp();
         bsgRobot.closeClamp();
@@ -102,7 +103,7 @@ public class REDOneBlockAuto extends LinearOpMode {
     *
     *
      */
-    /*public void encoderDrive(double speed,
+    public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {
         int newFrontLeftTarget;
@@ -246,16 +247,16 @@ public class REDOneBlockAuto extends LinearOpMode {
             while (opModeIsActive() &&
                     (runtime.seconds() < timeoutS) &&
                     (bsgRobot.arm.isBusy() /*&& bsgRobot.frontRight.isBusy() &&
-                            bsgRobot.backLeft.isBusy() && bsgRobot.backRight.isBusy()*/ {
-/*
+                            bsgRobot.backLeft.isBusy() && bsgRobot.backRight.isBusy()*/)) {
+
                 // Display it for the driver.
                 telemetry.addData("Path1", "Running to  :%7d", targetTicks);
                 telemetry.addData("Path2", "Running at 3 :%7d",
                         bsgRobot.arm.getCurrentPosition()
                         /*bsgRobot.backLeft.getCurrentPosition(),
                         bsgRobot.frontRight.getCurrentPosition(),
-                        bsgRobot.backRight.getCurrentPosition()*/;
-      /*          telemetry.update();
+                        bsgRobot.backRight.getCurrentPosition()*/);
+                telemetry.update();
             }
 
             // Stop all motion;
@@ -268,8 +269,8 @@ public class REDOneBlockAuto extends LinearOpMode {
             // bsgRobot.backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             //  sleep(250);   // optional pause after each move
-
-  /*  }
+        }
+    }
 
     public void armUp() {
         armEncoder(.4, -360, 2);
@@ -280,4 +281,3 @@ public class REDOneBlockAuto extends LinearOpMode {
     }
 
 }
-       */}}}

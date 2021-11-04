@@ -2,13 +2,17 @@ package org.firstinspires.ftc.teamcode.Testing.IMU;//package org.firstinspires.f
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 
@@ -32,8 +36,8 @@ public class testIMUV2 extends LinearOpMode {
         bsgRobot.backRight = hardwareMap.dcMotor.get("backRight");
         bsgRobot.backLeft = hardwareMap.dcMotor.get("backLeft");
 
-       // bsgRobot.leftFoundation = hardwareMap.servo.get("leftFoundation");
-       // bsgRobot.rightFoundation = hardwareMap.servo.get("rightFoundation");
+        bsgRobot.leftFoundation = hardwareMap.servo.get("leftFoundation");
+        bsgRobot.rightFoundation = hardwareMap.servo.get("rightFoundation");
 
         bsgRobot.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bsgRobot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);

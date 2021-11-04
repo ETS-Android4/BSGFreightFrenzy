@@ -1,6 +1,10 @@
 package org.firstinspires.ftc.teamcode.Autonomous;
 
-/*
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+
 @Disabled
 @Autonomous (name = "test3")
 public class test3 extends LinearOpMode {
@@ -30,4 +34,4 @@ public class test3 extends LinearOpMode {
 
 
     }
-}*/
+}

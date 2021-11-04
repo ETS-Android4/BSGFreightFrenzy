@@ -1,13 +1,14 @@
 package org.firstinspires.ftc.teamcode.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
-@Disabled
+
 @Autonomous(name="REDOneBlockFoundation", group="UWU")
 public class REDOneBlockFoundation extends LinearOpMode {
     Robot bsgRobot = new Robot();
@@ -46,16 +47,16 @@ public class REDOneBlockFoundation extends LinearOpMode {
         bsgRobot.init(hardwareMap);
 
         bsgRobot.foundationUp();
-      //  bsgRobot.closeClamp();
+        bsgRobot.closeClamp();
 
         waitForStart();
 
         //Put the arm stop up
-       // bsgRobot.armStopUp();
+        bsgRobot.armStopUp();
         sleep(500);
 
         //Use encoders to put the arm down
-        /*armDown();
+        armDown();
         sleep(500);
 
         //open the clamp
@@ -129,7 +130,7 @@ public class REDOneBlockFoundation extends LinearOpMode {
     *
     *
      */
-    /*public void encoderDrive(double speed,
+    public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {
         int newFrontLeftTarget;
@@ -233,7 +234,7 @@ public class REDOneBlockFoundation extends LinearOpMode {
     }
 
     //encoders for arm
-    /*public void armEncoder(double speed,
+    public void armEncoder(double speed,
                            int targetTicks, double timeoutS) {
         int newTarget;
         // Ensure that the opmode is still active
@@ -273,15 +274,37 @@ public class REDOneBlockFoundation extends LinearOpMode {
             while (opModeIsActive() &&
                     (runtime.seconds() < timeoutS) &&
                     (bsgRobot.arm.isBusy() /*&& bsgRobot.frontRight.isBusy() &&
-                            bsgRobot.backLeft.isBusy() && bsgRobot.backRight.isBusy()*/ {
+                            bsgRobot.backLeft.isBusy() && bsgRobot.backRight.isBusy()*/)) {
 
                 // Display it for the driver.
-            /*    telemetry.addData("Path1", "Running to  :%7d", targetTicks);
+                telemetry.addData("Path1", "Running to  :%7d", targetTicks);
                 telemetry.addData("Path2", "Running at 3 :%7d",
                         bsgRobot.arm.getCurrentPosition()
                         /*bsgRobot.backLeft.getCurrentPosition(),
                         bsgRobot.frontRight.getCurrentPosition(),
-                        bsgRobot.backRight.getCurrentPosition()*/;
+                        bsgRobot.backRight.getCurrentPosition()*/);
                 telemetry.update();
-            }}}
+            }
 
+            // Stop all motion;
+            bsgRobot.arm.setPower(0);
+
+            // Turn off RUN_TO_POSITION
+            bsgRobot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            //bsgRobot.backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            // bsgRobot.frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            // bsgRobot.backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+            //  sleep(250);   // optional pause after each move
+        }
+    }
+
+    public void armUp() {
+        armEncoder(.4, -360, 2);
+    }
+
+    public void armDown(){
+        armEncoder(.4,400,2);
+    }
+
+}
