@@ -45,8 +45,7 @@ public class brandon2 extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.foundationUp();
-        bsgRobot.closeClamp();
+
 
         waitForStart();
         bsgRobot.carousel2.setPower(-1);

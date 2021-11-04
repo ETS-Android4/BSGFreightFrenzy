@@ -45,8 +45,7 @@ public class Austin extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.foundationUp();
-        bsgRobot.closeClamp();
+
 
         waitForStart();
 

@@ -45,8 +45,6 @@ public class practice extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.foundationUp();
-        bsgRobot.closeClamp();
 
         waitForStart();
         bsgRobot.carousel.setPower(-1);

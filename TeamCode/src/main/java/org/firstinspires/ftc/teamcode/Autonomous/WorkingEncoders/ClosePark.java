@@ -118,7 +118,7 @@ public class ClosePark extends LinearOpMode {
                 bsgRobot.backRight.getCurrentPosition());
         telemetry.update();
 
-        bsgRobot.rightFoundation.setPosition(1);
+       /* bsgRobot.rightFoundation.setPosition(1);
         bsgRobot.leftFoundation.setPosition(0);
         bsgRobot.armStopDown();
 
@@ -129,7 +129,7 @@ public class ClosePark extends LinearOpMode {
         //strafe right
         bsgRobot.measuringTape.setPower(1);
         sleep(1500);
-
+*/
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
@@ -265,7 +265,7 @@ public class ClosePark extends LinearOpMode {
 
     }
 
-    public void foundationDown(int pause) {
+  /*  public void foundationDown(int pause) {
         bsgRobot.rightFoundation.setPosition(.2);
         bsgRobot.leftFoundation.setPosition(.8);
         sleep(pause);
@@ -276,7 +276,7 @@ public class ClosePark extends LinearOpMode {
         bsgRobot.leftFoundation.setPosition(0);
         sleep(pause);
     }
-
+*/
     public void strafeLeft(long time) {
         bsgRobot.frontRight.setPower(1);//1
         bsgRobot.backRight.setPower(-.4);

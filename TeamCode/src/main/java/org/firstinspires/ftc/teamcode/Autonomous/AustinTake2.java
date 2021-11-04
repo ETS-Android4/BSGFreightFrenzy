@@ -45,8 +45,7 @@ public class AustinTake2 extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.foundationUp();
-        bsgRobot.closeClamp();
+
 
         waitForStart();
 

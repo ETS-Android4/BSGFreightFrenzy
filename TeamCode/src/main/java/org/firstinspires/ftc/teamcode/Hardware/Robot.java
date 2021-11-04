@@ -1,11 +1,9 @@
 package org.firstinspires.ftc.teamcode.Hardware;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
-import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -28,20 +26,20 @@ public class Robot {
   public DcMotor backRight;
 
   //measuring tape for parking in the building zone
-  public DcMotor measuringTape;
+ // public DcMotor measuringTape;
 
   //intake system
-  public DcMotor arm;
-  public DcMotor lift;
-  public Servo clamp;
-  public Servo armStop;
+ // public DcMotor arm;
+ // public DcMotor lift;
+ // public Servo clamp;
+ // public Servo armStop;
   public DcMotor carousel;
   public DcMotor carousel2;
-  public CRServo spinningFunction;
+ // public CRServo spinningFunction;
 
   //for moving the foundation
-  public Servo leftFoundation;
-  public Servo rightFoundation;
+ // public Servo leftFoundation;
+ // public Servo rightFoundation;
 
 
   //variables to use IMU's
@@ -74,22 +72,22 @@ public class Robot {
     backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
     //measuring tape
-    measuringTape = hMap.dcMotor.get("measuringTape");
+   // measuringTape = hMap.dcMotor.get("measuringTape");
 
     //intake system
-    arm = hMap.dcMotor.get("arm");
-    lift = hMap.dcMotor.get("lift");
-    clamp = hMap.servo.get("clamp");
-    armStop = hMap.servo.get("armStop");
+   // arm = hMap.dcMotor.get("arm");
+   // lift = hMap.dcMotor.get("lift");
+   // clamp = hMap.servo.get("clamp");
+   // armStop = hMap.servo.get("armStop");
     carousel = hMap.dcMotor.get("carousel");
     carousel2 = hMap.dcMotor.get("carousel2");
-    spinningFunction = hMap.crservo.get("spinningFunction");
+   // spinningFunction = hMap.crservo.get("spinningFunction");
 
-    lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+   // lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
     //foundation grabbers
-    leftFoundation = hMap.servo.get("leftFoundation");
-    rightFoundation = hMap.servo.get("rightFoundation");
+   // leftFoundation = hMap.servo.get("leftFoundation");
+   // rightFoundation = hMap.servo.get("rightFoundation");
 
 
     //Telemetry to show on phone to confirm that initialization occurred
@@ -214,7 +212,7 @@ public class Robot {
     backRight.setPower(0);
   }
 
-  public void foundationDown() {
+ /* public void foundationDown() {
     rightFoundation.setPosition(.2);
     leftFoundation.setPosition(.8);
   }
@@ -223,7 +221,7 @@ public class Robot {
     rightFoundation.setPosition(1);
     leftFoundation.setPosition(0);
   }
-
+*/
   public void strafeLeft(long time) {
     frontRight.setPower(.8);
     backRight.setPower(-.8);
@@ -240,7 +238,7 @@ public class Robot {
 
 
 
- public void openClamp() {
+ /*public void openClamp() {
     clamp.setPosition(.65);
 
   }
@@ -256,7 +254,7 @@ public class Robot {
 
   public void armStopDown (){
       armStop.setPosition(.5);
-  }
+  }*/
 
 
 

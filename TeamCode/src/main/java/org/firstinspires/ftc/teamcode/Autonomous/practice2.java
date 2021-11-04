@@ -45,8 +45,6 @@ public class practice2 extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.foundationUp();
-        bsgRobot.closeClamp();
 
         waitForStart();
 

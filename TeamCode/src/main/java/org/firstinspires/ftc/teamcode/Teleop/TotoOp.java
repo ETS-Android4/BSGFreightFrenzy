@@ -10,6 +10,7 @@ import org.firstinspires.ftc.teamcode.Hardware.Robot;
 @TeleOp (name = "TotoOp")
 public class TotoOp extends OpMode {
     Robot bsgRobot = new Robot();
+
     @Override
     public void init() {
         bsgRobot.init(hardwareMap);
@@ -25,28 +26,25 @@ public class TotoOp extends OpMode {
 
     @Override
     public void loop() {
-        if(Math.abs(gamepad1.right_stick_y)>.1){
+        if (Math.abs(gamepad1.right_stick_y) > .1) {
             bsgRobot.frontRight.setPower(-gamepad1.right_stick_y);
             bsgRobot.backRight.setPower(-gamepad1.right_stick_y);
-        }
-        else{
+        } else {
             bsgRobot.frontRight.setPower(0);
             bsgRobot.backRight.setPower(0);
         }
-        if(Math.abs(gamepad1.left_stick_y)>.1){
+        if (Math.abs(gamepad1.left_stick_y) > .1) {
             bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
             bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
         }
-        if(gamepad1.left_bumper){
+        if (gamepad1.left_bumper) {
             bsgRobot.carousel.setPower(1);
-        }
-        else{
+        } else {
             bsgRobot.carousel.setPower(0);
         }
-        if(gamepad1.right_bumper){
+        if (gamepad1.right_bumper) {
             bsgRobot.carousel2.setPower(1);
-        }
-        else{
+        } else {
             bsgRobot.carousel2.setPower(0);
         }
         telemetry.addData("Front Right Value: ", bsgRobot.frontRight.getPower());
@@ -55,7 +53,7 @@ public class TotoOp extends OpMode {
         telemetry.addData("Back  Left Value: ", bsgRobot.backLeft.getPower());
         telemetry.update();
 
-        if(gamepad1.b) //rotating servo for hilarious grabbing mechanic xd
+      /*  if(gamepad1.b) //rotating servo for hilarious grabbing mechanic xd
         {
             bsgRobot.spinningFunction.setPower(1);
         }
@@ -75,5 +73,6 @@ public class TotoOp extends OpMode {
         else{
             bsgRobot.lift.setPower(0);
         }
+    }*/
     }
 }

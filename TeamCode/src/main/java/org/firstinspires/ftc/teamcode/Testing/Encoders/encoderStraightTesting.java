@@ -34,7 +34,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 /**
@@ -114,8 +113,8 @@ public class encoderStraightTesting extends LinearOpMode {
                 bsgRobot.backRight.getCurrentPosition());
         telemetry.update();
 
-        bsgRobot.rightFoundation.setPosition(1);
-        bsgRobot.leftFoundation.setPosition(0);
+     //   bsgRobot.rightFoundation.setPosition(1);
+       // bsgRobot.leftFoundation.setPosition(0);
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -276,7 +275,7 @@ public class encoderStraightTesting extends LinearOpMode {
 
     }
 
-    public void foundationDown(int pause) {
+  /*  public void foundationDown(int pause) {
         bsgRobot.rightFoundation.setPosition(.2);
         bsgRobot.leftFoundation.setPosition(.8);
         sleep(pause);
@@ -286,7 +285,7 @@ public class encoderStraightTesting extends LinearOpMode {
         bsgRobot.rightFoundation.setPosition(1);
         bsgRobot.leftFoundation.setPosition(0);
         sleep(pause);
-    }
+    }*/
 
     public void strafeLeft(long time) {
         bsgRobot.frontRight.setPower(1);//1

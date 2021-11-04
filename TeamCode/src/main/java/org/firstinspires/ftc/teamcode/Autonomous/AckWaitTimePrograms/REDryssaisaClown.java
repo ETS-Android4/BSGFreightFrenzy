@@ -3,10 +3,7 @@ package org.firstinspires.ftc.teamcode.Autonomous.AckWaitTimePrograms;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 @Autonomous (name = "REDryssaisaClown", group = "Wait Time")
 @Disabled
@@ -34,7 +31,7 @@ public class REDryssaisaClown extends LinearOpMode {
         bsgRobot.stopWheels();
         sleep(2000);
 
-        bsgRobot.foundationDown();
+      //  bsgRobot.foundationDown();
         sleep(2000);
 
         bsgRobot.stopWheels();
@@ -47,7 +44,7 @@ public class REDryssaisaClown extends LinearOpMode {
         bsgRobot.stopWheels();
         sleep(2000);
 
-        bsgRobot.foundationUp();
+      //  bsgRobot.foundationUp();
         sleep(2000);
 
         bsgRobot.strafeRight(1000);

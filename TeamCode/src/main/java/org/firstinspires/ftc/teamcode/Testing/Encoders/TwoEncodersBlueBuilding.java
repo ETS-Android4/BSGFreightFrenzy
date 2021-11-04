@@ -110,8 +110,8 @@ public class TwoEncodersBlueBuilding extends LinearOpMode {
                 //bsgRobot.backRight.getCurrentPosition());
         telemetry.update();
 
-        bsgRobot.rightFoundation.setPosition(1);
-        bsgRobot.leftFoundation.setPosition(0);
+    //    bsgRobot.rightFoundation.setPosition(1);
+     //   bsgRobot.leftFoundation.setPosition(0);
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -123,13 +123,13 @@ public class TwoEncodersBlueBuilding extends LinearOpMode {
 
         sleep(500);
 
-        foundationDown(2000); //grab foundation
+       // foundationDown(2000); //grab foundation
 
         encoderDrive(.6, 36.50, 36.5, 6); //drag foundation backwards 35.5 inches into build zone
 
         sleep(500);
 
-        foundationUp(800); //let go of foundation
+      //  foundationUp(800); //let go of foundation
 
         strafeLeft(2250);strafeRight(800);
 
@@ -137,13 +137,13 @@ public class TwoEncodersBlueBuilding extends LinearOpMode {
 
         sleep(500);
 
-        foundationDown(2000); //grab foundation
+       // foundationDown(2000); //grab foundation
 
         encoderDrive(.6, 36.50, 36.5, 6); //drag foundation backwards 35.5 inches into build zone
 
         sleep(500);
 
-        foundationUp(800); //let go of foundation
+      //  foundationUp(800); //let go of foundation
 
         strafeLeft(2250);
 
@@ -278,7 +278,7 @@ public class TwoEncodersBlueBuilding extends LinearOpMode {
 
     }
 
-    public void foundationDown(int pause) {
+  /*  public void foundationDown(int pause) {
         bsgRobot.rightFoundation.setPosition(.2);
         bsgRobot.leftFoundation.setPosition(.8);
         sleep(pause);
@@ -288,7 +288,7 @@ public class TwoEncodersBlueBuilding extends LinearOpMode {
         bsgRobot.rightFoundation.setPosition(1);
         bsgRobot.leftFoundation.setPosition(0);
         sleep(pause);
-    }
+    }*/
 
     public void strafeLeft(long time) {
         bsgRobot.frontRight.setPower(.8);

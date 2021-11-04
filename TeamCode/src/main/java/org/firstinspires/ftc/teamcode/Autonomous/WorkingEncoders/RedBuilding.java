@@ -93,7 +93,7 @@ public class RedBuilding extends LinearOpMode {
 
         bsgRobot.init(hardwareMap);
         AutoTransitioner.transitionOnStop(this, "TylaOp");
-        bsgRobot.armStopUp();
+      //  bsgRobot.armStopUp();
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Resetting Encoders");    //
@@ -117,9 +117,9 @@ public class RedBuilding extends LinearOpMode {
                 bsgRobot.backRight.getCurrentPosition());
         telemetry.update();
 
-        bsgRobot.rightFoundation.setPosition(1);
-        bsgRobot.leftFoundation.setPosition(0);
-        bsgRobot.armStopDown();
+      //  bsgRobot.rightFoundation.setPosition(1);
+      //  bsgRobot.leftFoundation.setPosition(0);
+      //  bsgRobot.armStopDown();
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -134,19 +134,19 @@ public class RedBuilding extends LinearOpMode {
 
         sleep(500);
 
-        foundationDown(2000); //grab foundation
+       // foundationDown(2000); //grab foundation
 
         encoderDrive(DRIVE_SPEED, 47/2, 47/2, 6); //drag foundation backwards 35.5 inches into build zone
 
         sleep(500);
 
-        foundationUp(800); //let go of foundation
+       // foundationUp(800); //let go of foundation
 
         //strafe left
         strafeToPosition(48, .3);
         //strafeLeft(1500);
 
-        bsgRobot.armStopDown();
+   //     bsgRobot.armStopDown();
         sleep(1000);;
 
 
@@ -320,7 +320,7 @@ public class RedBuilding extends LinearOpMode {
 
     }
 
-    public void foundationDown(int pause) {
+ /*   public void foundationDown(int pause) {
         bsgRobot.rightFoundation.setPosition(.2);
         bsgRobot.leftFoundation.setPosition(.8);
         sleep(pause);
@@ -331,7 +331,7 @@ public class RedBuilding extends LinearOpMode {
         bsgRobot.leftFoundation.setPosition(0);
         sleep(pause);
     }
-
+*/
     public void strafeLeft(long time) {
         bsgRobot.frontRight.setPower(1);//1
         bsgRobot.backRight.setPower(-.4);
