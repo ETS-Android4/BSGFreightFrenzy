@@ -37,13 +37,17 @@ public class TotoOp extends OpMode {
             bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
             bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
         }
+        else {
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+        }
         if (gamepad1.left_bumper) {
-            bsgRobot.carousel.setPower(1);
+            bsgRobot.carousel.setPower(-0.5);
         } else {
             bsgRobot.carousel.setPower(0);
         }
         if (gamepad1.right_bumper) {
-            bsgRobot.carousel2.setPower(1);
+            bsgRobot.carousel2.setPower(-0.5);
         } else {
             bsgRobot.carousel2.setPower(0);
         }
