@@ -59,7 +59,7 @@ public class brandon2 extends LinearOpMode {
         encoderDrive(1,10,-10,3);
 
         //drive like 5 inches forward
-        encoderDrive(1,5,5,3);
+        encoderDrive(1,3,3,3);
 
         //rotate back
         encoderDrive(1,-10,10,3);
