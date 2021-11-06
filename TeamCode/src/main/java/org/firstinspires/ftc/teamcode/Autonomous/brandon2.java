@@ -56,19 +56,22 @@ public class brandon2 extends LinearOpMode {
         sleep(2000);
 
         //rotate 90 degrees
-        encoderDrive(1,10,10,3);
+        encoderDrive(1,10,-10,3);
 
         //drive like 5 inches forward
         encoderDrive(1,5,5,3);
 
+        //rotate back
+        encoderDrive(1,-10,10,3);
+
         //drive 100 inches forward
-        encoderDrive(1, 100, 100, 3);
+        encoderDrive(1, 110, 110, 3);
 
         //rotate CCW approximately 180
-        encoderDrive(1, 20, -20, 3);
+        encoderDrive(1, 30, -30, 3);
 
         //drive 24 inches forwards
-        encoderDrive(1,24, 24, 3);
+        encoderDrive(1,44, 44, 3);
 
         //rotate CCW approximately 90
         encoderDrive(1, 10, -10, 3);
