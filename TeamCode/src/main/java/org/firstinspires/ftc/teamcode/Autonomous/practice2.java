@@ -19,7 +19,7 @@ public class practice2 extends LinearOpMode {
     */
     private ElapsedTime runtime = new ElapsedTime();
 
-    static final double COUNTS_PER_MOTOR_REV = 312;    // Neverest 40
+    static final double COUNTS_PER_MOTOR_REV = 2150.8;    // Neverest 40
     static final double DRIVE_GEAR_REDUCTION = 2.0;     // This is < 1.0 if geared UP
     static final double WHEEL_DIAMETER_INCHES = 3.78;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
@@ -29,7 +29,7 @@ public class practice2 extends LinearOpMode {
 
     //For turning with encoders
     Integer cpr = 28; //counts per rotation originally 28
-    Integer gearratio = 40; //IDK IT WAS ORIGINALLY 40
+    Integer gearratio = (((1+(46/17))) * (1+(46/11))); //IDK IT WAS ORIGINALLY 40
     Double diameter = 4.0;
     Double cpi = (cpr * gearratio) / (Math.PI * diameter); //counts per inch, 28cpr * gear ratio / (2 * pi * diameter (in inches, in the center))
     Double bias = 0.8;//default 0.8
@@ -48,8 +48,8 @@ public class practice2 extends LinearOpMode {
 
         waitForStart();
 
-        //turn 45 degrees right
-        encoderDrive( 1, 5, 0, .5);
+        //drive backwards
+        encoderDrive(1,56,56,2);
 
         //drive 12 inches forward
         encoderDrive(1, 12, 12, .5);

@@ -19,7 +19,7 @@ public class brandon2 extends LinearOpMode {
     */
     private ElapsedTime runtime = new ElapsedTime();
 
-    static final double COUNTS_PER_MOTOR_REV = 312;    // gobilda yellowjackets
+    static final double COUNTS_PER_MOTOR_REV = 2150.8;    // gobilda yellowjackets
     static final double DRIVE_GEAR_REDUCTION = 2.0;     // This is < 1.0 if geared UP
     static final double WHEEL_DIAMETER_INCHES = 3.78;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
@@ -52,30 +52,33 @@ public class brandon2 extends LinearOpMode {
         //driving back 56 inches
         encoderDrive(1,-56,-56,3);
 
-        bsgRobot.carousel2.setPower(-0.5);
-        sleep(2000);
+        //bsgRobot.carousel2.setPower(-0.5);
+        //sleep(2000);
 
-        //rotate 90 degrees
+        //move up a lil :]
+        encoderDrive(1,4,4,3);
+
+        //rotate 90~ degrees
         encoderDrive(1,10,-10,3);
 
         //drive like 5 inches forward
-        encoderDrive(1,3,3,3);
-
+        encoderDrive(1,8,8,3);
+/*
         //rotate back
-        encoderDrive(1,-10,10,3);
+        encoderDrive(1,-5,5,3);
 
         //drive 100 inches forward
         encoderDrive(1, 110, 110, 3);
 
         //rotate CCW approximately 180
-        encoderDrive(1, 30, -30, 3);
+        encoderDrive(1, -20, 20, 3);
 
         //drive 24 inches forwards
         encoderDrive(1,44, 44, 3);
 
         //rotate CCW approximately 90
         encoderDrive(1, 10, -10, 3);
-
+*/
 
 
         //auto transitioner to automatically switch to TeleOp
