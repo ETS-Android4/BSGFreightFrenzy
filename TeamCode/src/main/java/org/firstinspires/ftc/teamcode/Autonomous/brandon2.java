@@ -50,28 +50,28 @@ public class brandon2 extends LinearOpMode {
         waitForStart();
 
         //driving back 56 inches
-        encoderDrive(1,56,56,.5);
+        encoderDrive(1,-56,-56,3);
 
         bsgRobot.carousel2.setPower(-0.5);
         sleep(2000);
 
         //rotate 90 degrees
-        encoderDrive(1,10,10,.5);
+        encoderDrive(1,10,10,3);
 
         //drive like 5 inches forward
-        encoderDrive(1,5,5,.3);
+        encoderDrive(1,5,5,3);
 
         //drive 100 inches forward
         encoderDrive(1, 100, 100, 3);
 
         //rotate CCW approximately 180
-        encoderDrive(1, 20, -20, .5);
+        encoderDrive(1, 20, -20, 3);
 
         //drive 24 inches forwards
-        encoderDrive(1,24, 24, .5);
+        encoderDrive(1,24, 24, 3);
 
         //rotate CCW approximately 90
-        encoderDrive(1, 10, -10, .5);
+        encoderDrive(1, 10, -10, 3);
 
 
 

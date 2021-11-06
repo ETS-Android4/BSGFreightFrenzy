@@ -49,28 +49,28 @@ public class brandon extends LinearOpMode {
 
         waitForStart();
         //drive back 16 inches
-        encoderDrive(1,16,16,.5);
+        encoderDrive(1,-16,-16,.5);
 
         //carousel
         bsgRobot.carousel2.setPower(0.5);
         sleep(3000);
 
         //drive 24 inches forward
-        encoderDrive(1, 100, 100, .5);
+        encoderDrive(1, 100, 100, 2);
 
         //rotate CCW approximately 180
-        encoderDrive(1, 20, -20, .5);
+        encoderDrive(1, 20, -20, 2);
 
         //drive 24 inches forwards
-        encoderDrive(1,24, 24, .5);
+        encoderDrive(1,24, 24, 2);
 
         //rotate CCW approximately 90
-        encoderDrive(1, 10, -10, .5);
+        encoderDrive(1, 10, -10, 2);
 
 
 
         //auto transitioner to automatically switch to TeleOp
-        AutoTransitioner.transitionOnStop(this, "TylaOp");
+        AutoTransitioner.transitionOnStop(this, "TotoOp");
     }
 
 
