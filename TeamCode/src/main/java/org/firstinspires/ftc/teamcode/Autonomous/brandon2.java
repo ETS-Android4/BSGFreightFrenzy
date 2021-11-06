@@ -29,7 +29,7 @@ public class brandon2 extends LinearOpMode {
 
     //For turning with encoders
     Integer cpr = 28; //counts per rotation originally 28
-    Integer gearratio = 40; //IDK IT WAS ORIGINALLY 40
+    Integer gearratio = (((1+(46/17))) * (1+(46/11))); //i hope this friggin works
     Double diameter = 4.0;
     Double cpi = (cpr * gearratio) / (Math.PI * diameter); //counts per inch, 28cpr * gear ratio / (2 * pi * diameter (in inches, in the center))
     Double bias = 0.8;//default 0.8
@@ -49,7 +49,7 @@ public class brandon2 extends LinearOpMode {
 
         waitForStart();
         bsgRobot.carousel2.setPower(-0.5);
-        sleep(5000);
+        sleep(2000);
 
         //drive 48 inches forward
         encoderDrive(1, 60, 60, 3);
@@ -68,7 +68,7 @@ public class brandon2 extends LinearOpMode {
 
 
         //auto transitioner to automatically switch to TeleOp
-        AutoTransitioner.transitionOnStop(this, "TylaOp");
+        AutoTransitioner.transitionOnStop(this, "TotoOp");
     }
 
 
