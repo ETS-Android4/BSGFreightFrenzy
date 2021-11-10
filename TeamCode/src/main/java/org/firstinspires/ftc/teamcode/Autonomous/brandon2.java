@@ -19,7 +19,7 @@ public class brandon2 extends LinearOpMode {
     */
     private ElapsedTime runtime = new ElapsedTime();
 
-    static final double COUNTS_PER_MOTOR_REV = 2150.8;    // gobilda yellowjackets
+    static final double COUNTS_PER_MOTOR_REV = 312;    // gobilda yellowjackets
     static final double DRIVE_GEAR_REDUCTION = 2.0;     // This is < 1.0 if geared UP
     static final double WHEEL_DIAMETER_INCHES = 3.78;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
@@ -29,7 +29,7 @@ public class brandon2 extends LinearOpMode {
 
     //For turning with encoders
     Integer cpr = 28; //counts per rotation originally 28
-    Integer gearratio = (((1+(46/17))) * (1+(46/11))); //i hope this friggin works
+    Integer gearratio = 40; //IDK IT WAS ORIGINALLY 40
     Double diameter = 4.0;
     Double cpi = (cpr * gearratio) / (Math.PI * diameter); //counts per inch, 28cpr * gear ratio / (2 * pi * diameter (in inches, in the center))
     Double bias = 0.8;//default 0.8
@@ -48,46 +48,27 @@ public class brandon2 extends LinearOpMode {
 
 
         waitForStart();
-<<<<<<< HEAD
         bsgRobot.carousel2.setPower(-0.5);
         sleep(3000);
-=======
->>>>>>> 847a4bfd09c1dec938c5aff36abd2fba60107567
 
-        //driving back 56 inches
-        encoderDrive(1,-56,-56,3);
-
-        //bsgRobot.carousel2.setPower(-0.5);
-        //sleep(2000);
-
-        //move up a lil :]
-        encoderDrive(1,4,4,3);
-
-        //rotate 90~ degrees
-        encoderDrive(1,10,-10,3);
-
-        //drive like 5 inches forward
-        encoderDrive(1,8,8,3);
-/*
-        //rotate back
-        encoderDrive(1,-5,5,3);
-
-        //drive 100 inches forward
-        encoderDrive(1, 110, 110, 3);
+        //drive 48 inches forward
+        encoderDrive(1, 60, 60, 3);
 
         //rotate CCW approximately 180
-        encoderDrive(1, -20, 20, 3);
+        encoderDrive(1, -20, 20, .5);
 
         //drive 24 inches forwards
-        encoderDrive(1,44, 44, 3);
+        encoderDrive(1,24, 24, .5);
 
         //rotate CCW approximately 90
-        encoderDrive(1, 10, -10, 3);
-*/
+        encoderDrive(1, 10, -10, .5);
+
+        //drive 12 inches forward
+        encoderDrive(1, 12, 12,.5);
 
 
         //auto transitioner to automatically switch to TeleOp
-        AutoTransitioner.transitionOnStop(this, "TotoOp");
+        AutoTransitioner.transitionOnStop(this, "TylaOp");
     }
 
 
