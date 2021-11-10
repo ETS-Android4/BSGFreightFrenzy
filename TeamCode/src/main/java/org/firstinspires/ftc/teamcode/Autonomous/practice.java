@@ -48,22 +48,22 @@ public class practice extends LinearOpMode {
 
         waitForStart();
         bsgRobot.carousel.setPower(-1);
-        sleep(5000);
+        sleep(3000);
 
         //drive 48 inches forward
-        encoderDrive(1, 48, 48, .5);
+        encoderDrive(1, 48, 48, 2);
 
         //rotate CCW approximately 180
-        encoderDrive(1, 20, -20, .5);
+        encoderDrive(1, 20, -20, 2);
 
         //drive 24 inches forwards
-        encoderDrive(1,24, 24, .5);
+        encoderDrive(1,24, 24, 2);
 
         //rotate CCW approximately 90
-        encoderDrive(1, -10, 10, .5);
+        encoderDrive(1, -10, 10, 2);
 
         //drive 12 inches forward
-        encoderDrive(1, 12, 12,.5);
+        encoderDrive(1, 12, 12,2);
 
 
         //auto transitioner to automatically switch to TeleOp

@@ -49,7 +49,7 @@ public class brandon2 extends LinearOpMode {
 
         waitForStart();
         bsgRobot.carousel2.setPower(-0.5);
-        sleep(5000);
+        sleep(3000);
 
         //drive 48 inches forward
         encoderDrive(1, 60, 60, 3);

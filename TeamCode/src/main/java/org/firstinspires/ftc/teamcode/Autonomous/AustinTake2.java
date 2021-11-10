@@ -50,7 +50,7 @@ public class AustinTake2 extends LinearOpMode {
         waitForStart();
 
         //drive 48 inches forward
-        encoderDrive(.6, 48, 48, 4);
+        encoderDrive(1, 48, 48, 3);
 
 
         //auto transitioner to automatically switch to TeleOp
