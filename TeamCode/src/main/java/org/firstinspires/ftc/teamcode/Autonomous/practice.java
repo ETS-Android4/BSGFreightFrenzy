@@ -19,7 +19,7 @@ public class practice extends LinearOpMode {
     */
     private ElapsedTime runtime = new ElapsedTime();
 
-    static final double COUNTS_PER_MOTOR_REV = 2150.8;    // gobilda yellowjackets
+    static final double COUNTS_PER_MOTOR_REV = 312;    // Neverest 40
     static final double DRIVE_GEAR_REDUCTION = 2.0;     // This is < 1.0 if geared UP
     static final double WHEEL_DIAMETER_INCHES = 3.78;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
@@ -29,7 +29,7 @@ public class practice extends LinearOpMode {
 
     //For turning with encoders
     Integer cpr = 28; //counts per rotation originally 28
-    Integer gearratio = (((1+(46/17))) * (1+(46/11))); //IDK IT WAS ORIGINALLY 40
+    Integer gearratio = 40; //IDK IT WAS ORIGINALLY 40
     Double diameter = 4.0;
     Double cpi = (cpr * gearratio) / (Math.PI * diameter); //counts per inch, 28cpr * gear ratio / (2 * pi * diameter (in inches, in the center))
     Double bias = 0.8;//default 0.8
@@ -47,41 +47,27 @@ public class practice extends LinearOpMode {
 
 
         waitForStart();
-
-        //drive backwards 16
-        encoderDrive(1,-16,-16,3);
-
-        bsgRobot.carousel.setPower(-0.5);
-        sleep(5000);
-
-        //drive up like 4 to get away from carousel
-        encoderDrive(1,4,4,3);
-
-        //rotate a lil to move
-        encoderDrive(1,10,-10,3);
-
-        //move 8 inches
-        encoderDrive(1,8,8,3);
-/*
-        //rotate back
-        encoderDrive(1,-6,6,3);
+        bsgRobot.carousel.setPower(-1);
+        sleep(3000);
 
         //drive 48 inches forward
-        encoderDrive(1, 110, 110, 1);
+        encoderDrive(1, 48, 48, 2);
 
         //rotate CCW approximately 180
-        encoderDrive(1, 20, -20, .5);
+        encoderDrive(.7, 20, -20, 2);
 
         //drive 24 inches forwards
-        encoderDrive(1,44, 44, 1);
+        encoderDrive(1,24, 24, 2);
 
         //rotate CCW approximately 90
-        encoderDrive(1, -10, 10, .5);
-*/
+        encoderDrive(.7, -10, 10, 2);
+
+        //drive 12 inches forward
+        encoderDrive(.7, 12, 12,2);
 
 
         //auto transitioner to automatically switch to TeleOp
-        AutoTransitioner.transitionOnStop(this, "TotoOp");
+        AutoTransitioner.transitionOnStop(this, "TylaOp");
     }
 
 

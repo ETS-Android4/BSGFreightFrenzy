@@ -48,9 +48,13 @@ public class AustinTake2 extends LinearOpMode {
 
 
         waitForStart();
+        bsgRobot.carousel.setPower(-1);
+        sleep(3000);
+        bsgRobot.carousel2.setPower(-1);
+        sleep(3000);
 
         //drive 48 inches forward
-        encoderDrive(.6, 48, 48, 4);
+        encoderDrive(1, 48, 48, 3);
 
 
         //auto transitioner to automatically switch to TeleOp
