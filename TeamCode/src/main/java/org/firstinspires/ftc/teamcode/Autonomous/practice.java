@@ -45,7 +45,6 @@ public class practice extends LinearOpMode {
          */
         bsgRobot.init(hardwareMap);
 
-
         waitForStart();
 
         //drive 5 inches forward
