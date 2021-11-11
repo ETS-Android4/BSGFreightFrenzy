@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
-@TeleOp (name = "TotoOp")
-public class TotoOp extends OpMode {
+@TeleOp (name = "TotoOpArcade")
+public class TotoOpArcade extends OpMode {
     Robot bsgRobot = new Robot();
 
     @Override
@@ -26,19 +26,49 @@ public class TotoOp extends OpMode {
 
     @Override
     public void loop() {
-        if (Math.abs(gamepad1.right_stick_y) > .1) {
-            bsgRobot.frontRight.setPower(-gamepad1.right_stick_y);
-            bsgRobot.backRight.setPower(-gamepad1.right_stick_y);
+
+        telemetry.addData("Left Stick X: ",gamepad1.left_stick_x);
+        telemetry.addData("Right Stick X: ", gamepad1.right_stick_x);
+        telemetry.addData("Left Stick Y:", gamepad1.left_stick_y);
+        telemetry.addData("Right Stick Y:", gamepad1.right_stick_y);
+
+
+        telemetry.update();
+
+        if (Math.abs(gamepad1.left_stick_y) > .1 && Math.abs(gamepad1.left_stick_y)<.3) {
+            bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
+            bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
+            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
+            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
         } else {
             bsgRobot.frontRight.setPower(0);
             bsgRobot.backRight.setPower(0);
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
         }
-        if (Math.abs(gamepad1.left_stick_y) > .1) {
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
-            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
+
+        if (gamepad1.right_stick_x > -.1) {
+            bsgRobot.frontLeft.setPower(-gamepad1.right_stick_x);
+            bsgRobot.backLeft.setPower(-gamepad1.right_stick_x);
+            bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
         }
         else {
             bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+            bsgRobot.frontRight.setPower(0);
+            bsgRobot.backRight.setPower(0);
+        }
+        if(gamepad1.right_stick_x > .1){
+            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
+        }
+        else {
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backRight.setPower(0);
+            bsgRobot.frontRight.setPower(0);
             bsgRobot.backLeft.setPower(0);
         }
         if (gamepad1.left_bumper) {
@@ -69,6 +99,9 @@ public class TotoOp extends OpMode {
         {
             bsgRobot.spinningFunction.setPower(0);
         }
+
+        telemetry.addData("Open", String.valueOf(bsgRobot.spinningFunction), gamepad1.b);
+        telemetry.addData("Close",String.valueOf(bsgRobot.spinningFunction), gamepad1.a);
 //prone to change in the future 100% cause like robot not done yet
 
         //moving the pulley up/down
@@ -81,6 +114,8 @@ public class TotoOp extends OpMode {
         else{
             bsgRobot.lift.setPower(0);
         }
+        telemetry.addData("lift", bsgRobot.lift.getCurrentPosition());
 
+        telemetry.update();
     }
-    }
+}

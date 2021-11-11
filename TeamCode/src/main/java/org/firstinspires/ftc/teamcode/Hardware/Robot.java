@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+
 import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
@@ -258,15 +259,6 @@ public class Robot {
       armStop.setPosition(.5);
   }*/
 
-
-
-
-
-
-
-
-
-
 /* power) {
     leftIntake.setPower(-power);
     rightIntake.setPower(power);
@@ -276,5 +268,14 @@ public class Robot {
     rightIntake.setPower(-power);
   }
 
-   */
+
+    public void setLift () {
+        int newLiftTarget;
+
+        if(opModeIsActive()) {
+            newLiftTarget = lift.getCurrentPosition() + (int) (le)
+        }
+    }
+
+ */
 }
