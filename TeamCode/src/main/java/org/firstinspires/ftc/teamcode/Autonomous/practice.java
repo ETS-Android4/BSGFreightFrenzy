@@ -54,16 +54,16 @@ public class practice extends LinearOpMode {
         encoderDrive(1, 48, 48, 2);
 
         //rotate CCW approximately 180
-        encoderDrive(1, 20, -20, 2);
+        encoderDrive(.7, 20, -20, 2);
 
         //drive 24 inches forwards
         encoderDrive(1,24, 24, 2);
 
         //rotate CCW approximately 90
-        encoderDrive(1, -10, 10, 2);
+        encoderDrive(.7, -10, 10, 2);
 
         //drive 12 inches forward
-        encoderDrive(1, 12, 12,2);
+        encoderDrive(.7, 12, 12,2);
 
 
         //auto transitioner to automatically switch to TeleOp
