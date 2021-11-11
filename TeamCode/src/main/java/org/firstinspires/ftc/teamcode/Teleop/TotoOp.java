@@ -81,5 +81,6 @@ public class TotoOp extends OpMode {
         else{
             bsgRobot.lift.setPower(0);
         }
+
     }
     }
