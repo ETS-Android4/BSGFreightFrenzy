@@ -48,9 +48,6 @@ public class brandon extends LinearOpMode {
 
 
         waitForStart();
-        bsgRobot.carousel2.setPower(-1);
-        sleep(3000);
-
 
         //drive 6 inches forward
         encoderDrive(.6, 6, 6, 0.5);
@@ -60,6 +57,9 @@ public class brandon extends LinearOpMode {
 
         //drive back 16 inches
         encoderDrive(.5,-16, -16, 0.5);
+
+        bsgRobot.carousel2.setPower(-0.5);
+        sleep(3500);
 
         //rotate CCW approximately 90
         encoderDrive(.5, -10, 10, 3);
