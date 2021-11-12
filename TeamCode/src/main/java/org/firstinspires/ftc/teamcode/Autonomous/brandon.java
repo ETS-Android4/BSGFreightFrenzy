@@ -52,24 +52,24 @@ public class brandon extends LinearOpMode {
         sleep(3000);
 
 
-        //drive 24 inches forward
-        encoderDrive(1, 24, 24, 3);
-
-        //rotate CCW approximately 180
-        encoderDrive(.7, -20, 20, 3);
-
-        //drive 24 inches forwards
-        encoderDrive(1,24, 24, 3);
+        //drive 6 inches forward
+        encoderDrive(.6, 6, 6, 0.5);
 
         //rotate CCW approximately 90
-        encoderDrive(.7, 10, -10, 3);
+        encoderDrive(.7, 10, -10, 0.5);
+
+        //drive back 16 inches
+        encoderDrive(.5,-16, -16, 0.5);
+
+        //rotate CCW approximately 90
+        encoderDrive(.5, -10, 10, 3);
 
         //drive 12 inches forward
-        encoderDrive(.7, 12, 12,3);
+        encoderDrive(.5, 12, 12,3);
 
 
         //auto transitioner to automatically switch to TeleOp
-        AutoTransitioner.transitionOnStop(this, "TylaOp");
+        AutoTransitioner.transitionOnStop(this, "TotoOp");
     }
 
 
