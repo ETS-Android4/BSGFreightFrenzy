@@ -114,9 +114,6 @@ public class TotoOpArcade extends OpMode {
         else if (gamepad1.y){
             bsgRobot.lift.setTargetPosition(1);
         }
-        else{
-            bsgRobot.lift.setPower(0);
-        }
         telemetry.addData("lift", bsgRobot.lift.getCurrentPosition());
 
         telemetry.update();
