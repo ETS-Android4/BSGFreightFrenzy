@@ -50,7 +50,7 @@ public class brandon2 extends LinearOpMode {
         encoderDrive(.5, 6, 6, .3);
 
         //rotate CCW approximately 90
-        encoderDrive(.6, 10, -10, .3);
+        encoderDrive(.6, 0, -10, .3);
 
         //drive 12 inches forwards
         encoderDrive(0.5,12, 12, .3);

@@ -52,7 +52,7 @@ public class practice2 extends LinearOpMode {
         encoderDrive(0.5, 6, 6, .3);
 
         //rotate -90 degrees
-        encoderDrive(0.5, -10,10,.3);
+        encoderDrive(0.5, 10,0,.3);
 
         //forward 12 inches forward
         encoderDrive(.7,12,12,.3);
