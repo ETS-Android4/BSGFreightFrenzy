@@ -65,8 +65,8 @@ public class practice extends LinearOpMode {
         //rotate 90 degrees right
         encoderDrive(.3, 8, -8, 2);
 
-        //drive 20 inches forward
-        encoderDrive(.3, 20, 20, 2);
+        //drive 15 inches forward
+        encoderDrive(.3, 15, 15, 2);
 
 
         //auto transitioner to automatically switch to TeleOp

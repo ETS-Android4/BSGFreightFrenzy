@@ -48,35 +48,14 @@ public class practice2 extends LinearOpMode {
 
         waitForStart();
 
-        //drive 12 inches forward
-        encoderDrive(1, 12, 12, 3);
+        //drive 6 inches forward
+        encoderDrive(0.5, 6, 6, .3);
 
-        //rotate 90 degrees right
-        encoderDrive(.7, 10, -10, 3);
+        //rotate -90 degrees
+        encoderDrive(0.5, -10,10,.3);
 
-        //drive 9 inches forward
-        encoderDrive(.7, 9, 9, 3);
-
-        //rotate 90 degrees left
-        encoderDrive(.7, -10, 10, 3);
-
-        //drive 12 inches forward
-        encoderDrive(.1, 12, 12, 3);
-
-        //drive 24 inches backwards
-        encoderDrive(1, -24, -24, 3);
-
-        //rotate CCW approximately 180
-        encoderDrive(1, 20, -20, 3);
-
-        //drive 24 inches forwards
-        encoderDrive(1, 24, 24, 3);
-
-        //rotate CCW approximately 90
-        encoderDrive(1, -10, 10, 3);
-
-        //drive 12 inches forward
-        encoderDrive(1, 12, 12, 3);
+        //forward 12 inches forward
+        encoderDrive(.7,12,12,.3);
 
 
         //auto transitioner to automatically switch to TeleOp
