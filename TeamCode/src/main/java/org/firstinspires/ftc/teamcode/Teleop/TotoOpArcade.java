@@ -48,8 +48,8 @@ public class TotoOpArcade extends OpMode {
         }
 
         if (gamepad1.right_stick_x > -.1) {
-            bsgRobot.frontLeft.setPower(-gamepad1.right_stick_x);
-            bsgRobot.backLeft.setPower(-gamepad1.right_stick_x);
+            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
             bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
             bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
         }
@@ -111,8 +111,8 @@ public class TotoOpArcade extends OpMode {
         else if(gamepad1.dpad_down){
             bsgRobot.lift.setPower(-1);
         }
-        else{
-            bsgRobot.lift.setPower(0);
+        else if (gamepad1.y){
+            bsgRobot.lift.setTargetPosition(1);
         }
         telemetry.addData("lift", bsgRobot.lift.getCurrentPosition());
 

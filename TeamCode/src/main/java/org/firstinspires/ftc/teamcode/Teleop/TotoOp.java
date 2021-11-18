@@ -36,8 +36,7 @@ public class TotoOp extends OpMode {
         if (Math.abs(gamepad1.left_stick_y) > .1) {
             bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
             bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
-        }
-        else {
+        } else {
             bsgRobot.frontLeft.setPower(0);
             bsgRobot.backLeft.setPower(0);
         }
@@ -57,30 +56,22 @@ public class TotoOp extends OpMode {
         telemetry.addData("Back  Left Value: ", bsgRobot.backLeft.getPower());
         telemetry.update();
 
-        if(gamepad1.b) //rotating servo for hilarious grabbing mechanic xd
+        if (gamepad1.b) //rotating servo for hilarious grabbing mechanic xd
         {
             bsgRobot.spinningFunction.setPower(1);
         }
-        if(gamepad1.a)
-        {
+        if (gamepad1.a) {
             bsgRobot.spinningFunction.setPower(-0.5);
-        }
-        else
-        {
+        } else {
             bsgRobot.spinningFunction.setPower(0);
         }
 //prone to change in the future 100% cause like robot not done yet
 
         //moving the pulley up/down
-        if(gamepad1.dpad_up) {
+        if (gamepad1.dpad_up) {
             bsgRobot.lift.setPower(1);
-        }
-        else if(gamepad1.dpad_down){
+        } else if (gamepad1.dpad_down) {
             bsgRobot.lift.setPower(-1);
         }
-        else{
-            bsgRobot.lift.setPower(0);
-        }
-
     }
-    }
+}
