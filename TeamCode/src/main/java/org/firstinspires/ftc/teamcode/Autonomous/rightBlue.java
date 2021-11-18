@@ -51,7 +51,7 @@ public class rightBlue extends LinearOpMode {
         encoderDrive(.5, 5, 5, 2);
 
         //rotate 90 degrees left
-        encoderDrive(.7, -10, 10, 2);
+        encoderDrive(.7, 0, 10, 2);
 
         //drive 20 inches backward
         encoderDrive(.5, -20, -20, 2);
@@ -63,7 +63,7 @@ public class rightBlue extends LinearOpMode {
         encoderDrive(.5, 20, 20, 2);
 
         //rotate 135 degrees right
-        encoderDrive(.7, 15, -15, 2);
+        encoderDrive(.7, 15, 0, 2);
 
         //drive 20 inches forward
         encoderDrive(.5, 20, 20, 2);
