@@ -48,25 +48,25 @@ public class leftRed extends LinearOpMode {
         waitForStart();
 
         //drive 5 inches forward
-        encoderDrive(.3, 5, 5, 2);
+        encoderDrive(.5, 5, 5, 2);
 
         //rotate 90 degrees right
-        encoderDrive(.3, 10, -10, 2);
+        encoderDrive(.7, 10, -10, 2);
 
         //drive 20 inches backward
-        encoderDrive(.3, -20, -20, 2);
+        encoderDrive(.5, -20, -20, 2);
 
         bsgRobot.carousel2.setPower(.5);
         sleep(3000);
 
         //drive 20 inches forward
-        encoderDrive(.3, 20, 20, 2);
+        encoderDrive(.5, 20, 20, 2);
 
         //rotate 135 degrees left
-        encoderDrive(.3, -15, 15, 2);
+        encoderDrive(.7, -15, 15, 2);
 
         //drive 20 inches forward
-        encoderDrive(.3, 20, 20, 2);
+        encoderDrive(.5, 20, 20, 2);
 
 
 

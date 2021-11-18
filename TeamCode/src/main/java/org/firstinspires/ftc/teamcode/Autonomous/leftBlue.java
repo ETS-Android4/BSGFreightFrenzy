@@ -48,10 +48,10 @@ public class leftBlue extends LinearOpMode {
         waitForStart();
 
         //drive 20 inches forward
-        encoderDrive(.3, 20, 20, 2);
+        encoderDrive(.5, 20, 20, 2);
 
         //rotate 90 degrees left
-        encoderDrive(.3, -10, 10, 2);
+        encoderDrive(.7, -10, 10, 2);
 
         //drive 20 inches forward
         encoderDrive(.5, 20, 20, 2);
