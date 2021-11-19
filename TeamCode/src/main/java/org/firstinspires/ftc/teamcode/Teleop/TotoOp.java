@@ -56,15 +56,6 @@ public class TotoOp extends OpMode {
         telemetry.addData("Back  Left Value: ", bsgRobot.backLeft.getPower());
         telemetry.update();
 
-        if (gamepad1.b) //rotating servo for hilarious grabbing mechanic xd
-        {
-            bsgRobot.spinningFunction.setPower(1);
-        }
-        if (gamepad1.a) {
-            bsgRobot.spinningFunction.setPower(-0.5);
-        } else {
-            bsgRobot.spinningFunction.setPower(0);
-        }
 //prone to change in the future 100% cause like robot not done yet
 
         //moving the pulley up/down

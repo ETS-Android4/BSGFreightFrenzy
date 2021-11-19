@@ -19,15 +19,12 @@ public class TotoOpArcade extends OpMode {
         bsgRobot.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bsgRobot.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bsgRobot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        bsgRobot.carousel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        bsgRobot.carousel2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-
     }
 
     @Override
     public void loop() {
 
-        telemetry.addData("Left Stick X: ",gamepad1.left_stick_x);
+        telemetry.addData("Left Stick X: ", gamepad1.left_stick_x);
         telemetry.addData("Right Stick X: ", gamepad1.right_stick_x);
         telemetry.addData("Left Stick Y:", gamepad1.left_stick_y);
         telemetry.addData("Right Stick Y:", gamepad1.right_stick_y);
@@ -35,7 +32,7 @@ public class TotoOpArcade extends OpMode {
 
         telemetry.update();
 
-        if (Math.abs(gamepad1.left_stick_y) > .1 && Math.abs(gamepad1.left_stick_y)<.3) {
+        if (Math.abs(gamepad1.left_stick_y) > .1 && Math.abs(gamepad1.left_stick_y) < .3) {
             bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
             bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
             bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
@@ -46,26 +43,46 @@ public class TotoOpArcade extends OpMode {
             bsgRobot.frontLeft.setPower(0);
             bsgRobot.backLeft.setPower(0);
         }
+        if (gamepad1.left_stick_x < -.1 && Math.abs(gamepad1.left_stick_y) < .3) {
+            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.left_stick_x);
+            bsgRobot.frontRight.setPower(gamepad1.left_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.left_stick_x);
+        } else {
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+            bsgRobot.frontRight.setPower(0);
+            bsgRobot.backRight.setPower(0);
+        }
+        if (gamepad1.left_stick_x < .1 && Math.abs(gamepad1.left_stick_y) < .3) {
+            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.left_stick_x);
+            bsgRobot.frontRight.setPower(gamepad1.left_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.left_stick_x);
+        } else {
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+            bsgRobot.frontRight.setPower(0);
+            bsgRobot.backRight.setPower(0);
+        }
 
         if (gamepad1.right_stick_x > -.1) {
             bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
             bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
             bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
             bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
-        }
-        else {
+        } else {
             bsgRobot.frontLeft.setPower(0);
             bsgRobot.backLeft.setPower(0);
             bsgRobot.frontRight.setPower(0);
             bsgRobot.backRight.setPower(0);
         }
-        if(gamepad1.right_stick_x > .1){
+        if (gamepad1.right_stick_x > .1) {
             bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
             bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
             bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
             bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
-        }
-        else {
+        } else {
             bsgRobot.frontLeft.setPower(0);
             bsgRobot.backRight.setPower(0);
             bsgRobot.frontRight.setPower(0);
@@ -87,35 +104,24 @@ public class TotoOpArcade extends OpMode {
         telemetry.addData("Back  Left Value: ", bsgRobot.backLeft.getPower());
         telemetry.update();
 
-        if(gamepad1.b) //rotating servo for hilarious grabbing mechanic xd
-        {
-            bsgRobot.spinningFunction.setPower(1);
-        }
-        if(gamepad1.a)
-        {
-            bsgRobot.spinningFunction.setPower(-0.5);
-        }
-        else
-        {
-            bsgRobot.spinningFunction.setPower(0);
-        }
-
-        telemetry.addData("Open", String.valueOf(bsgRobot.spinningFunction), gamepad1.b);
-        telemetry.addData("Close",String.valueOf(bsgRobot.spinningFunction), gamepad1.a);
-//prone to change in the future 100% cause like robot not done yet
-
-        //moving the pulley up/down
-        if(gamepad1.dpad_up) {
+        if (gamepad1.x) {
             bsgRobot.lift.setPower(1);
+        } else {
+            bsgRobot.lift.setPower(0);
         }
-        else if(gamepad1.dpad_down){
-            bsgRobot.lift.setPower(-1);
+        if (gamepad1.y){
+            bsgRobot.rotatingM.setPower(1);
         }
-        else if (gamepad1.y){
-            bsgRobot.lift.setTargetPosition(1);
+        else{
+            bsgRobot.rotatingM.setPower(0);
         }
-        telemetry.addData("lift", bsgRobot.lift.getCurrentPosition());
-
-        telemetry.update();
+        if(gamepad1.a){
+            bsgRobot.clamp.setPosition(1);
+        }
+        else{
+            bsgRobot.clamp.setPosition(0);
+        }
     }
 }
+
+
