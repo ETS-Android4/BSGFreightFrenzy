@@ -242,7 +242,7 @@ public class Robot {
 
 
 
- /*public void openClamp() {
+ public void openClamp() {
     clamp.setPosition(.65);
 
   }
@@ -251,7 +251,7 @@ public class Robot {
       clamp.setPosition(0);
   }
 
-  //arm stop functions
+  /*arm stop functions
   public void armStopUp(){
       armStop.setPosition(1);
   }
