@@ -56,7 +56,7 @@ public class leftRed extends LinearOpMode {
         //drive 20 inches backward
         encoderDrive(.5, -20, -20, 2);
 
-        bsgRobot.carousel2.setPower(.5);
+        bsgRobot.carousel.setPower(-.5);
         sleep(3000);
 
         //drive 20 inches forward

@@ -94,9 +94,9 @@ public class TotoOpArcade extends OpMode {
             bsgRobot.carousel.setPower(0);
         }
         if (gamepad1.right_bumper) {
-            bsgRobot.carousel2.setPower(-0.5);
+            bsgRobot.carousel.setPower(0.5);
         } else {
-            bsgRobot.carousel2.setPower(0);
+            bsgRobot.carousel.setPower(0);
         }
         telemetry.addData("Front Right Value: ", bsgRobot.frontRight.getPower());
         telemetry.addData("Back Right Value: ", bsgRobot.backRight.getPower());
