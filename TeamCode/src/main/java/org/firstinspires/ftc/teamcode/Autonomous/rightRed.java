@@ -29,7 +29,7 @@ public class rightRed extends LinearOpMode {
 
     //For turning with encoders
     Integer cpr = 28; //counts per rotation originally 28
-    Integer gearratio = 40; //IDK IT WAS ORIGINALLY 40
+    Integer gearratio = (((1+(46/17))) * (1+(46/11))); //IDK IT WAS ORIGINALLY 40
     Double diameter = 4.0;
     Double cpi = (cpr * gearratio) / (Math.PI * diameter); //counts per inch, 28cpr * gear ratio / (2 * pi * diameter (in inches, in the center))
     Double bias = 0.8;//default 0.8
