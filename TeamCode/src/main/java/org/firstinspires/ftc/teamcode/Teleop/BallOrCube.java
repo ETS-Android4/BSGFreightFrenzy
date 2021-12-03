@@ -61,8 +61,8 @@ public class BallOrCube extends LinearOpMode {
         Point topLeft = new Point(50, 50);
         Point bottomRight = new Point(100, 100);
 
-        Mat region;
-        Mat YCrCb;
+        Mat region1_cb;
+        Mat YCrCb = new Mat();
         Mat Cb = new Mat();
         private volatile int average;
 
@@ -77,14 +77,14 @@ public class BallOrCube extends LinearOpMode {
         public void init(Mat input) {
             inputToCb(input);
 
-            region = Cb.submat(new Rect(topLeft, bottomRight));
+            region1_cb = Cb.submat(new Rect(topLeft, bottomRight));
         }
 
         @Override
         public Mat processFrame(Mat input) {
             inputToCb(input);
 
-            average = (int) Core.mean(region).val[0];
+            average = (int) Core.mean(region1_cb).val[0];
 
             Imgproc.rectangle(input, topLeft, bottomRight, BLUE, 2);
 
