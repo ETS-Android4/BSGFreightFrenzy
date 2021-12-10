@@ -109,12 +109,6 @@ public class TotoOpArcade extends OpMode {
         } else {
             bsgRobot.lift.setPower(0);
         }
-        if (gamepad1.y){
-            bsgRobot.rotatingM.setPower(1);
-        }
-        else{
-            bsgRobot.rotatingM.setPower(0);
-        }
         if(gamepad1.a){
             bsgRobot.openClamp();
         }
