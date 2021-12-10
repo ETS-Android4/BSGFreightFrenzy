@@ -15,10 +15,10 @@ public class TotoOpArcade extends OpMode {
     public void init() {
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        bsgRobot.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        bsgRobot.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        bsgRobot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        bsgRobot.frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        bsgRobot.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        bsgRobot.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        bsgRobot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class TotoOpArcade extends OpMode {
 
         telemetry.update();
 
-        if (Math.abs(gamepad1.left_stick_y) > .1 && Math.abs(gamepad1.left_stick_y) < .3) {
+        if (Math.abs(gamepad1.left_stick_y) > .1 && Math.abs(gamepad1.left_stick_x) < .3) {
             bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
             bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
             bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);

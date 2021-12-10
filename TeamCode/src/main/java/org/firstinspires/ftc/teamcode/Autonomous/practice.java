@@ -56,7 +56,7 @@ public class practice extends LinearOpMode {
         //drive 20 inches backward
         encoderDrive(.3, -20, -20, 2);
 
-        bsgRobot.carousel2.setPower(-0.5);
+      //  bsgRobot.carousel2.setPower(-0.5);
         sleep(3000);
 
         //drive 5 inches forward
