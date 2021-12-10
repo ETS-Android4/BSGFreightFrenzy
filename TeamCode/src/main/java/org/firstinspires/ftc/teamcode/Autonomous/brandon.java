@@ -58,7 +58,7 @@ public class brandon extends LinearOpMode {
         //drive back 16 inches
         encoderDrive(.5,-16, -16, 0.5);
 
-       // bsgRobot.carousel2.setPower(-0.5);
+        bsgRobot.carousel2.setPower(-0.5);
         sleep(3500);
 
         //rotate CCW approximately 90

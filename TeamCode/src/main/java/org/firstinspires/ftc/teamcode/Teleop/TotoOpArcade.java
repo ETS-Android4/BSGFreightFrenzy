@@ -21,10 +21,10 @@ public class TotoOpArcade extends OpMode {
     public void init() {
         bsgRobot.init(hardwareMap);;
 
-        bsgRobot.frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        bsgRobot.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        bsgRobot.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        bsgRobot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        bsgRobot.frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        bsgRobot.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        bsgRobot.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        bsgRobot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
     }
 
     @Override
@@ -38,6 +38,7 @@ public class TotoOpArcade extends OpMode {
 
         telemetry.update();
 
+<<<<<<< HEAD
         if (Math.abs(gamepad1.left_stick_y) > .1 || Math.abs(gamepad1.left_stick_x) < .1) {
            yValue = gamepad1.left_stick_y;
            xValue = gamepad1.left_stick_x;
@@ -49,6 +50,18 @@ public class TotoOpArcade extends OpMode {
            bsgRobot.backRight(Range.clip(rightPower,-1.0,1.0));
         } if (gamepad1.dpad_left){
             bsgRobot.strafeLeft(1);
+=======
+        if (Math.abs(gamepad1.left_stick_y) > .1 && Math.abs(gamepad1.left_stick_y) < .3) {
+            bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
+            bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
+            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
+            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
+        } else {
+            bsgRobot.frontRight.setPower(0);
+            bsgRobot.backRight.setPower(0);
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+>>>>>>> parent of 3df3c05 (arcade mode?)
         }
         else if (gamepad1.dpad_right){
             bsgRobot.strafeRight(1);
