@@ -1,13 +1,10 @@
 //bro like half of this im referencing from tylaop lmfao
 package org.firstinspires.ftc.teamcode.Teleop;
 
-import com.qualcomm.robotcore.util.Range;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-import org.firstinspires.ftc.robotserver.internal.webserver.RobotControllerWebHandlers;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 
@@ -15,7 +12,6 @@ import org.firstinspires.ftc.teamcode.Hardware.Robot;
 public class TotoOpArcade extends OpMode {
     Robot bsgRobot = new Robot();
 
-    double xValue, yValue, leftPower, rightPower;
 
     @Override
     public void init() {
@@ -38,19 +34,7 @@ public class TotoOpArcade extends OpMode {
 
         telemetry.update();
 
-<<<<<<< HEAD
-        if (Math.abs(gamepad1.left_stick_y) > .1 || Math.abs(gamepad1.left_stick_x) < .1) {
-           yValue = gamepad1.left_stick_y;
-           xValue = gamepad1.left_stick_x;
-           leftPower = yValue - xValue;
-           rightPower = yValue + xValue;
-           bsgRobot.frontLeft(Range.clip(leftPower, -1.0, 1.0));
-           bsgRobot.backLeft(Range.clip(leftPower, -1.0,1.0));
-           bsgRobot.frontRight(Range.clip(rightPower, -1.0, 1.0));
-           bsgRobot.backRight(Range.clip(rightPower,-1.0,1.0));
-        } if (gamepad1.dpad_left){
-            bsgRobot.strafeLeft(1);
-=======
+
         if (Math.abs(gamepad1.left_stick_y) > .1 && Math.abs(gamepad1.left_stick_y) < .3) {
             bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
             bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
@@ -61,13 +45,61 @@ public class TotoOpArcade extends OpMode {
             bsgRobot.backRight.setPower(0);
             bsgRobot.frontLeft.setPower(0);
             bsgRobot.backLeft.setPower(0);
->>>>>>> parent of 3df3c05 (arcade mode?)
         }
-        else if (gamepad1.dpad_right){
-            bsgRobot.strafeRight(1);
+        if (gamepad1.left_stick_x < -.1 && Math.abs(gamepad1.left_stick_y) < .3) {
+            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.left_stick_x);
+            bsgRobot.frontRight.setPower(gamepad1.left_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.left_stick_x);
         }
-        else{
-            bsgRobot.stopWheels();
+        else {
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+            bsgRobot.frontRight.setPower(0);
+            bsgRobot.backRight.setPower(0);
+        }
+
+
+        //Right strafe when left_stick_x is positive (right)
+        if (gamepad1.left_stick_x > .1 && Math.abs(gamepad1.left_stick_y) < .3) {
+            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.left_stick_x);
+            bsgRobot.frontRight.setPower(gamepad1.left_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.left_stick_x);
+        }
+        else {
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+            bsgRobot.frontRight.setPower(0);
+            bsgRobot.backRight.setPower(0);
+        }
+
+        //Rotate counterclockwise (pivot turn left) when right stick is pressed to the left
+        if (gamepad1.right_stick_x < -.1){
+            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
+        }
+        else {
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+            bsgRobot.frontRight.setPower(0);
+            bsgRobot.backRight.setPower(0);
+        }
+
+        //Rotate clockwise (pivot turn right) when right stick is pressed to the right
+        if (gamepad1.right_stick_x > .1){
+            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
+        }
+        else {
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+            bsgRobot.frontRight.setPower(0);
+            bsgRobot.backRight.setPower(0);
         }
         if (gamepad1.left_bumper) {
             bsgRobot.carousel.setPower(-0.5);
