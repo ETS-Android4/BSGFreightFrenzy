@@ -1,19 +1,25 @@
 //bro like half of this im referencing from tylaop lmfao
 package org.firstinspires.ftc.teamcode.Teleop;
 
+import com.qualcomm.robotcore.util.Range;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+import org.firstinspires.ftc.robotserver.internal.webserver.RobotControllerWebHandlers;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
+
 
 @TeleOp (name = "TotoOpArcade")
 public class TotoOpArcade extends OpMode {
     Robot bsgRobot = new Robot();
 
+    double xValue, yValue, leftPower, rightPower;
+
     @Override
     public void init() {
-        bsgRobot.init(hardwareMap);
+        bsgRobot.init(hardwareMap);;
 
         bsgRobot.frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bsgRobot.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -32,61 +38,23 @@ public class TotoOpArcade extends OpMode {
 
         telemetry.update();
 
-        if (Math.abs(gamepad1.left_stick_y) > .1 && Math.abs(gamepad1.left_stick_x) < .3) {
-            bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
-            bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
-            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
-        } else {
-            bsgRobot.frontRight.setPower(0);
-            bsgRobot.backRight.setPower(0);
-            bsgRobot.frontLeft.setPower(0);
-            bsgRobot.backLeft.setPower(0);
+        if (Math.abs(gamepad1.left_stick_y) > .1 || Math.abs(gamepad1.left_stick_x) < .1) {
+           yValue = gamepad1.left_stick_y;
+           xValue = gamepad1.left_stick_x;
+           leftPower = yValue - xValue;
+           rightPower = yValue + xValue;
+           bsgRobot.frontLeft(Range.clip(leftPower, -1.0, 1.0));
+           bsgRobot.backLeft(Range.clip(leftPower, -1.0,1.0));
+           bsgRobot.frontRight(Range.clip(rightPower, -1.0, 1.0));
+           bsgRobot.backRight(Range.clip(rightPower,-1.0,1.0));
+        } if (gamepad1.dpad_left){
+            bsgRobot.strafeLeft(1);
         }
-        if (gamepad1.left_stick_x < -.1 && Math.abs(gamepad1.left_stick_y) < .3) {
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x);
-            bsgRobot.backLeft.setPower(gamepad1.left_stick_x);
-            bsgRobot.frontRight.setPower(gamepad1.left_stick_x);
-            bsgRobot.backRight.setPower(-gamepad1.left_stick_x);
-        } else {
-            bsgRobot.frontLeft.setPower(0);
-            bsgRobot.backLeft.setPower(0);
-            bsgRobot.frontRight.setPower(0);
-            bsgRobot.backRight.setPower(0);
+        else if (gamepad1.dpad_right){
+            bsgRobot.strafeRight(1);
         }
-        if (gamepad1.left_stick_x < .1 && Math.abs(gamepad1.left_stick_y) < .3) {
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x);
-            bsgRobot.backLeft.setPower(gamepad1.left_stick_x);
-            bsgRobot.frontRight.setPower(gamepad1.left_stick_x);
-            bsgRobot.backRight.setPower(-gamepad1.left_stick_x);
-        } else {
-            bsgRobot.frontLeft.setPower(0);
-            bsgRobot.backLeft.setPower(0);
-            bsgRobot.frontRight.setPower(0);
-            bsgRobot.backRight.setPower(0);
-        }
-
-        if (gamepad1.right_stick_x > -.1) {
-            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
-            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
-            bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
-            bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
-        } else {
-            bsgRobot.frontLeft.setPower(0);
-            bsgRobot.backLeft.setPower(0);
-            bsgRobot.frontRight.setPower(0);
-            bsgRobot.backRight.setPower(0);
-        }
-        if (gamepad1.right_stick_x > .1) {
-            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
-            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
-            bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
-            bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
-        } else {
-            bsgRobot.frontLeft.setPower(0);
-            bsgRobot.backRight.setPower(0);
-            bsgRobot.frontRight.setPower(0);
-            bsgRobot.backLeft.setPower(0);
+        else{
+            bsgRobot.stopWheels();
         }
         if (gamepad1.left_bumper) {
             bsgRobot.carousel.setPower(-0.5);
@@ -112,7 +80,7 @@ public class TotoOpArcade extends OpMode {
         if(gamepad1.a){
             bsgRobot.openClamp();
         }
-        else if (gamepad1.b){
+        else if (gamepad1.b) {
             bsgRobot.closeClamp();
         }
     }

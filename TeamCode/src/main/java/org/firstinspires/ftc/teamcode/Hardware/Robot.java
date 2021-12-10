@@ -53,7 +53,7 @@ public class Robot {
   public Acceleration gravity;
   public static Telemetry telemetry;
 
-  //constructor
+    //constructor
   public Robot() {
 
   }
@@ -250,6 +250,18 @@ public class Robot {
   public void closeClamp() {
       clamp.setPosition(0);
   }
+
+    public void frontLeft(double clip) {
+    }
+
+    public void frontRight(double clip) {
+    }
+
+    public void backLeft(double clip) {
+    }
+
+    public void backRight(double clip) {
+    }
 
   /*arm stop functions
   public void armStopUp(){
