@@ -241,28 +241,6 @@ public class Robot {
   }
 
 
-
- public void openClamp() {
-    clamp.setPosition(.65);
-
-  }
-
-  public void closeClamp() {
-      clamp.setPosition(0);
-  }
-
-    public void frontLeft(double clip) {
-    }
-
-    public void frontRight(double clip) {
-    }
-
-    public void backLeft(double clip) {
-    }
-
-    public void backRight(double clip) {
-    }
-
   /*arm stop functions
   public void armStopUp(){
       armStop.setPosition(1);

@@ -4,6 +4,7 @@ package org.firstinspires.ftc.teamcode.Teleop;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
@@ -20,6 +21,10 @@ public class TotoOp extends OpMode {
         bsgRobot.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bsgRobot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bsgRobot.carousel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+
+
+        bsgRobot.frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        bsgRobot.backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
 
     }
 
