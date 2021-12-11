@@ -61,10 +61,10 @@ public class Robot {
   public void init(HardwareMap hMap) {
     //drive train
     frontLeft = hMap.dcMotor.get("frontLeft");
-
     backLeft = hMap.dcMotor.get("backLeft");
     frontRight = hMap.dcMotor.get("frontRight");
     backRight = hMap.dcMotor.get("backRight");
+
 
     frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
     backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
