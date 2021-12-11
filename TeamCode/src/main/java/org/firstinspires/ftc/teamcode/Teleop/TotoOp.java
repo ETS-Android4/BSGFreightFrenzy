@@ -20,7 +20,6 @@ public class TotoOp extends OpMode {
         bsgRobot.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bsgRobot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bsgRobot.carousel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        bsgRobot.carousel2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
     }
 
@@ -42,13 +41,12 @@ public class TotoOp extends OpMode {
         }
         if (gamepad1.left_bumper) {
             bsgRobot.carousel.setPower(-0.5);
-        } else {
-            bsgRobot.carousel.setPower(0);
         }
-        if (gamepad1.right_bumper) {
-            bsgRobot.carousel2.setPower(-0.5);
-        } else {
-            bsgRobot.carousel2.setPower(0);
+        if(gamepad1.right_bumper){
+            bsgRobot.carousel.setPower(0.5);
+        }
+        else {
+            bsgRobot.carousel.setPower(0);
         }
         telemetry.addData("Front Right Value: ", bsgRobot.frontRight.getPower());
         telemetry.addData("Back Right Value: ", bsgRobot.backRight.getPower());
@@ -57,12 +55,23 @@ public class TotoOp extends OpMode {
         telemetry.update();
 
 //prone to change in the future 100% cause like robot not done yet
-
+        //opening and closing clamp
+        if (gamepad1.a)
+        bsgRobot.clamp.setPosition(50);
+        else if(gamepad1.b){
+            bsgRobot.clamp.setPosition(-50);
+        }
+        else {
+            bsgRobot.clamp.setPosition(0);
+        }
         //moving the pulley up/down
         if (gamepad1.dpad_up) {
             bsgRobot.lift.setPower(1);
         } else if (gamepad1.dpad_down) {
             bsgRobot.lift.setPower(-1);
+        }
+        else{
+            bsgRobot.lift.setPower(0);
         }
     }
 }

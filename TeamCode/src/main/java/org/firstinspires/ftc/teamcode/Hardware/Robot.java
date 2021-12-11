@@ -37,7 +37,7 @@ public class Robot {
   public Servo clamp;
  // public Servo armStop;
   public DcMotor carousel;
-  public DcMotor carousel2;
+ // public DcMotor carousel2;
   //public CRServo spinningFunction;
 
   //for moving the foundation
@@ -84,7 +84,7 @@ public class Robot {
    clamp = hMap.servo.get("clamp");
    // armStop = hMap.servo.get("armStop");
     carousel = hMap.dcMotor.get("carousel");
-    carousel2 = hMap.dcMotor.get("carousel2");
+    //carousel2 = hMap.dcMotor.get("carousel2");
     //spinningFunction = hMap.crservo.get("spinningFunction");
 
    // lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
