@@ -33,6 +33,7 @@ public class TotoOp extends OpMode {
         if (Math.abs(gamepad1.right_stick_y) > .1) {
             bsgRobot.frontRight.setPower(-gamepad1.right_stick_y);
             bsgRobot.backRight.setPower(-gamepad1.right_stick_y);
+
         } else {
             bsgRobot.frontRight.setPower(0);
             bsgRobot.backRight.setPower(0);
