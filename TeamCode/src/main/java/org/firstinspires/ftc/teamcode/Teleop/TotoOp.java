@@ -33,7 +33,7 @@ public class TotoOp extends OpMode {
             bsgRobot.backLeft.setPower(gamepad1.left_stick_y);
         }
         else if (gamepad1.left_trigger > .1) {
-            bsgRobot.frontLeft.setPower(gamepad1.left_trigger);
+            bsgRobot.frontLeft.setPower(-gamepad1.left_trigger);
             bsgRobot.backLeft.setPower(gamepad1.left_trigger);
             bsgRobot.frontRight.setPower(gamepad1.left_trigger);
             bsgRobot.backRight.setPower(-gamepad1.left_trigger);
@@ -41,7 +41,7 @@ public class TotoOp extends OpMode {
         else if (gamepad1.right_trigger < .1) {
             bsgRobot.frontLeft.setPower(gamepad1.left_trigger);
             bsgRobot.backLeft.setPower(-gamepad1.left_trigger);
-            bsgRobot.frontRight.setPower(gamepad1.left_trigger);
+            bsgRobot.frontRight.setPower(-gamepad1.left_trigger);
             bsgRobot.backRight.setPower(gamepad1.left_trigger);
         }
         else {
@@ -50,11 +50,11 @@ public class TotoOp extends OpMode {
             bsgRobot.frontLeft.setPower(0);
             bsgRobot.backLeft.setPower(0);
         }
-        if (gamepad1.left_bumper) {
-            bsgRobot.carousel.setPower(-0.5);
+        if (gamepad1.dpad_left) {
+            bsgRobot.carousel.setPower(-0.65);
         }
-        if(gamepad1.right_bumper){
-            bsgRobot.carousel.setPower(0.5);
+        if(gamepad1.dpad_right){
+            bsgRobot.carousel.setPower(0.65);
         }
         else {
             bsgRobot.carousel.setPower(0);
