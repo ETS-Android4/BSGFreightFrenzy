@@ -3,22 +3,24 @@ package org.firstinspires.ftc.teamcode.Teleop;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
+
+import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 @TeleOp (name = "TotoArcadeOp2")
 public class TotoArcadeOp2 extends LinearOpMode {
-    DcMotor leftMotor, rightMotor, lift;
-    Servo clamp;
-    float   leftPower, rightPower, xValue, yValue;
+    private Robot bsgBot = new Robot();
+    double  leftPower, rightPower, xValue, yValue;
+
 
     @Override
     public void runOpMode() throws InterruptedException {
+        bsgBot.init(hardwareMap);
         {
-            leftMotor = hardwareMap.dcMotor.get("left_motor");
-            rightMotor = hardwareMap.dcMotor.get("right_motor");
 
-            leftMotor.setDirection(DcMotor.Direction.REVERSE);
+            bsgBot.frontLeft.setDirection(DcMotor.Direction.REVERSE);
+            bsgBot.backLeft.setDirection(DcMotor.Direction.REVERSE);
+
 
             telemetry.addData("Mode", "waiting");
             telemetry.update();
@@ -28,14 +30,19 @@ public class TotoArcadeOp2 extends LinearOpMode {
             waitForStart();
 
             while (opModeIsActive()) {
-                yValue = gamepad1.right_stick_y * -1;
-                xValue = gamepad1.right_stick_x * -1;
+                if (Math.abs(gamepad1.left_stick_y)> 1 || Math.abs(gamepad1.left_stick_x)> .1)
+                yValue = gamepad1.left_stick_y ;
+                xValue = gamepad1.left_stick_x ;
 
                 leftPower = yValue - xValue;
                 rightPower = yValue + xValue;
 
-                leftMotor.setPower(Range.clip(leftPower, -1.0, 1.0));
-                rightMotor.setPower(Range.clip(rightPower, -1.0, 1.0));
+                bsgBot.frontLeft.setPower(Range.clip(leftPower, -1.0, 1.0));
+                bsgBot.backLeft.setPower(Range.clip(leftPower,-1.0,1.0));
+                bsgBot.frontRight.setPower(Range.clip(rightPower, 1.0, -1.0));
+                bsgBot.backRight.setPower(Range.clip(rightPower,1.0,-1.0));
+
+                
 
                 telemetry.addData("Mode", "running");
                 telemetry.addData("stick", "  y=" + yValue + "  x=" + xValue);
@@ -46,19 +53,19 @@ public class TotoArcadeOp2 extends LinearOpMode {
             }
         }
         if (gamepad1.a)
-            clamp.setPosition(50);
+            bsgBot.clamp.setPosition(50);
         else if (gamepad1.b) {
-            clamp.setPosition(-50);
+            bsgBot.clamp.setPosition(-50);
         } else {
-            clamp.setPosition(0);
+            bsgBot.clamp.setPosition(0);
         }
         //moving the pulley up/down
         if (gamepad1.dpad_up) {
-            lift.setPower(1);
+            bsgBot.lift.setPower(1);
         } else if (gamepad1.dpad_down) {
-            lift.setPower(-1);
+            bsgBot.lift.setPower(-1);
         } else {
-            lift.setPower(0);
+            bsgBot.lift.setPower(0);
         }
     }
 }

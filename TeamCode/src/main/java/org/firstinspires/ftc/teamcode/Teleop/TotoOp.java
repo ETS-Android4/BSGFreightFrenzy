@@ -4,7 +4,6 @@ package org.firstinspires.ftc.teamcode.Teleop;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
@@ -23,25 +22,31 @@ public class TotoOp extends OpMode {
         bsgRobot.carousel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
 
-        bsgRobot.frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        bsgRobot.backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-
     }
 
     @Override
     public void loop() {
-        if (Math.abs(gamepad1.right_stick_y) > .1) {
-            bsgRobot.frontRight.setPower(-gamepad1.right_stick_y);
+        if (Math.abs(gamepad1.left_stick_y)>.1 || Math.abs(gamepad1.right_stick_y) > .1) {
+            bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
+            bsgRobot.frontLeft.setPower(gamepad1.right_stick_y);
             bsgRobot.backRight.setPower(-gamepad1.right_stick_y);
-
-        } else {
+            bsgRobot.backLeft.setPower(gamepad1.left_stick_y);
+        }
+        else if (gamepad1.left_trigger > .1) {
+            bsgRobot.frontLeft.setPower(gamepad1.left_trigger);
+            bsgRobot.backLeft.setPower(gamepad1.left_trigger);
+            bsgRobot.frontRight.setPower(gamepad1.left_trigger);
+            bsgRobot.backRight.setPower(-gamepad1.left_trigger);
+        }
+        else if (gamepad1.right_trigger < .1) {
+            bsgRobot.frontLeft.setPower(gamepad1.left_trigger);
+            bsgRobot.backLeft.setPower(-gamepad1.left_trigger);
+            bsgRobot.frontRight.setPower(gamepad1.left_trigger);
+            bsgRobot.backRight.setPower(gamepad1.left_trigger);
+        }
+        else {
             bsgRobot.frontRight.setPower(0);
             bsgRobot.backRight.setPower(0);
-        }
-        if (Math.abs(gamepad1.left_stick_y) > .1) {
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
-            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
-        } else {
             bsgRobot.frontLeft.setPower(0);
             bsgRobot.backLeft.setPower(0);
         }
