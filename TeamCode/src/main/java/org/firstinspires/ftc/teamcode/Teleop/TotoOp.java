@@ -84,5 +84,12 @@ public class TotoOp extends OpMode {
         else{
             bsgRobot.lift.setPower(0);
         }
+        //moving claw up and down
+        if (gamepad1.x){
+            bsgRobot.motion.setPower(1.0);
+        }
+        else{
+            bsgRobot.motion.setPower(0);
+        }
     }
 }

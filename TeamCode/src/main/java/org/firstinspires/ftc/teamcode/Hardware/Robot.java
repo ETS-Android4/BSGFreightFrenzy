@@ -37,6 +37,8 @@ public class Robot {
   public Servo clamp;
  // public Servo armStop;
   public DcMotor carousel;
+  public DcMotor motion;
+
  // public DcMotor carousel2;
   //public CRServo spinningFunction;
 
@@ -84,6 +86,7 @@ public class Robot {
    clamp = hMap.servo.get("clamp");
    // armStop = hMap.servo.get("armStop");
     carousel = hMap.dcMotor.get("carousel");
+    motion = hMap.dcMotor.get("motion");
     //carousel2 = hMap.dcMotor.get("carousel2");
     //spinningFunction = hMap.crservo.get("spinningFunction");
 
