@@ -41,7 +41,9 @@ public class leftRedStrafe extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         bsgRobot.init(hardwareMap);
 
-        bsgRobot.strafeRight(1000);
+        encoderDrive(0.6,4,4,0.3);
+
+        bsgRobot.strafeLeft(1000);
         sleep(500);
 
         bsgRobot.carousel.setPower(0.5);
