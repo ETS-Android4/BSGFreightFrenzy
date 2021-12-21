@@ -7,15 +7,14 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
-@Autonomous (name = "RightBlueCarouselPark")
-public class rightBlueStrafe extends LinearOpMode {
+@Autonomous (name = "parkStrafeTest")
+public class parkStrafeTest extends LinearOpMode {
     Robot bsgRobot = new Robot();
-
     /*
-   *
-   VARIABLES FOR ENCODERS
-   *
-   */
+       *
+       VARIABLES FOR ENCODERS
+       *
+       */
     private ElapsedTime runtime = new ElapsedTime();
 
     static final double COUNTS_PER_MOTOR_REV = 312;    // Neverest 40
@@ -28,7 +27,7 @@ public class rightBlueStrafe extends LinearOpMode {
 
     //For turning with encoders
     Integer cpr = 28; //counts per rotation originally 28
-    Integer gearratio = (((1 + (46 / 17))) * (1 + (46 / 11))); //IDK IT WAS ORIGINALLY 40
+    Integer gearratio = (((1+(46/17))) * (1+(46/11))); //IDK IT WAS ORIGINALLY 40
     Double diameter = 4.0;
     Double cpi = (cpr * gearratio) / (Math.PI * diameter); //counts per inch, 28cpr * gear ratio / (2 * pi * diameter (in inches, in the center))
     Double bias = 0.8;//default 0.8
@@ -39,26 +38,23 @@ public class rightBlueStrafe extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        bsgRobot.init(hardwareMap);
 
         bsgRobot.strafeRight(1000);
         sleep(500);
 
-        bsgRobot.carousel.setPower(0.65);
-
-        encoderDrive(0.7,36,36,0.3);
+        encoderDrive(.6,36,36,0.3);
 
     }
     /*
-       *
-       *
-       *
-       FUNCTIONS FOR ENCODERS
-       *
-       *
-       *
-       *
-        */
+   *
+   *
+   *
+   FUNCTIONS FOR ENCODERS
+   *
+   *
+   *
+   *
+    */
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {
@@ -159,5 +155,10 @@ public class rightBlueStrafe extends LinearOpMode {
         bsgRobot.backRight.setPower(0);
         bsgRobot.backLeft.setPower(0);
         return;
+
+
+
+
+
     }
 }

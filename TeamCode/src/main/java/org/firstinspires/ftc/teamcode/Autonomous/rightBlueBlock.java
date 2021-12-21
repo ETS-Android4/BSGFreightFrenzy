@@ -45,7 +45,7 @@ public class rightBlueBlock extends LinearOpMode {
         bsgRobot.clamp.setPosition(50);
         sleep(300);
 
-        encoderDrive(0.6,4,4,0.3);
+        encoderDrive(0.6,-4,-4,0.3);
 
         bsgRobot.lift.setPower(-1.0);
         sleep(1000);
