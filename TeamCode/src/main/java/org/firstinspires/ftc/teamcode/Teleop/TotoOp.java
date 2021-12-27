@@ -26,11 +26,17 @@ public class TotoOp extends OpMode {
 
     @Override
     public void loop() {
-        if (Math.abs(gamepad1.left_stick_y)>.1 || Math.abs(gamepad1.right_stick_y) > .1) {
+        if (Math.abs(gamepad1.left_stick_y)>.1){
             bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
-            bsgRobot.frontLeft.setPower(gamepad1.right_stick_y);
-            bsgRobot.backRight.setPower(-gamepad1.right_stick_y);
-            bsgRobot.backLeft.setPower(gamepad1.left_stick_y);
+            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
+            bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
+            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
+        }
+        else if (Math.abs(gamepad1.right_stick_y) > .1){
+            bsgRobot.frontRight.setPower(gamepad1.right_stick_x);
+            bsgRobot.backRight.setPower(gamepad1.right_stick_x);
+            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
         }
         else if (gamepad1.left_trigger > .1) {
             bsgRobot.frontLeft.setPower(-gamepad1.left_trigger);
@@ -38,7 +44,7 @@ public class TotoOp extends OpMode {
             bsgRobot.frontRight.setPower(gamepad1.left_trigger);
             bsgRobot.backRight.setPower(-gamepad1.left_trigger);
         }
-        else if (gamepad1.right_trigger < .1) {
+        else if (gamepad1.right_trigger > .1) {
             bsgRobot.frontLeft.setPower(gamepad1.left_trigger);
             bsgRobot.backLeft.setPower(-gamepad1.left_trigger);
             bsgRobot.frontRight.setPower(-gamepad1.left_trigger);
@@ -86,7 +92,10 @@ public class TotoOp extends OpMode {
         }
         //moving claw up and down
         if (gamepad1.x){
-            bsgRobot.motion.setPower(1.0);
+            bsgRobot.motion.setPower(.5);
+        }
+        else if (gamepad1.y){
+            bsgRobot.motion.setPower(-.5);
         }
         else{
             bsgRobot.motion.setPower(0);
