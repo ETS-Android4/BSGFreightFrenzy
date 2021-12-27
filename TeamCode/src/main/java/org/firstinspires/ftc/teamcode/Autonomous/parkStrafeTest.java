@@ -38,11 +38,14 @@ public class parkStrafeTest extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
+        bsgRobot.init(hardwareMap);
+
+        waitForStart();
 
         bsgRobot.strafeRight(1000);
         sleep(500);
 
-        encoderDrive(.6,36,36,0.3);
+        encoderDrive(.6,36,36,4);
 
     }
     /*

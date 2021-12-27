@@ -38,8 +38,11 @@ public class leftBlueBlock extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
+        bsgRobot.init(hardwareMap);
 
-        encoderDrive(0.6,26,26,0.3);
+        waitForStart();
+
+        encoderDrive(0.6,26,26,4);
 
         bsgRobot.lift.setPower(1.0);
         sleep(1000);
@@ -47,7 +50,7 @@ public class leftBlueBlock extends LinearOpMode {
         bsgRobot.clamp.setPosition(50);
         sleep(300);
 
-        encoderDrive(0.6,-22,-22,0.3);
+        encoderDrive(0.6,-22,-22,4);
 
         bsgRobot.lift.setPower(-1.0);
         sleep(1000);
@@ -55,12 +58,12 @@ public class leftBlueBlock extends LinearOpMode {
         bsgRobot.clamp.setPosition(0);
         sleep(300);
 
-        encoderDrive(0.6,12,-12,0.3);
+        encoderDrive(0.6,12,-12,4);
 
         bsgRobot.strafeLeft(100);
         sleep(300);
 
-        encoderDrive(0.7,-40,-40, 0.3);
+        encoderDrive(0.7,-40,-40, 4);
 
     }
     /*

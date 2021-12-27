@@ -117,20 +117,29 @@ public class TotoOpArcade extends OpMode {
         telemetry.addData("Back  Left Value: ", bsgRobot.backLeft.getPower());
         telemetry.update();
 
-        if (gamepad1.x) {
-            bsgRobot.lift.setPower(1);
-        }
-        if (gamepad1.y){
-            bsgRobot.lift.setPower(-1);
+        if (gamepad1.a)
+            bsgRobot.clamp.setPosition(50);
+        else if(gamepad1.b){
+            bsgRobot.clamp.setPosition(-50);
         }
         else {
+            bsgRobot.clamp.setPosition(0);
+        }
+        //moving the pulley up/down
+        if (gamepad1.dpad_up) {
+            bsgRobot.lift.setPower(1);
+        } else if (gamepad1.dpad_down) {
+            bsgRobot.lift.setPower(-1);
+        }
+        else{
             bsgRobot.lift.setPower(0);
         }
-        if(gamepad1.a){
-            bsgRobot.clamp.setPosition(1);
+        //moving claw up and down
+        if (gamepad1.x){
+            bsgRobot.motion.setPower(1.0);
         }
-        else if (gamepad1.b) {
-            bsgRobot.clamp.setPosition(-1);
+        else{
+            bsgRobot.motion.setPower(0);
         }
     }
 }

@@ -41,12 +41,14 @@ public class rightBlueStrafe extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         bsgRobot.init(hardwareMap);
 
+        waitForStart();
+
         bsgRobot.strafeRight(1000);
         sleep(500);
 
         bsgRobot.carousel.setPower(0.65);
 
-        encoderDrive(0.7,36,36,0.3);
+        encoderDrive(0.7,36,36,4);
 
     }
     /*
