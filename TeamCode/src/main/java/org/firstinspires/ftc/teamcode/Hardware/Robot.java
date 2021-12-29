@@ -244,6 +244,8 @@ public class Robot {
   }
 
 
+
+
   /*arm stop functions
   public void armStopUp(){
       armStop.setPosition(1);

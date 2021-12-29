@@ -21,22 +21,25 @@ public class TotoOp extends OpMode {
         bsgRobot.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bsgRobot.carousel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
+        telemetry.addData("Move forward", "L/R sticks");
+        telemetry.update();
+
 
     }
 
     @Override
     public void loop() {
         if (Math.abs(gamepad1.left_stick_y)>.1){
-            bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
-            bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
-            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
+            bsgRobot.frontRight.setPower(gamepad1.left_stick_y);
+            bsgRobot.frontLeft.setPower(gamepad1.left_stick_y);
+            bsgRobot.backRight.setPower(gamepad1.left_stick_y);
+            bsgRobot.backLeft.setPower(gamepad1.left_stick_y);
         }
-        else if (Math.abs(gamepad1.right_stick_y) > .1){
+        else if ((Math.abs(gamepad1.right_stick_x) > .1) || Math.abs(gamepad1.right_stick_x)>-.1){
             bsgRobot.frontRight.setPower(gamepad1.right_stick_x);
             bsgRobot.backRight.setPower(gamepad1.right_stick_x);
-            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
-            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.frontLeft.setPower(-gamepad1.right_stick_x);
+            bsgRobot.backLeft.setPower(-gamepad1.right_stick_x);
         }
         else if (gamepad1.left_trigger > .1) {
             bsgRobot.frontLeft.setPower(-gamepad1.left_trigger);
@@ -74,9 +77,9 @@ public class TotoOp extends OpMode {
 //prone to change in the future 100% cause like robot not done yet
         //opening and closing clamp
         if (gamepad1.a)
-        bsgRobot.clamp.setPosition(50);
+        bsgRobot.clamp.setPosition(100);
         else if(gamepad1.b){
-            bsgRobot.clamp.setPosition(-50);
+            bsgRobot.clamp.setPosition(-100);
         }
         else {
             bsgRobot.clamp.setPosition(0);

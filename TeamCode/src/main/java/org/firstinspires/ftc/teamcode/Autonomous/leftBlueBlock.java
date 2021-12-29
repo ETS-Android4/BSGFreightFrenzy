@@ -5,10 +5,12 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.teamcode.Hardware.PIDMotion;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 @Autonomous (name = "leftBlueBlock")
 public class leftBlueBlock extends LinearOpMode {
     Robot bsgRobot = new Robot();
+    PIDMotion motionPID;
 
     /*
  *
@@ -43,6 +45,8 @@ public class leftBlueBlock extends LinearOpMode {
         waitForStart();
 
         encoderDrive(0.6,26,26,4);
+
+
 
         bsgRobot.lift.setPower(1.0);
         sleep(1000);
