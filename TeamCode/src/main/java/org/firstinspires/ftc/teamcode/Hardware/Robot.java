@@ -230,17 +230,17 @@ public class Robot {
   }
 */
   public void strafeLeft(long time) {
-    frontRight.setPower(.8);
-    backRight.setPower(-.8);
-    frontLeft.setPower(-.8);
-    backLeft.setPower(.8);
+    frontRight.setPower(.5);
+    backRight.setPower(-.5);
+    frontLeft.setPower(-.5);
+    backLeft.setPower(.5);
   }
 
   public void strafeRight(long time) {
-    frontRight.setPower(-.8);
-    backRight.setPower(.8);
-    frontLeft.setPower(.8);
-    backLeft.setPower(-.8);
+    frontRight.setPower(-.5);
+    backRight.setPower(.5);
+    frontLeft.setPower(.5);
+    backLeft.setPower(-.5);
   }
 
 

@@ -29,19 +29,25 @@ public class TotoOp extends OpMode {
 
     @Override
     public void loop() {
-        if (Math.abs(gamepad1.left_stick_y)>.1){
-            bsgRobot.frontRight.setPower(gamepad1.left_stick_y);
-            bsgRobot.frontLeft.setPower(gamepad1.left_stick_y);
-            bsgRobot.backRight.setPower(gamepad1.left_stick_y);
-            bsgRobot.backLeft.setPower(gamepad1.left_stick_y);
+        if (Math.abs(-gamepad1.left_stick_y)>.1){
+            bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
+            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
+            bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
+            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
         }
         else if ((Math.abs(gamepad1.right_stick_x) > .1) || Math.abs(gamepad1.right_stick_x)>-.1){
-            bsgRobot.frontRight.setPower(gamepad1.right_stick_x);
-            bsgRobot.backRight.setPower(gamepad1.right_stick_x);
-            bsgRobot.frontLeft.setPower(-gamepad1.right_stick_x);
-            bsgRobot.backLeft.setPower(-gamepad1.right_stick_x);
+            bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
+            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
         }
-        else if (gamepad1.left_trigger > .1) {
+        else{
+            bsgRobot.frontRight.setPower(0);
+            bsgRobot.backRight.setPower(0);
+            bsgRobot.frontLeft.setPower(0);
+            bsgRobot.backLeft.setPower(0);
+        }
+        if (gamepad1.left_trigger > .1) {
             bsgRobot.frontLeft.setPower(-gamepad1.left_trigger);
             bsgRobot.backLeft.setPower(gamepad1.left_trigger);
             bsgRobot.frontRight.setPower(gamepad1.left_trigger);
@@ -76,28 +82,25 @@ public class TotoOp extends OpMode {
 
 //prone to change in the future 100% cause like robot not done yet
         //opening and closing clamp
-        if (gamepad1.a)
+        if (gamepad2.right_bumper)
         bsgRobot.clamp.setPosition(100);
-        else if(gamepad1.b){
-            bsgRobot.clamp.setPosition(-100);
-        }
         else {
             bsgRobot.clamp.setPosition(0);
         }
         //moving the pulley up/down
-        if (gamepad1.dpad_up) {
+        if (gamepad2.dpad_up) {
             bsgRobot.lift.setPower(1);
-        } else if (gamepad1.dpad_down) {
+        } else if (gamepad2.dpad_down) {
             bsgRobot.lift.setPower(-1);
         }
         else{
             bsgRobot.lift.setPower(0);
         }
         //moving claw up and down
-        if (gamepad1.x){
+        if (gamepad2.x){
             bsgRobot.motion.setPower(.5);
         }
-        else if (gamepad1.y){
+        else if (gamepad2.a){
             bsgRobot.motion.setPower(-.5);
         }
         else{

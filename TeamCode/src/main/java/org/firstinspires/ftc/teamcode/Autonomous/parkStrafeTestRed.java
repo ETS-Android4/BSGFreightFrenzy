@@ -43,7 +43,7 @@ public class parkStrafeTestRed extends LinearOpMode {
         waitForStart();
 
         bsgRobot.strafeLeft(1000);
-        sleep(500);
+        sleep(3000);
 
         encoderDrive(.6,-32,-32,4);
 

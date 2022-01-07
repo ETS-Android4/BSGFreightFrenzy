@@ -46,10 +46,10 @@ public class leftRedStrafe extends LinearOpMode {
         encoderDrive(0.6,4,4,4);
 
         bsgRobot.strafeRight(1000);
-        sleep(500);
+        sleep(3000);
 
         bsgRobot.carousel.setPower(0.5);
-        sleep(1000);
+        sleep(3000);
 
         encoderDrive(0.7, -36, -36, 4);
 

@@ -12,18 +12,19 @@ public class testingPID extends LinearOpMode {
     Robot bsgRobot = new Robot();
     PIDMotion pidMotion;
 
-    ElapsedTime time;
+    ElapsedTime time = new ElapsedTime();
 
     @Override
     public void runOpMode() throws InterruptedException {
+        bsgRobot.init(hardwareMap);
 
         waitForStart();
 
         time.reset();
-        pidMotion = new PIDMotion(0.07,0.00035,0.007,20);
+        pidMotion = new PIDMotion(0.007,0.000035,0.0007,20);
 
         while (time.milliseconds() < 3000) {
-            bsgRobot.motion.setPower(pidMotion.output(300, bsgRobot.motion.getCurrentPosition()));
+            bsgRobot.motion.setPower(pidMotion.output(150, bsgRobot.motion.getCurrentPosition()));
         }
 
         while (time.milliseconds() < 6000) {

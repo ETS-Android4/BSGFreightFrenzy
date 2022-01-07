@@ -47,7 +47,7 @@ public class parkBlockTestBlue extends LinearOpMode {
         encoderDrive(0.6,-4,-4,4);
 
         bsgRobot.strafeLeft(1000);
-        sleep(300);
+        sleep(3000);
 
         encoderDrive(0.5,6,6,4);
 
