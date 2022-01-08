@@ -41,25 +41,13 @@ public class TotoOp extends OpMode {
             bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
             bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
         }
+        else if(Math.abs(-gamepad1.left_stick_x) > .1 || Math.abs(gamepad1.left_stick_x)> .1){
+            bsgRobot.frontRight.setPower(gamepad1.left_stick_x);
+            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x);
+            bsgRobot.backLeft.setPower(gamepad1.left_stick_x);
+            bsgRobot.backRight.setPower(-gamepad1.left_stick_x);
+        }
         else{
-            bsgRobot.frontRight.setPower(0);
-            bsgRobot.backRight.setPower(0);
-            bsgRobot.frontLeft.setPower(0);
-            bsgRobot.backLeft.setPower(0);
-        }
-        if (gamepad1.left_trigger > .1) {
-            bsgRobot.frontLeft.setPower(-gamepad1.left_trigger);
-            bsgRobot.backLeft.setPower(gamepad1.left_trigger);
-            bsgRobot.frontRight.setPower(gamepad1.left_trigger);
-            bsgRobot.backRight.setPower(-gamepad1.left_trigger);
-        }
-        else if (gamepad1.right_trigger > .1) {
-            bsgRobot.frontLeft.setPower(gamepad1.left_trigger);
-            bsgRobot.backLeft.setPower(-gamepad1.left_trigger);
-            bsgRobot.frontRight.setPower(-gamepad1.left_trigger);
-            bsgRobot.backRight.setPower(gamepad1.left_trigger);
-        }
-        else {
             bsgRobot.frontRight.setPower(0);
             bsgRobot.backRight.setPower(0);
             bsgRobot.frontLeft.setPower(0);
