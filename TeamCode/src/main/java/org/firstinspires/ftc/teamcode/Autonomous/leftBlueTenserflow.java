@@ -6,10 +6,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 
-@Autonomous (name = "leftRed", group = "UWU")
-public class leftRed extends LinearOpMode {
+@Autonomous(name = "blueTenserFlow")
+public class leftBlueTenserflow extends LinearOpMode {
+
     Robot bsgRobot = new Robot();
 
     /*
@@ -19,7 +19,7 @@ public class leftRed extends LinearOpMode {
     */
     private ElapsedTime runtime = new ElapsedTime();
 
-    static final double COUNTS_PER_MOTOR_REV = 312;    // Neverest 40
+    static final double COUNTS_PER_MOTOR_REV = 537.7;    // Neverest 40
     static final double DRIVE_GEAR_REDUCTION = 2.0;     // This is < 1.0 if geared UP
     static final double WHEEL_DIAMETER_INCHES = 3.78;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
@@ -29,7 +29,7 @@ public class leftRed extends LinearOpMode {
 
     //For turning with encoders
     Integer cpr = 28; //counts per rotation originally 28
-    Integer gearratio = (((1+(46/17))) * (1+(46/11))); //IDK IT WAS ORIGINALLY 40
+    Integer gearratio = (((1 + (46 / 17))) * (1 + (46 / 11))); //IDK IT WAS ORIGINALLY 40
     Double diameter = 4.0;
     Double cpi = (cpr * gearratio) / (Math.PI * diameter); //counts per inch, 28cpr * gear ratio / (2 * pi * diameter (in inches, in the center))
     Double bias = 0.8;//default 0.8
@@ -37,56 +37,21 @@ public class leftRed extends LinearOpMode {
     //
     Double conversion = cpi * bias;
     Boolean exit = false;
-
     @Override
-    public void runOpMode() {
-        /*
-         * Retrieve the camera we are to use.
-         */
-        bsgRobot.init(hardwareMap);
-
-        waitForStart();
-
-        //drive 5 inches forward
-        encoderDrive(.5, 5, 5, 2);
-
-        //rotate 90 degrees right
-        encoderDrive(.7, 10, 0, 2);
-
-        //drive 20 inches backward
-        encoderDrive(.5, -20, -20, 2);
-
-        bsgRobot.carousel.setPower(-.5);
-        sleep(3000);
-
-        //drive 20 inches forward
-        encoderDrive(.5, 20, 20, 2);
-
-        //rotate 135 degrees left
-        encoderDrive(.7, 0, 15, 2);
-
-        //drive 20 inches forward
-        encoderDrive(.5, 20, 20, 2);
+    public void runOpMode() throws InterruptedException {
 
 
-
-
-
-        //auto transitioner to automatically switch to TeleOp
-        AutoTransitioner.transitionOnStop(this, "TylaOp");
     }
-
-
     /*
-    *
-    *
-    *
-    FUNCTIONS FOR ENCODERS
-    *
-    *
-    *
-    *
-     */
+      *
+      *
+      *
+      FUNCTIONS FOR ENCODERS
+      *
+      *
+      *
+      *
+       */
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {
@@ -187,10 +152,5 @@ public class leftRed extends LinearOpMode {
         bsgRobot.backRight.setPower(0);
         bsgRobot.backLeft.setPower(0);
         return;
-
-
-
-
-
     }
 }
