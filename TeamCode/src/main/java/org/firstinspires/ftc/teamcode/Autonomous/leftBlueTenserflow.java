@@ -40,7 +40,6 @@ public class leftBlueTenserflow extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
-
     }
     /*
       *
@@ -153,4 +152,5 @@ public class leftBlueTenserflow extends LinearOpMode {
         bsgRobot.backLeft.setPower(0);
         return;
     }
+
 }

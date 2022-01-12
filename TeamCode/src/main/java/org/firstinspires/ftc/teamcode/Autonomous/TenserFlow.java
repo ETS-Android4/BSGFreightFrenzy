@@ -98,6 +98,7 @@ public class TenserFlow extends LinearOpMode {
      * Detection engine.
      */
     private TFObjectDetector tfod;
+    private boolean isDuckDetected;
 
     @Override
     public void runOpMode() {
@@ -137,6 +138,7 @@ public class TenserFlow extends LinearOpMode {
                         telemetry.addData("# Object Detected", updatedRecognitions.size());
                         // step through the list of recognitions and display boundary info.
                         int i = 0;
+                        boolean isDuckDetected = false;     //  ** ADDED **
                         for (Recognition recognition : updatedRecognitions) {
                             telemetry.addData(String.format("label (%d)", i), recognition.getLabel());
                             telemetry.addData(String.format("  left,top (%d)", i), "%.03f , %.03f",
@@ -144,6 +146,13 @@ public class TenserFlow extends LinearOpMode {
                             telemetry.addData(String.format("  right,bottom (%d)", i), "%.03f , %.03f",
                                     recognition.getRight(), recognition.getBottom());
                             i++;
+                            // check label to see if the camera now sees a Duck         ** ADDED **
+                            if (recognition.getLabel().equals("Duck")) {            //  ** ADDED **
+                                isDuckDetected = true;                             //  ** ADDED **
+                                telemetry.addData("Object Detected", "Duck");      //  ** ADDED **
+                            } else {                                               //  ** ADDED **
+                                isDuckDetected = false;                            //  ** ADDED **
+                            }                                                      //  ** ADDED **
                         }
                         telemetry.update();
                     }
