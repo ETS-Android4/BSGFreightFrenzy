@@ -24,34 +24,24 @@ public class TotoOp extends OpMode {
         telemetry.addData("Move forward", "L/R sticks");
         telemetry.update();
 
+        bsgRobot.dtSpeed = 0.8;
+
 
     }
 
     @Override
     public void loop() {
         if (Math.abs(-gamepad1.left_stick_y)>.1){
-            bsgRobot.frontRight.setPower(-gamepad1.left_stick_y);
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_y);
-            bsgRobot.backRight.setPower(-gamepad1.left_stick_y);
-            bsgRobot.backLeft.setPower(-gamepad1.left_stick_y);
+            bsgRobot.drive(-gamepad1.left_stick_y);
         }
         else if ((Math.abs(gamepad1.right_stick_x) > .1) || Math.abs(gamepad1.right_stick_x)>-.1){
-            bsgRobot.frontRight.setPower(-gamepad1.right_stick_x);
-            bsgRobot.backRight.setPower(-gamepad1.right_stick_x);
-            bsgRobot.frontLeft.setPower(gamepad1.right_stick_x);
-            bsgRobot.backLeft.setPower(gamepad1.right_stick_x);
+            bsgRobot.drive(gamepad1.right_stick_x, -gamepad1.right_stick_x, gamepad1.right_stick_x, -gamepad1.right_stick_x);
         }
-        else if(Math.abs(-gamepad1.left_stick_x) > .1 || Math.abs(gamepad1.left_stick_x)> .1){
-            bsgRobot.frontRight.setPower(gamepad1.left_stick_x);
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x);
-            bsgRobot.backLeft.setPower(gamepad1.left_stick_x);
-            bsgRobot.backRight.setPower(-gamepad1.left_stick_x);
+        else if(Math.abs(gamepad1.left_stick_x) > .1 || Math.abs(gamepad1.left_stick_x)> .1){
+            bsgRobot.drive(-gamepad1.left_stick_x, gamepad1.left_stick_x, gamepad1.left_stick_x, -gamepad1.left_stick_x);
         }
         else{
-            bsgRobot.frontRight.setPower(0);
-            bsgRobot.backRight.setPower(0);
-            bsgRobot.frontLeft.setPower(0);
-            bsgRobot.backLeft.setPower(0);
+           bsgRobot.stopWheels();
         }
         if (gamepad1.dpad_left) {
             bsgRobot.carousel.setPower(-0.65);

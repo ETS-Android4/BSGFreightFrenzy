@@ -50,7 +50,7 @@ public class Robot {
   //variables to use IMU's
   public BNO055IMU imu;
   public double imuAngle;
-
+  public double dtSpeed = 1;
   public static Orientation angles;
   public Acceleration gravity;
   public static Telemetry telemetry;
@@ -206,10 +206,13 @@ public class Robot {
 
   //other functions
   public void drive(double power) {
-    frontLeft.setPower(power);
-    backLeft.setPower(power);
-    frontRight.setPower(power);
-    backRight.setPower(power);
+    drive(power, power, power, power);
+  }
+  public void drive(double fL, double fR, double bL, double bR){
+      frontLeft.setPower(fL* dtSpeed);
+      backLeft.setPower(bL* dtSpeed);
+      frontRight.setPower(fR* dtSpeed);
+      backRight.setPower(bR* dtSpeed);
   }
 
   public void stopWheels() {
