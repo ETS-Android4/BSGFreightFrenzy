@@ -52,13 +52,13 @@ public class TotoArcadeOp2 extends LinearOpMode {
                 idle();
             }
         }
-        if (gamepad1.a)
-            bsgBot.clamp.setPosition(50);
+       /* if (gamepad1.a)
+            bsgBot.clamp.setPower(1);
         else if (gamepad1.b) {
-            bsgBot.clamp.setPosition(-50);
+            bsgBot.clamp.setPosition(-1);
         } else {
             bsgBot.clamp.setPosition(0);
-        }
+        }*/
         //moving the pulley up/down
         if (gamepad1.dpad_up) {
             bsgBot.lift.setPower(1);

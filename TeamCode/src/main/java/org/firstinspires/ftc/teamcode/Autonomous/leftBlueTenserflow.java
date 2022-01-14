@@ -39,6 +39,9 @@ public class leftBlueTenserflow extends LinearOpMode {
     Boolean exit = false;
     @Override
     public void runOpMode() throws InterruptedException {
+        bsgRobot.init(hardwareMap);
+
+        waitForStart();
 
     }
     /*

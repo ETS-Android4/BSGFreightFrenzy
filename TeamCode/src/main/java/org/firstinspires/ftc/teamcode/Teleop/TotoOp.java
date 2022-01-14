@@ -61,9 +61,9 @@ public class TotoOp extends OpMode {
 //prone to change in the future 100% cause like robot not done yet
         //opening and closing clamp
         if (gamepad2.right_bumper)
-        bsgRobot.clamp.setPosition(100);
+        bsgRobot.clamp.setPower(1);
         else {
-            bsgRobot.clamp.setPosition(0);
+            bsgRobot.clamp.setPower(0);
         }
         //moving the pulley up/down
         if (gamepad2.dpad_up) {

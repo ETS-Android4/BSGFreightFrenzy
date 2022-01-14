@@ -2,10 +2,10 @@ package org.firstinspires.ftc.teamcode.Hardware;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -34,7 +34,7 @@ public class Robot {
  // public DcMotor arm;
   public DcMotor lift;
   //public DcMotor rotatingM;
-  public Servo clamp;
+  public CRServo clamp;
  // public Servo armStop;
   public DcMotor carousel;
   public DcMotor motion;
@@ -83,7 +83,7 @@ public class Robot {
    // arm = hMap.dcMotor.get("arm");
     lift = hMap.dcMotor.get("lift");
     //rotatingM = hMap.dcMotor.get("rotatingM");
-   clamp = hMap.servo.get("clamp");
+   clamp = hMap.crservo.get("clamp");
    // armStop = hMap.servo.get("armStop");
     carousel = hMap.dcMotor.get("carousel");
     motion = hMap.dcMotor.get("motion");
