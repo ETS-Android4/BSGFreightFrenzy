@@ -6,9 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
-@Autonomous (name = "LeftRedCarouselPark")
-public class leftRedStrafe extends LinearOpMode {
-
+@Autonomous (name = "blueBlockRight")
+public class blueBlockRight extends LinearOpMode {
     Robot bsgRobot = new Robot();
 
     /*
@@ -36,37 +35,49 @@ public class leftRedStrafe extends LinearOpMode {
     //
     Double conversion = cpi * bias;
     Boolean exit = false;
-
     @Override
     public void runOpMode() throws InterruptedException {
+
         bsgRobot.init(hardwareMap);
 
         waitForStart();
 
+        bsgRobot.clamp.setPower(-1);
+        sleep(4000);
+
+        encoderDrive(0.4,24,24,3);
+
+        bsgRobot.strafeRight(1000);
+        sleep(200);
+
+        bsgRobot.motion.setPower(-0.4);
+        sleep(300);
+
+        bsgRobot.clamp.setPower(-1);
+        sleep(100);
+
+        bsgRobot.motion.setPower(0.6);
+        sleep(400);
+
         bsgRobot.strafeLeft(1000);
         sleep(300);
 
-        encoderDrive(0.2,-23.5,-23.5,4);
-
-        bsgRobot.carousel.setPower(-0.5);
-        sleep(3000);
+        encoderDrive(0.5,-24,-24,3);
 
         bsgRobot.strafeLeft(1000);
-        sleep(1000);
-
+        sleep(700);
 
     }
-
     /*
-    *
-    *
-    *
-    FUNCTIONS FOR ENCODERS
-    *
-    *
-    *
-    *
-     */
+       *
+       *
+       *
+       FUNCTIONS FOR ENCODERS
+       *
+       *
+       *
+       *
+        */
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {
