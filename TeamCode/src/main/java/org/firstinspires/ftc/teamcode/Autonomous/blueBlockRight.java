@@ -45,7 +45,7 @@ public class blueBlockRight extends LinearOpMode {
         bsgRobot.clamp.setPower(-1);
         sleep(4000);
 
-        encoderDrive(0.4,24,24,3);
+        encoderDrive(0.4,16,16,0.3);
 
         bsgRobot.strafeRight(1000);
         sleep(200);
@@ -53,7 +53,7 @@ public class blueBlockRight extends LinearOpMode {
         bsgRobot.motion.setPower(-0.4);
         sleep(300);
 
-        bsgRobot.clamp.setPower(-1);
+        bsgRobot.clamp.setPower(-0.4);
         sleep(100);
 
         bsgRobot.motion.setPower(0.6);

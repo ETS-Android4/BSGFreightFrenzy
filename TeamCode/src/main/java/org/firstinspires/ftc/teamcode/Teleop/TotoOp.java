@@ -32,7 +32,7 @@ public class TotoOp extends OpMode {
     @Override
     public void loop() {
         if (Math.abs(-gamepad1.left_stick_y)>.1){
-            bsgRobot.drive(-gamepad1.left_stick_y);
+            bsgRobot.drive(-gamepad1.left_stick_y*0.7);
             telemetry.addLine("Driving F/B");
             telemetry.update();
         }
@@ -42,20 +42,20 @@ public class TotoOp extends OpMode {
             telemetry.update();
         }
         //strafe right
-        else if(gamepad1.left_stick_x > .3){
-            bsgRobot.frontRight.setPower(gamepad1.left_stick_x/2);
-            bsgRobot.backRight.setPower(-gamepad1.left_stick_x/2);
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x/2);
-            bsgRobot.backLeft.setPower(gamepad1.left_stick_x/2);
+        else if(gamepad1.left_stick_x < .3){
+            bsgRobot.frontRight.setPower(-gamepad1.left_stick_x/2);
+            bsgRobot.backRight.setPower(gamepad1.left_stick_x/2);
+            bsgRobot.frontLeft.setPower(gamepad1.left_stick_x/2);
+            bsgRobot.backLeft.setPower(-gamepad1.left_stick_x/2);
             telemetry.addLine("Strafe L");
             telemetry.update();
         }
         //strafe left
-        else if(gamepad1.left_stick_x < .3){
-            bsgRobot.frontRight.setPower(gamepad1.left_stick_x/2);
-            bsgRobot.backRight.setPower(-gamepad1.left_stick_x/2);
-            bsgRobot.frontLeft.setPower(-gamepad1.left_stick_x/2);
-            bsgRobot.backLeft.setPower(gamepad1.left_stick_x/2);
+        else if(gamepad1.left_stick_x > .3){
+            bsgRobot.frontRight.setPower(-gamepad1.left_stick_x/2);
+            bsgRobot.backRight.setPower(gamepad1.left_stick_x/2);
+            bsgRobot.frontLeft.setPower(gamepad1.left_stick_x/2);
+            bsgRobot.backLeft.setPower(-gamepad1.left_stick_x/2);
             telemetry.addLine("Strafe R");
             telemetry.update();
         }
@@ -103,10 +103,10 @@ public class TotoOp extends OpMode {
 //prone to change in the future 100% cause like robot not done yet
         //opening and closing clamp
         if (gamepad2.right_bumper){
-            bsgRobot.clamp.setPower(1);
+            bsgRobot.clamp.setPower(0.5);
         }
         else if (gamepad2.left_bumper){
-            bsgRobot.clamp.setPower(-1);
+            bsgRobot.clamp.setPower(-0.5);
         }
         else {
             bsgRobot.clamp.setPower(0);
