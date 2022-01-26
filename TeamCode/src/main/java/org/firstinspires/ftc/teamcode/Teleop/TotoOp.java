@@ -125,7 +125,7 @@ public class TotoOp extends OpMode {
             bsgRobot.motion.setPower(.5);
         }
         else if (gamepad2.a){
-            bsgRobot.motion.setPower(-.5);
+            bsgRobot.motion.setPower(-.3);
         }
         else{
             bsgRobot.motion.setPower(0);

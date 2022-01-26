@@ -6,16 +6,15 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
+@Autonomous (name = "redBlockNeutral")
+public class redBlockRight extends LinearOpMode {
 
-@Autonomous (name = "RightBlueCarouselPark")
-public class rightBlueStrafe extends LinearOpMode {
     Robot bsgRobot = new Robot();
-
     /*
-   *
-   VARIABLES FOR ENCODERS
-   *
-   */
+    *
+    VARIABLES FOR ENCODERS
+    *
+    */
     private ElapsedTime runtime = new ElapsedTime();
 
     static final double COUNTS_PER_MOTOR_REV = 537.7;    // Neverest 40
@@ -39,34 +38,33 @@ public class rightBlueStrafe extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        bsgRobot.init(hardwareMap);
 
-        waitForStart();
+        bsgRobot.clamp.setPower(1);
+        sleep(4000);
 
-         bsgRobot.strafeRight(1000);
-         sleep(1500);
+        encoderDrive(0.4,16,16,0.3);
 
-         bsgRobot.stopWheels();
-         sleep(400);
+        bsgRobot.strafeLeft(1000);
+        sleep(200);
 
-         bsgRobot.carousel.setPower(0.65);
-         sleep(3000);
+        bsgRobot.motion.setPower(-0.4);
+        sleep(300);
 
-         bsgRobot.stopWheels();
+        bsgRobot.clamp.setPower(-0.4);
+        sleep(100);
 
-         encoderDrive(0.2,12,12,4);
+        bsgRobot.motion.setPower(0.6);
+        sleep(400);
+
+        bsgRobot.strafeRight(1000);
+        sleep(300);
+
+        encoderDrive(0.5,-16,-16,3);
+
+        bsgRobot.strafeRight(1000);
+        sleep(700);
 
     }
-    /*
-       *
-       *
-       *
-       FUNCTIONS FOR ENCODERS
-       *
-       *
-       *
-       *
-        */
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {

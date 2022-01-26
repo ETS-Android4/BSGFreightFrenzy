@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
-@Autonomous (name = "blueBlockRight")
+@Autonomous (name = "blueBlockNeutral")
 public class blueBlockRight extends LinearOpMode {
     Robot bsgRobot = new Robot();
 
@@ -42,7 +42,7 @@ public class blueBlockRight extends LinearOpMode {
 
         waitForStart();
 
-        bsgRobot.clamp.setPower(-1);
+        bsgRobot.clamp.setPower(1);
         sleep(4000);
 
         encoderDrive(0.4,16,16,0.3);
@@ -62,7 +62,7 @@ public class blueBlockRight extends LinearOpMode {
         bsgRobot.strafeLeft(1000);
         sleep(300);
 
-        encoderDrive(0.5,-24,-24,3);
+        encoderDrive(0.5,-16,-16,3);
 
         bsgRobot.strafeLeft(1000);
         sleep(700);

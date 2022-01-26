@@ -43,7 +43,7 @@ public class parkautoblueL extends LinearOpMode {
 
         waitForStart();
 
-        encoderDrive(.5,-32,-32,4);
+        encoderDrive(.5,-16,-16,4);
 
     }
     /*

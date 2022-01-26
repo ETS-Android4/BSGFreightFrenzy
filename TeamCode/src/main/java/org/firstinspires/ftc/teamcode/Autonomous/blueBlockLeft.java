@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
-@Autonomous (name = "blueBlockLeft")
+@Autonomous (name = "blueBlockAlliance")
 public class blueBlockLeft extends LinearOpMode {
 
     Robot bsgRobot = new Robot();
