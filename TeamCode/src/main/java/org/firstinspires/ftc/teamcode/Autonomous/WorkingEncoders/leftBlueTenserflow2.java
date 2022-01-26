@@ -152,6 +152,35 @@ public class leftBlueTenserflow2 extends LinearOpMode {
             // (typically 16/9).
             tfod.setZoom(2.5, 16.0 / 9.0);
         }
+        telemetry.addData(">", "Press Play to start op mode");
+        telemetry.update();
+        waitForStart();
+
+        //close claw
+        bsgRobot.clamp.setPower(1);
+        sleep(250);
+
+        //scan for funny ducky or capstone on first marker
+        if (isDuckDetected()){
+            bsgRobot.strafeRight(1000);
+            sleep(300);
+
+            bsgRobot.stopMotors();
+
+            encoderDrive(DRIVE_SPEED, -12,0,3);
+
+            encoderDrive(DRIVE_SPEED, 10,10,3);
+
+            bsgRobot.motion.setPower(1);
+            sleep(400);
+
+            bsgRobot.stopMotors();
+
+            bsgRobot.clamp.setPower(-0.5);
+            sleep(250);
+
+
+        }
 
         /** Wait for the game to begin */
         telemetry.addData(">", "Press Play to start op mode");
@@ -178,7 +207,7 @@ public class leftBlueTenserflow2 extends LinearOpMode {
                             i++;
 
                             // check label to see if the camera now sees a Duck         ** ADDED **
-                            if (recognition.getLabel().equals("Duck")) {            //  ** ADDED **
+                            if (recognition.getLabel().equals("Duck")) {//  ** ADDED **
                                 level = 1;                             //  ** ADDED **
                                 telemetry.addData("Object Detected", "Duck");      //  ** ADDED **
                             }
@@ -218,6 +247,41 @@ public class leftBlueTenserflow2 extends LinearOpMode {
                 }
             }
         }
+
+    private boolean isDuckDetected() {
+        boolean isDetected = false;
+        if (tfod != null) {
+            // getUpdatedRecognitions() will return null if no new information is available since
+            // the last time that call was made.
+            List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
+            if (updatedRecognitions != null) {
+                // telemetry.addData("# Object Detected", updatedRecognitions.size());
+                // step through the list of recognitions and display boundary info.
+                int i = 0;
+
+                for (Recognition recognition : updatedRecognitions) {
+                    telemetry.addData(String.format("label (%d)", i), recognition.getLabel());
+                    telemetry.addData(String.format("  left,top (%d)", i), "%.03f , %.03f",
+                            recognition.getLeft(), recognition.getTop());
+                    telemetry.addData(String.format("  right,bottom (%d)", i), "%.03f , %.03f",
+                            recognition.getRight(), recognition.getBottom());
+                    i++;
+                    // check label to see if the camera now sees a Duck         ** ADDED **
+                    if (recognition.getLabel().equals("Duck")){
+                        // telemetry.addData("Object Detected!!!", "Duck");
+                        isDetected = true ;
+
+                    } else {
+                        telemetry.addData("Object Not Detected!!!", "Not DUCK");
+                        isDetected = false;
+                    }
+                }
+                telemetry.update();
+            }
+        }
+
+        return isDetected;
+    }
 
 
     /**

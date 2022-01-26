@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Autonomous;
+/*package org.firstinspires.ftc.teamcode.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -49,7 +49,7 @@ import java.util.List;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@TeleOp(name = "TenserFlow", group = "Concept")
+/*@TeleOp(name = "TenserFlow", group = "Concept")
 //@Disabled
 public class TenserFlow extends LinearOpMode {
     /* Note: This sample uses the all-objects Tensor Flow model (FreightFrenzy_BCDM.tflite), which contains
@@ -63,7 +63,7 @@ public class TenserFlow extends LinearOpMode {
      *  FreightFrenzy_BC.tflite  0: Ball,  1: Cube
      *  FreightFrenzy_DM.tflite  0: Duck,  1: Marker
      */
-    private static final String TFOD_MODEL_ASSET = "FreightFrenzy_BCDM.tflite";
+    /*private static final String TFOD_MODEL_ASSET = "FreightFrenzy_BCDM.tflite";
     private static final String[] LABELS = {
             "Ball",
             "Cube",
@@ -83,20 +83,20 @@ public class TenserFlow extends LinearOpMode {
      * Once you've obtained a license key, copy the string from the Vuforia web site
      * and paste it in to your code on the next line, between the double quotes.
      */
-    private static final String VUFORIA_KEY =
+    /*private static final String VUFORIA_KEY =
             "AcXydGT/////AAABmaoOrVEo9U5MmkjGK046kUuJ1fe3bKCk91BjU60EiS60M1MJhK7KxxM5O9LptxzRZOgzxBIBC1NO6yj0SF2j9HxnmFbPTUu+MiMMVe31OCSpqqeueblLKonNgSNql1UOi9NHYM4yx2dxAbWKi9eCQ18YPHq5UC6WFTqvgrbKDYI1QgcBV9SBtiukvchFmBvXvC76/51Yfur4rAvdYIMmH/B9jea4jl0IlnLVci8C7zV/uEJfi2R+L2ogvLyaqbG7P6n4HKF1Zku5vnxyEEyvsQIDIWyy35rOCkyPE4D/n9MtNb7p+X/zy4BORz14RNPNxdOqqPqSiov2RcFcLKNFh95xxYFl5S2csn1+2R3kkyDH";
 
     /**
      * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
      * localization engine.
      */
-    private VuforiaLocalizer vuforia;
+    /*private VuforiaLocalizer vuforia;
 
     /**
      * {@link #tfod} is the variable we will use to store our instance of the TensorFlow Object
      * Detection engine.
      */
-    private TFObjectDetector tfod;
+    /*private TFObjectDetector tfod;
     private boolean isDuckDetected;
 
     @Override
@@ -110,7 +110,7 @@ public class TenserFlow extends LinearOpMode {
          * Activate TensorFlow Object Detection before we wait for the start command.
          * Do it here so that the Camera Stream window will have the TensorFlow annotations visible.
          **/
-        if (tfod != null) {
+       /* if (tfod != null) {
             tfod.activate();
 
             // The TensorFlow software will scale the input images from the camera to a lower resolution.
@@ -123,7 +123,7 @@ public class TenserFlow extends LinearOpMode {
         }
 
         /** Wait for the game to begin */
-        telemetry.addData(">", "Press Play to start op mode");
+       /* telemetry.addData(">", "Press Play to start op mode");
         telemetry.update();
         waitForStart();
 
@@ -163,16 +163,16 @@ public class TenserFlow extends LinearOpMode {
     /**
      * Initialize the Vuforia localization engine.
      */
-    private void initVuforia() {
+   /* private void initVuforia() {
         /*
          * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
          */
-        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
+        /*VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY;
         parameters.cameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
 
-        //  Instantiate the Vuforia engine
+      /*  //  Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);
 
         // Loading trackables is not necessary for the TensorFlow Object Detection engine.
@@ -181,7 +181,7 @@ public class TenserFlow extends LinearOpMode {
     /**
      * Initialize the TensorFlow Object Detection engine.
      */
-    private void initTfod() {
+    /*private void initTfod() {
         int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier(
                 "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
@@ -191,4 +191,4 @@ public class TenserFlow extends LinearOpMode {
         tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
         tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABELS);
     }
-}
+}*/

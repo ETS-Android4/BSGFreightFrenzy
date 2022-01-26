@@ -215,12 +215,16 @@ public class Robot {
       backRight.setPower(bR* dtSpeed);
   }
 
-  public void stopWheels() {
-    frontLeft.setPower(0);
-    backLeft.setPower(0);
-    frontRight.setPower(0);
-    backRight.setPower(0);
+  public void stopMotors() {
     carousel.setPower(0);
+    motion.setPower(0);
+    clamp.setPower(0);
+  }
+  public void stopWheels(){
+      frontLeft.setPower(0);
+      backLeft.setPower(0);
+      frontRight.setPower(0);
+      backRight.setPower(0);
   }
 
  /* public void foundationDown() {
