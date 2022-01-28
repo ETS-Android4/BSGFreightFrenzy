@@ -219,6 +219,7 @@ public class Robot {
     carousel.setPower(0);
     motion.setPower(0);
     clamp.setPower(0);
+    lift.setPower(0);
   }
   public void stopWheels(){
       frontLeft.setPower(0);

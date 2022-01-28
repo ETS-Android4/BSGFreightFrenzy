@@ -13,6 +13,7 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
+import java.sql.Driver;
 import java.util.List;
 /* Copyright (c) 2019 FIRST. All rights reserved.
  *
@@ -53,7 +54,7 @@ import java.util.List;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@TeleOp(name = "TenserFlow", group = "Concept")
+@TeleOp(name = "TenserFlowRightBlue", group = "Concept")
 @Disabled
 public class leftBlueTenserflow2 extends LinearOpMode {
     Robot bsgRobot = new Robot();
@@ -162,7 +163,7 @@ public class leftBlueTenserflow2 extends LinearOpMode {
 
         //scan for funny ducky or capstone on first marker
         if (isDuckDetected()){
-            bsgRobot.strafeRight(1000);
+            bsgRobot.strafeLeft(1000);
             sleep(300);
 
             bsgRobot.stopMotors();
@@ -171,8 +172,58 @@ public class leftBlueTenserflow2 extends LinearOpMode {
 
             encoderDrive(DRIVE_SPEED, 10,10,3);
 
+            bsgRobot.lift.setPower(-1);
+            sleep(600);
+
+            bsgRobot.stopMotors();
+
             bsgRobot.motion.setPower(1);
+            sleep(200);
+
+            bsgRobot.stopMotors();
+
+            bsgRobot.clamp.setPower(-0.5);
+            sleep(250);
+
+            bsgRobot.motion.setPower(-1);
             sleep(400);
+
+            encoderDrive(DRIVE_SPEED,-4,-4,3);
+
+            bsgRobot.lift.setPower(1);
+            sleep(600);
+
+            bsgRobot.stopMotors();
+
+            encoderDrive(DRIVE_SPEED,-6,-6,3);
+
+            encoderDrive();
+
+        }
+        else{ //no detection on marker 1
+
+            //drive down
+            encoderDrive(DRIVE_SPEED,-4,-4,3);
+
+            //wait like 0.7 sec ig
+            sleep(700);
+
+        }
+        if(isDuckDetected()){ //marker 2
+
+            bsgRobot.strafeLeft(1000);
+            sleep(300);
+
+            bsgRobot.stopWheels();
+
+            encoderDrive(DRIVE_SPEED, -12,0,3);
+
+            bsgRobot.strafeLeft(1000);
+            sleep(200);
+
+            bsgRobot.stopWheels();
+
+            encoderDrive(DRIVE_SPEED, 10,6,3);
 
             bsgRobot.stopMotors();
 
@@ -180,7 +231,10 @@ public class leftBlueTenserflow2 extends LinearOpMode {
             sleep(250);
 
 
+
+
         }
+
 
         /** Wait for the game to begin */
         telemetry.addData(">", "Press Play to start op mode");
