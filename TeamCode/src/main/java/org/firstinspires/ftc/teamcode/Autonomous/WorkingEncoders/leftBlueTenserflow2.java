@@ -195,9 +195,10 @@ public class leftBlueTenserflow2 extends LinearOpMode {
 
             bsgRobot.stopMotors();
 
-            encoderDrive(DRIVE_SPEED,-6,-6,3);
+            bsgRobot.strafeRight(1000);
+            sleep(600);
 
-            encoderDrive();
+            bsgRobot.stopWheels();
 
         }
         else{ //no detection on marker 1
@@ -219,20 +220,87 @@ public class leftBlueTenserflow2 extends LinearOpMode {
             encoderDrive(DRIVE_SPEED, -12,0,3);
 
             bsgRobot.strafeLeft(1000);
-            sleep(200);
+            sleep(300);
 
             bsgRobot.stopWheels();
 
-            encoderDrive(DRIVE_SPEED, 10,6,3);
+            encoderDrive(DRIVE_SPEED, 8,8,3);
+
+            bsgRobot.lift.setPower(0.5);
+            sleep(300);
 
             bsgRobot.stopMotors();
+
+            bsgRobot.motion.setPower(0.5);
+            sleep(200);
 
             bsgRobot.clamp.setPower(-0.5);
             sleep(250);
 
+            bsgRobot.stopMotors();
 
+            encoderDrive(DRIVE_SPEED,-2,-2,3);
 
+            bsgRobot.motion.setPower(-1);
+            sleep(200);
 
+            bsgRobot.lift.setPower(-0.5);
+            sleep(400);
+
+            bsgRobot.stopMotors();
+
+            bsgRobot.strafeRight(1000);
+            sleep(300);
+
+        }
+        else { //no detection on marker 2
+
+            //drive down
+            encoderDrive(DRIVE_SPEED, -4, -4, 3);
+
+            //wait like 0.7 sec ig
+            sleep(700);
+        }
+        if(isDuckDetected()){ //marker 3
+            bsgRobot.strafeLeft(1000);
+            sleep(300);
+
+            bsgRobot.stopWheels();
+
+            encoderDrive(DRIVE_SPEED, -12,0,3);
+
+            bsgRobot.strafeLeft(1000);
+            sleep(300);
+
+            bsgRobot.stopWheels();
+
+            encoderDrive(DRIVE_SPEED, 8,8,3);
+
+            bsgRobot.lift.setPower(0.5);
+            sleep(300);
+
+            bsgRobot.stopMotors();
+
+            bsgRobot.motion.setPower(0.5);
+            sleep(200);
+
+            bsgRobot.clamp.setPower(-0.5);
+            sleep(250);
+
+            bsgRobot.stopMotors();
+
+            encoderDrive(DRIVE_SPEED,-2,-2,3);
+
+            bsgRobot.motion.setPower(-1);
+            sleep(200);
+
+            bsgRobot.lift.setPower(-0.5);
+            sleep(400);
+
+            bsgRobot.stopMotors();
+
+            bsgRobot.strafeRight(1000);
+            sleep(300);
         }
 
 
