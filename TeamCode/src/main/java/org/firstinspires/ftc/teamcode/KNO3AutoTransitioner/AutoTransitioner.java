@@ -1,11 +1,6 @@
 package org.firstinspires.ftc.teamcode.KNO3AutoTransitioner;
 
-import android.util.Log;
-
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-
-import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
-import org.firstinspires.ftc.robotcore.internal.opmode.OpModeManagerImpl;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 /**
  * Created by KNO3 Robotics
@@ -17,8 +12,9 @@ import org.firstinspires.ftc.robotcore.internal.opmode.OpModeManagerImpl;
  * Where 'Robot Teleop' is replaced with the NAME of your teleop program. See full documentation
  * on kno3.net/resources for more info.
  */
+@Disabled
 public class AutoTransitioner extends Thread {
-    private static final AutoTransitioner INSTANCE = new AutoTransitioner(); //Create singleton instance
+   /* private static final AutoTransitioner INSTANCE = new AutoTransitioner(); //Create singleton instance
 
     private OpMode onStop;
     private String transitionTo;
@@ -28,7 +24,7 @@ public class AutoTransitioner extends Thread {
         this.start(); //Start the watcher thread
     }
 
-    @Override
+    /*@Override
     public void run() {
         try {
             while (true) { //Loop
@@ -43,7 +39,7 @@ public class AutoTransitioner extends Thread {
                 }
                 Thread.sleep(50); //Sleep 50 seconds to minimize performance impact to the rest of your program
             }
-        } catch (InterruptedException ex) {
+      //  } catch (InterruptedException ex) {
             Log.e(FtcRobotControllerActivity.TAG, "AutoTransitioner shutdown, thread interrupted");
         }
     }
@@ -67,7 +63,7 @@ public class AutoTransitioner extends Thread {
      * @param onStop The program you'll be transitioning from (usually 'this')
      * @param transitionTo The name of the program you want to transition to
      */
-    public static void transitionOnStop(OpMode onStop, String transitionTo) {
+    /*public static void transitionOnStop(OpMode onStop, String transitionTo) {
         INSTANCE.setNewTransition(onStop, transitionTo);
-    }
+    }*/
 }

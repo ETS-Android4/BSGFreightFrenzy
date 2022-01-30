@@ -1,11 +1,11 @@
 package org.firstinspires.ftc.teamcode.KNO3AutoTransitioner;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.Func;
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
-
+@Disabled
 @Autonomous(name = "HowToUseAutoTransitioner")
 public class HowToUseAutoTransitioner extends LinearOpMode {
     @Override
@@ -14,7 +14,7 @@ public class HowToUseAutoTransitioner extends LinearOpMode {
         telemetry.update();
 
 
-        AutoTransitioner.transitionOnStop(this, "Robot Teleop");
+       // AutoTransitioner.transitionOnStop(this, "Robot Teleop");
         // AutoTransitioner used before waitForStart()
         waitForStart();
 

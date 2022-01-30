@@ -2,18 +2,17 @@ package org.firstinspires.ftc.teamcode.Testing.Encoders;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
-
+@Disabled
 @Autonomous(name="DistrictsAutoREDDepot", group="Pushbot")
 public class AckEncoders extends LinearOpMode {
     /* Declare OpMode members. */
@@ -89,7 +88,6 @@ public class AckEncoders extends LinearOpMode {
         bsgBot.imu.initialize(parameters);
 
         //AutoTransitioner from Team 7203 KNO3 Robotics
-        AutoTransitioner.transitionOnStop(this, "OOFdistrictsTeleOp");
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();

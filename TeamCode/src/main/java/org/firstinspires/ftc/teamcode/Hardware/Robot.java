@@ -243,6 +243,7 @@ public class Robot {
     backRight.setPower(-.5);
     frontLeft.setPower(-.5);
     backLeft.setPower(.5);
+    stopWheels();
   }
 
   public void strafeRight(long time) {
@@ -250,7 +251,14 @@ public class Robot {
     backRight.setPower(.5);
     frontLeft.setPower(.5);
     backLeft.setPower(-.5);
+    stopWheels();
   }
+
+  public void dropBlock(){
+      motion.setPower(0.4);//raising the arm for a little
+      clamp.setPower(0.4);//opening the claw
+      stopMotors();
+    }
 
 
 

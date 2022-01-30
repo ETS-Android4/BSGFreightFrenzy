@@ -35,7 +35,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 /**
@@ -86,7 +85,6 @@ public class TwoEncodersBlueBuilding extends LinearOpMode {
     public void runOpMode() {
 
         bsgRobot.init(hardwareMap);
-        AutoTransitioner.transitionOnStop(this, "TylaOp");
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Resetting Encoders");    //
@@ -151,7 +149,6 @@ public class TwoEncodersBlueBuilding extends LinearOpMode {
         telemetry.addData("Path", "Complete");
         telemetry.update();
 
-        AutoTransitioner.transitionOnStop(this, "TylaOp");
     }
 
     public void encoderDrive(double speed,

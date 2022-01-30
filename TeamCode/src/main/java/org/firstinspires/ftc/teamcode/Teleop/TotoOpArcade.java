@@ -1,6 +1,7 @@
 //bro like half of this im referencing from tylaop lmfao
 package org.firstinspires.ftc.teamcode.Teleop;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -8,7 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 
-@TeleOp (name = "TotoOpArcade")
+@TeleOp @Disabled
 public class TotoOpArcade extends OpMode {
     Robot bsgRobot = new Robot();
 

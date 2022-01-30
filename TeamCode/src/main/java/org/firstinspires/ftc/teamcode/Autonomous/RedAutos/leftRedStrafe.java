@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Autonomous;
+package org.firstinspires.ftc.teamcode.Autonomous.RedAutos;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -6,16 +6,16 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
+@Autonomous (name = "LeftRedCarouselPark", group = "Red")
+public class leftRedStrafe extends LinearOpMode {
 
-@Autonomous (name = "RightBlueCarouselPark")
-public class rightBlueStrafe extends LinearOpMode {
     Robot bsgRobot = new Robot();
 
     /*
-   *
-   VARIABLES FOR ENCODERS
-   *
-   */
+    *
+    VARIABLES FOR ENCODERS
+    *
+    */
     private ElapsedTime runtime = new ElapsedTime();
 
     static final double COUNTS_PER_MOTOR_REV = 537.7;    // Neverest 40
@@ -43,32 +43,32 @@ public class rightBlueStrafe extends LinearOpMode {
 
         waitForStart();
 
-         bsgRobot.strafeRight(1000);
-         sleep(1500);
+        bsgRobot.strafeLeft(1000);
+        sleep(300);
 
-         bsgRobot.stopWheels();
-         sleep(400);
+        encoderDrive(0.2,-22,-22,4);
 
-         bsgRobot.carousel.setPower(0.65);
-         sleep(3000);
+        bsgRobot.carousel.setPower(-0.5);
+        sleep(3000);
 
-         bsgRobot.stopMotors();
+        bsgRobot.stopMotors();
 
-         bsgRobot.stopWheels();
+        bsgRobot.strafeLeft(1000);
+        sleep(1000);
 
-         encoderDrive(0.2,12,12,4);
 
     }
+
     /*
-       *
-       *
-       *
-       FUNCTIONS FOR ENCODERS
-       *
-       *
-       *
-       *
-        */
+    *
+    *
+    *
+    FUNCTIONS FOR ENCODERS
+    *
+    *
+    *
+    *
+     */
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {

@@ -30,11 +30,11 @@
 package org.firstinspires.ftc.teamcode.Templates;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.KNO3AutoTransitioner.AutoTransitioner;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 /**
@@ -63,7 +63,7 @@ import org.firstinspires.ftc.teamcode.Hardware.Robot;
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
-
+@Disabled
 @Autonomous(name="EncodersTemplate")
 public class EncodersTemplate extends LinearOpMode {
 
@@ -87,7 +87,6 @@ public class EncodersTemplate extends LinearOpMode {
     public void runOpMode() {
 
        bsgRobot.init(hardwareMap);
-        AutoTransitioner.transitionOnStop(this, "TylaOp");
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Resetting Encoders");    //

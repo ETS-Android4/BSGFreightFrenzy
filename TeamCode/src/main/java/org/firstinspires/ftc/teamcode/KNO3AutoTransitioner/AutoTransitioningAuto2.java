@@ -11,7 +11,7 @@ public class AutoTransitioningAuto2 extends OpMode {
     public void init() {
         telemetry.addData("Initializing Here", true);
 
-        AutoTransitioner.transitionOnStop(this, "Robot Teleop");
+       // AutoTransitioner.transitionOnStop(this, "Robot Teleop");
         // AutoTransitioner used in init()
     }
 

@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Teleop;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -7,7 +8,7 @@ import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
-@TeleOp (name = "TotoArcadeOp2")
+@TeleOp @Disabled
 public class TotoArcadeOp2 extends LinearOpMode {
     private Robot bsgBot = new Robot();
     double  leftPower, rightPower, xValue, yValue;

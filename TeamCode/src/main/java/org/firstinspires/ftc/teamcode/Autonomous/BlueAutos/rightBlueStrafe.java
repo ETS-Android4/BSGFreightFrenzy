@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Autonomous;
+package org.firstinspires.ftc.teamcode.Autonomous.BlueAutos;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -6,16 +6,16 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
-@Autonomous (name = "blueBlockAlliance")
-public class blueBlockLeft extends LinearOpMode {
 
+@Autonomous (name = "RightBlueCarouselPark", group = "Blue")
+public class rightBlueStrafe extends LinearOpMode {
     Robot bsgRobot = new Robot();
 
     /*
-    *
-    VARIABLES FOR ENCODERS
-    *
-    */
+   *
+   VARIABLES FOR ENCODERS
+   *
+   */
     private ElapsedTime runtime = new ElapsedTime();
 
     static final double COUNTS_PER_MOTOR_REV = 537.7;    // Neverest 40
@@ -39,33 +39,24 @@ public class blueBlockLeft extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
+        bsgRobot.init(hardwareMap);
 
-         bsgRobot.init(hardwareMap);
+        waitForStart();
 
-         waitForStart();
+         bsgRobot.strafeRight(1000);
+         sleep(1500);
 
-        bsgRobot.clamp.setPower(1);
-        sleep(4000);
+         bsgRobot.stopWheels();
+         sleep(400);
 
-        encoderDrive(0.4,16,16,0.3);
+         bsgRobot.carousel.setPower(0.65);
+         sleep(3000);
 
-        bsgRobot.strafeRight(1000);
-        sleep(200);
+         bsgRobot.stopMotors();
 
-        bsgRobot.motion.setPower(-0.4);
-        sleep(300);
+         bsgRobot.stopWheels();
 
-        bsgRobot.clamp.setPower(0.4);
-        sleep(100);
-
-        bsgRobot.motion.setPower(0.6);
-        sleep(400);
-
-        encoderDrive(0.5,-3,-3,3);
-
-        bsgRobot.strafeRight(1000);
-        sleep(1000);
-
+         encoderDrive(0.2,12,12,4);
 
     }
     /*
