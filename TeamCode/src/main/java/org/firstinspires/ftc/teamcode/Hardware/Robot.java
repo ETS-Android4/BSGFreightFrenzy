@@ -239,19 +239,17 @@ public class Robot {
   }
 */
   public void strafeLeft(long time) {
-    frontRight.setPower(.5);
-    backRight.setPower(-.5);
-    frontLeft.setPower(-.5);
-    backLeft.setPower(.5);
-    stopWheels();
+    frontRight.setPower(.4);
+    backRight.setPower(-.4);
+    frontLeft.setPower(-.4);
+    backLeft.setPower(.4);
   }
 
   public void strafeRight(long time) {
-    frontRight.setPower(-.5);
-    backRight.setPower(.5);
-    frontLeft.setPower(.5);
-    backLeft.setPower(-.5);
-    stopWheels();
+    frontRight.setPower(-.4);
+    backRight.setPower(.4);
+    frontLeft.setPower(.4);
+    backLeft.setPower(-.4);
   }
 
   public void dropBlock(){

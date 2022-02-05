@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
-@Autonomous (name = "parkNWarehouseBlue", group = "Neutral")
-public class parkautoblueL extends LinearOpMode {
+@Autonomous (name = "parkNWarehouseRed", group = "Neutral")
+public class parkautored extends LinearOpMode {
     Robot bsgRobot = new Robot();
 
     /*
@@ -47,7 +47,7 @@ public class parkautoblueL extends LinearOpMode {
 
         encoderDrive(.5,-16,-16,4);
 
-        encoderDrive(DRIVE_SPEED,-10,0,3);
+        encoderDrive(DRIVE_SPEED,0,-10,3);
 
 
     }

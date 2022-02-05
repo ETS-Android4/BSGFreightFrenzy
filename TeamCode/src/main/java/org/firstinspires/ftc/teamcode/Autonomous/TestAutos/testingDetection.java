@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Autonomous.TestAutos;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -12,7 +13,7 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 import java.util.List;
-
+@Autonomous (name = "TestTenserAuto")
 public class testingDetection extends LinearOpMode {
     /**
      * This 2020-2021 OpMode illustrates the basics of using the TensorFlow Object Detection API to
@@ -61,6 +62,7 @@ public class testingDetection extends LinearOpMode {
     static final double LVL_3_INCHES = 19.5;
 
     public static double liftHeight = 0.0;
+
     /* Note: This sample uses the all-objects Tensor Flow model (FreightFrenzy_BCDM.tflite), which contains
      * the following 4 detectable objects
      *  0: Ball,
@@ -114,6 +116,7 @@ public class testingDetection extends LinearOpMode {
         // first.
         initVuforia();
         initTfod();
+        bsgRobot.init(hardwareMap);
 
         /**
          * Activate TensorFlow Object Detection before we wait for the start command.
@@ -130,45 +133,26 @@ public class testingDetection extends LinearOpMode {
             // (typically 16/9).
             tfod.setZoom(2.5, 16.0 / 9.0);
         }
+        telemetry.addData("Status", "Resetting Encoders");    //
+        telemetry.update();
+
+        bsgRobot.frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        bsgRobot.backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        bsgRobot.frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        bsgRobot.backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        // Send telemetry message to indicate successful Encoder reset
+        telemetry.addData("Path0", "Starting at %7d :%7d",
+                bsgRobot.frontLeft.getCurrentPosition(),
+                bsgRobot.backLeft.getCurrentPosition(),
+                bsgRobot.frontRight.getCurrentPosition(),
+                bsgRobot.backRight.getCurrentPosition());
+        telemetry.update();
+
         telemetry.addData(">", "Press Play to start op mode");
         telemetry.update();
         waitForStart();
 
-        //strafe towards markers
-        strafeToPosition(4, 0.5);
-
-        telemetry.addData("Height of Lift", liftHeight);
-        telemetry.update();
-
-        //scan for funny ducky or capstone on first marker
-        if (isDuckDetected()) {
-
-            liftHeight = LVL_1_INCHES;
-            telemetry.addLine("Detected LVL 1, Proceed movement");
-            //strafe to shipping hub
-            strafeToPosition(12, 0.3);
-        }
-        else { //no detection on marker 1
-
-            //drive down
-            encoderDrive(DRIVE_SPEED, -4, -4, 3);
-            //wait like 0.7 sec ig
-            sleep(700);
-
-            if (isDuckDetected()) { //marker 2
-                liftHeight = LVL_2_INCHES;
-                telemetry.addLine("Detected LVL 2, Proceed movement");
-                //strafe to shipping hub
-                strafeToPosition(14, 0.3);
-                encoderDrive(DRIVE_SPEED,2,2,3);
-
-            } else { //no detection on marker 2
-                liftHeight = LVL_3_INCHES;
-                telemetry.addLine("LVL 3, Proceed movement");
-                strafeToPosition(16, 0.3);
-                encoderDrive(DRIVE_SPEED,3,3,3);
-            }
-        }
 
         if (opModeIsActive()) {
             while (opModeIsActive()) {
@@ -209,18 +193,63 @@ public class testingDetection extends LinearOpMode {
                             }
                             telemetry.addData("Level Detected", level);
                             telemetry.update();
-                            switch(level) {
+
+                            //strafe towards markers
+                            strafeToPosition(-4, 0.5);
+
+                            switch (level) {
                                 case 1:
+                                    if (isDuckDetected()) {
+
+                                        bsgRobot.lift.setTargetPosition((int) LVL_1_INCHES);
+                                        sleep(1000);
+                                        bsgRobot.stopMotors();
+                                        telemetry.addLine("Detected LVL 1, Proceed movement");
+                                        //strafe to shipping hub
+                                        strafeToPosition(-100, 0.3);
+                                        encoderDrive(DRIVE_SPEED, 3, 3, 3);
+                                    } else { //no detection on marker 1
+
+                                        //drive down
+                                        encoderDrive(DRIVE_SPEED, -4, -4, 3);
+                                        //wait like 0.7 sec ig
+                                        sleep(700);
+                                    }
                                     //auto lvl 1
                                     break;
-                                case 2:
+                               /* case 2:
+                                    if (isDuckDetected()) { //marker 2
+                                        bsgRobot.lift.setTargetPosition((int) LVL_2_INCHES);
+                                        bsgRobot.stopMotors();
+                                        telemetry.addLine("Detected LVL 2, Proceed movement");
+                                        //strafe to shipping hub
+                                        strafeToPosition(-18, 0.3);
+                                        encoderDrive(DRIVE_SPEED, 2, 2, 3);
+                                    }
                                     //auto lvl 2
                                     break;
-                                case 3:
-                                    //auto lvl 3
-                                    break;
+                                case 3: { //no detection on marker 2
+                                    bsgRobot.lift.setTargetPosition((int) LVL_3_INCHES);
+                                    bsgRobot.stopMotors();
+                                    telemetry.addLine("LVL 3, Proceed movement");
+                                    strafeToPosition(-16, 0.3);
+                                }
+                                //auto lvl 3
+                                break;
                                 case 0:
-                                    //failsafe (assume this autonomous)
+                                    if(isDuckDetected() == false) {
+                                        bsgRobot.strafeRight(1000);
+                                        sleep(300);
+                                        encoderDrive(DRIVE_SPEED, -7.55, 7.55, 3);
+                                        strafeToPosition(16, DRIVE_SPEED);
+                                        bsgRobot.carousel.setPower(0.65);
+                                        sleep(3000);
+                                        bsgRobot.stopMotors();
+                                        encoderDrive(DRIVE_SPEED, -12, -12, 3);
+                                        //failsafe (assume this autonomous)
+                                    }
+
+                                */
                             }
                             //  ** ADDED **
                         }                                                      //  ** ADDED **
@@ -230,6 +259,7 @@ public class testingDetection extends LinearOpMode {
             }
         }
     }
+
 
     private boolean isDuckDetected() {
         boolean isDetected = false;
