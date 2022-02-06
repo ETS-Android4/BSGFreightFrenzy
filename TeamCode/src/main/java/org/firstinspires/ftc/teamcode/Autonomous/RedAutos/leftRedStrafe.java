@@ -44,9 +44,9 @@ public class leftRedStrafe extends LinearOpMode {
         waitForStart();
 
         bsgRobot.strafeLeft(1000);
-        sleep(500);
+        sleep(300);
 
-        encoderDrive(0.2,-21,-21,4);
+        encoderDrive(0.2,-17,-17,4);
 
         bsgRobot.carousel.setPower(-0.5);
         sleep(3000);
@@ -54,7 +54,7 @@ public class leftRedStrafe extends LinearOpMode {
         bsgRobot.stopMotors();
 
         bsgRobot.strafeLeft(1000);
-        sleep(1300);
+        sleep(1250);
 
 
     }

@@ -44,16 +44,13 @@ public class rightBlueStrafe extends LinearOpMode {
         waitForStart();
 
          bsgRobot.strafeRight(1000);
-         sleep(1600);
+         sleep(2000);
 
          bsgRobot.stopWheels();
          sleep(400);
 
          bsgRobot.carousel.setPower(0.65);
          sleep(3000);
-
-         encoderDrive(DRIVE_SPEED,0,4,3);
-         sleep(200);
 
          bsgRobot.stopMotors();
 
