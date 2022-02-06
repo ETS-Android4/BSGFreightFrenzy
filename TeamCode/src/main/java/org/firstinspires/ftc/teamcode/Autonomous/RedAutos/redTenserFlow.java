@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Autonomous.RedAutos;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -13,7 +14,7 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 import java.util.List;
-@Autonomous (name = "TenserFlowLeftRed", group = "Red")
+@Autonomous @Disabled //(name = "TenserFlowLeftRed", group = "Red")
 public class redTenserFlow extends LinearOpMode {
     /**
      * This 2020-2021 OpMode illustrates the basics of using the TensorFlow Object Detection API to
